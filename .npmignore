@@ -1,0 +1,54 @@
+# -----[ Application ]---------------------------------------------
+node_modules
+# The actual build files
+build
+.cache
+
+# -----[ Metadata ]------------------------------------------------
+# macOS
+.DS_Store
+# JetBrains (IDE)
+.idea
+# VS Code (IDE)
+.vscode
+npm*log-*
+*.log
+
+# -----[ Distribution ] -------------------------------------------
+# scripts
+scripts
+# Remove any development Code
+src
+lib
+app
+docs
+loaders
+# Remove any tests
+test
+unit-test
+# Clear out any uneeded config files of any sort
+tsconfig.json
+tslint.json
+webpack.config.js
+wercker.yml
+yarn.lock
+dts-bundle.tmp.voidgl.d.ts
+.editorconfig
+.eslintrc.js
+.nvmrc
+package-lock.json
+Procfile
+prettier-loader.js
+app.json
+.prettierignore
+.eslintignore
+.aws-local.js
+
+# -----[ Force Keep ] -------------------------------------------
+# Ensure distribution sources are included
+!dist/src
+!dist/lib
+!dist/app
+!dist/docs
+# Ensure all installation files are included
+!bin/**/*

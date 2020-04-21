@@ -1,0 +1,40 @@
+{
+  "main": "dist/index.js",
+  "types": "dist/lib/index.d.ts",
+  "scripts": {
+    "dev": "lyra dev",
+    "release": "lyra release",
+    "start": "lyra start",
+    "unit-test": "lyra unit-test",
+    "unit-test-dev": "lyra unit-test-dev",
+    "sync": "lyra sync"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "16.9.32",
+    "@types/react-dom": "16.9.6",
+    "@types/assert": "1.4.2",
+    "@types/debug": "4.1.4",
+    "@types/node": "13.7.7",
+    "deltav": "1.38.1",
+    "assert": "2.0.0",
+    "debug": "3.1.0",
+    "mobx": "5.15.4",
+    "mobx-react": "6.2.2",
+    "typescript": "3.8.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "lyra": "github:vega-studio/lyra"
+  },
+  "name": "terraria-server",
+  "author": {
+    "name": "Diniden",
+    "email": "diniden@outlook.com",
+    "url": "https://diniden.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Diniden/terraria-server.git"
+  },
+  "license": "MIT"
+}

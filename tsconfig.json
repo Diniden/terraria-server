@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowUnreachableCode": false,
+    "baseUrl": ".",
+    "declaration": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "lib": ["es2015", "es2017", "esnext", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "paths": {
+      "lib": ["./lib"],
+      "app": ["./app"],
+      "test": ["./test"]
+    },
+    "sourceMap": true,
+    "noUnusedParameters": true,
+    "removeComments": false,
+    "strictNullChecks": true,
+    "target": "es5",
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "include": [
+    "app",
+    "lib",
+    "test",
+    "unit-test"
+  ],
+  "exclude": [
+    "node_modules",
+    "!node_modules/@types"
+  ]
+}
