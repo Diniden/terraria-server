@@ -6,7 +6,6 @@
     "declaration": true,
     "experimentalDecorators": true,
     "jsx": "react",
-    "jsxFactory": "h",
     "lib": ["es2015", "es2017", "esnext", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",

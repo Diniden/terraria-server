@@ -1,0 +1,59 @@
+@keyframes float {
+	0% {
+		// box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform:  rotate(-3deg) translate(0px, 5px);
+	}
+	25% {
+		// box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform:  rotate(3deg) translate(0px, -5px);
+  }
+  50% {
+		// box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform:  rotate(-3deg) translate(0px, -5px);
+  }
+  75% {
+		// box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform:  rotate(3deg) translate(0px, 5px);
+	}
+	100% {
+		// box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform:  rotate(-3deg) translate(0px, 5px);
+	}
+}
+
+.Home {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  font-family: "Andy Bold";
+
+  &__Logo {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  &__Header {
+    flex: 0 1 88px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__Body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__LeftColumn {
+    flex: 0 1 250px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__MainContent {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
