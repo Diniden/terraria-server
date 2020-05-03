@@ -1,0 +1,36 @@
+.InputPrompt {
+  flex: 0 1 auto;
+  justify-content: center;
+  align-items: center;
+
+  &__Label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__InputPrompt {
+    font-family: "Andy Bold";
+    font-weight: 400;
+    font-size: 32px;
+    color: white;
+
+    /* Size and position */
+    width: 100%;
+
+    /* Styles */
+    border: none; /* Remove the default border */
+    box-shadow: none;
+    background: none;
+    transition: color 0.3s ease-out;
+    border-bottom: 1px solid white;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &--error {
+    color: rgba(200, 10, 10, 1)
+  }
+}

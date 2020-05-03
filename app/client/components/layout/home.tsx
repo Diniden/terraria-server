@@ -1,5 +1,9 @@
 import classnames from 'classnames';
+import { observer } from "mobx-react";
 import * as React from 'react';
+import { Application } from '../../store';
+import { Login } from '../panel';
+import { WorldList } from '../panel/world-list';
 import './home.scss';
 
 export interface IHome {
@@ -12,6 +16,7 @@ export interface IHome {
 /**
  * The home page layout
  */
+@observer
 export class Home extends React.Component<IHome> {
   state = {};
 
@@ -31,7 +36,9 @@ export class Home extends React.Component<IHome> {
           <img className="Home__Logo" src={require('../../../asset/Terraria-Logo.png')}/>
         </div>
         <div className="Home__Body">
-          <div className="Home__MainContent">Content!</div>
+          <div className="Home__MainContent">
+            {Application.session.user === null ? <Login /> : <WorldList />}
+          </div>
         </div>
       </div>
     );

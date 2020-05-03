@@ -1,0 +1,30 @@
+.Button {
+  user-select: none;
+  cursor: pointer;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+
+  border: 2px solid white;
+
+  &__Label {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    padding: 4px 16px 4px 16px;
+  }
+
+  &:hover {
+    background: white;
+    color: black;
+    border: 2 px solid black;
+  }
+}

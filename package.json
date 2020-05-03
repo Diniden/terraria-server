@@ -10,14 +10,19 @@
     "sync": "lyra sync"
   },
   "dependencies": {
-    "bcrypt": "4.0.1"
+    "@types/shelljs": "0.8.7",
+    "bcrypt": "4.0.1",
+    "passport-jwt": "4.0.0",
+    "shelljs": "0.8.4"
   },
   "devDependencies": {
+    "@hapi/joi": "17.1.1",
     "@types/assert": "1.4.2",
     "@types/bcrypt": "3.0.0",
     "@types/classnames": "2.2.10",
     "@types/debug": "4.1.4",
     "@types/express-session": "1.17.0",
+    "@types/hapi__joi": "16.0.12",
     "@types/node": "13.7.7",
     "@types/passport": "1.0.3",
     "@types/passport-jwt": "3.0.3",
@@ -36,6 +41,7 @@
     "mobx-react": "6.2.2",
     "passport": "0.4.1",
     "passport-local": "1.0.0",
+    "platform-detect": "3.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "typescript": "3.8.3"

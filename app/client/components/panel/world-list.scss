@@ -1,0 +1,70 @@
+.WorldList {
+  flex: 0 1 auto;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 200px;
+
+  &__Title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__World {
+    cursor: pointer;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 500px;
+    border: 2px solid transparent;
+    padding: 2px;
+
+    &:hover {
+      border: 2px solid white;
+    }
+  }
+
+  &__Actions {
+    cursor: pointer;
+
+    &:hover {
+      color: rgba(200, 10, 10, 1)
+    }
+  }
+
+  &__Password {
+    padding-top: 100px;
+  }
+
+  &__PasswordPanel {
+    width: 550px;
+    height: 400px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__Buttons {
+    flex: 0 1 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 250px;
+    padding-top: 40px;
+  }
+
+  &--center {
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  &--error {
+    color: rgba(200, 10, 10, 1)
+  }
+}

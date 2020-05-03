@@ -28,7 +28,8 @@
     "app",
     "lib",
     "test",
-    "unit-test"
+    "unit-test",
+    "types"
   ],
   "exclude": [
     "node_modules",
