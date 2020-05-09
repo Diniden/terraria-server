@@ -1,17 +1,20 @@
 import bodyParser from "body-parser";
 import compression from "compression";
+import { cosmiconfig } from "cosmiconfig";
 import express from "express";
 import session from "express-session";
 import http from 'http';
 import https from 'https';
 import passport from "passport";
 import path from "path";
-import { ENV_CONFIG } from "./config/env.config";
+import { applyEnvConfig, ENV_CONFIG } from "./config/env.config";
 import { HTTP_CONFIG } from './config/http.config';
 import { HTTPS_CONFIG } from './config/https.config';
 import "./config/passport.config";
 import { configureREST } from "./rest-api";
 import { InstanceManager } from "./terraria/instance-manager";
+import { WorldMetaData } from "./terraria/world-meta-data.store";
+import { IConfig } from "./types";
 
 /**
  * Creates our server instance and configures it
@@ -75,9 +78,38 @@ async function startInstanceManager() {
 }
 
 /**
+ * This starts all of the configuration loading from environment variables and configuration files for the
+ * server.
+ */
+async function initConfiguration() {
+  // Listen for program kill signals
+  process.on('SIGTERM', handleProcessTermination(0));
+  process.on('uncaughtException', handleProcessTermination(1));
+  const explorer = cosmiconfig('server');
+  const result = await explorer.search();
+  let config: IConfig = result?.config;
+  if (!result || !config) config = {};
+  // Update the environment configuration with any cosmic configuration found
+  await applyEnvConfig(config);
+  // Load up our world meta data and ensure the meta data location is valid
+  await WorldMetaData.load();
+}
+
+/**
+ * Handles the termination of the server and ensures all child processes are shut down gracefully
+ * so as to not cause orphaned children.
+ */
+function handleProcessTermination(signal: number) {
+  return async () => {
+    process.exit(signal);
+  }
+}
+
+/**
  * Entry to the server execution
  */
 async function start() {
+  await initConfiguration();
   await startInstanceManager();
   await startServer();
 }

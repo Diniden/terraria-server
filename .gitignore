@@ -31,3 +31,11 @@ dist.tar
 # Ensure all installation files are included
 !init-file-structure/**/*
 !bin/**/*
+
+# Don't include any local configuration files
+.serverrc
+.serverrc.json
+.serverrc.yaml
+.serverrc.yml
+.serverrc.js
+server.config.js

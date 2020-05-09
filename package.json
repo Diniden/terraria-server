@@ -10,6 +10,7 @@
     "sync": "lyra sync"
   },
   "dependencies": {
+    "@types/fs-extra": "8.1.0",
     "@types/shelljs": "0.8.7",
     "bcrypt": "4.0.1",
     "passport-jwt": "4.0.0",
@@ -31,7 +32,9 @@
     "@types/react-dom": "16.9.6",
     "assert": "2.0.0",
     "body-parser": "1.19.0",
+    "change-case": "4.1.1",
     "classnames": "2.2.6",
+    "cosmiconfig": "6.0.0",
     "debug": "3.1.0",
     "deltav": "1.38.1",
     "express-session": "1.17.1",

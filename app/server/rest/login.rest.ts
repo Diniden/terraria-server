@@ -2,7 +2,7 @@ import { Express } from 'express';
 import jwt from 'jsonwebtoken';
 import passport from 'passport';
 import { JWT_CONFIG } from '../config/jwt.config';
-import { userConfig } from '../config/user.config';
+import { USER_CONFIG } from '../config/user.config';
 
 export function RESTLogin(app: Express) {
   app.post('/login', (req, res, next) => {
@@ -28,7 +28,7 @@ export function RESTLogin(app: Express) {
             console.error(err);
           }
 
-          const user = await userConfig();
+          const user = USER_CONFIG;
           const token = jwt.sign({ id: user.name }, JWT_CONFIG.secret);
 
           res.status(200).send({

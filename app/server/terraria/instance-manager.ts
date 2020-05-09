@@ -2,6 +2,7 @@ import path from "path";
 import Platform from 'platform-detect/os.mjs';
 import shell from "shelljs";
 import { IWorld } from "../../types/rest/world";
+import { IWorldInternal } from "../types";
 
 /**
  * This is the manager that creates new world instances and monitors
@@ -32,8 +33,6 @@ export class InstanceManagerSingleton {
     let resolve: Function;
     const p = new Promise<void>(r => (resolve = r));
     this.initializing = p;
-
-    //
 
     // First we determine which operating system we're on.
     if (Platform.macos) this.os = 'mac';
@@ -78,14 +77,22 @@ export class InstanceManagerSingleton {
 
     // Now fire up a server to read the list of worlds it has available
     const childProcess = shell.exec(`${this.serverStartScriptPath}`, { async: true});
+    console.log('Syncing Meta Data...');
 
     childProcess.on('data', (data: Buffer) => {
       const line = Buffer.from(data).toString();
 
       // This is our check expression for the initial server output to find the worlds it has available
-      // to host. We use this to populate our initial
+      // to host. We use this to sync our meta data with what the server actually has as well as restart
+      // any instances that we're flagged to be active when this manager was last shut down.
       if (line.match(/^([0-9]).+/gm)) {
 
+      }
+
+      // After all worlds have been broadcast, kill the process as we don't need to query it anymore
+      if (line.indexOf('Choose World:') >= 0) {
+        console.log('Completed syncing meta data...')
+        childProcess.kill(0);
       }
     });
 
@@ -105,6 +112,16 @@ export class InstanceManagerSingleton {
     return {
       success: false,
       error: 'NOT IMPLEMENTED',
+    };
+  }
+
+  /**
+   * This officially starts an instance of a server
+   */
+  async start(world: IWorldInternal): Promise<{ success: boolean, error?: string }> {
+    return {
+      success: false,
+      error: 'NOT IMPLEMENTED'
     };
   }
 }

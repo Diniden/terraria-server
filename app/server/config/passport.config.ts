@@ -3,16 +3,10 @@ import passport from 'passport';
 import passportJwt from 'passport-jwt';
 import passportLocal from 'passport-local';
 import { JWT_CONFIG } from './jwt.config';
-import { IUser, userConfig } from './user.config';
+import { USER_CONFIG } from './user.config';
 
 const { Strategy: LocalStrategy} = passportLocal;
 const { ExtractJwt: ExtractJWT, Strategy: JWTstrategy } = passportJwt;
-
-let user: IUser | undefined;
-
-async function init() {
-  user = await userConfig();
-}
 
 passport.use(
   'login',
@@ -23,15 +17,15 @@ passport.use(
       session: false,
     },
     (userName, password, done) => {
-      if (!user) {
+      if (!USER_CONFIG) {
         return done(null, false, { message: 'User is not initialized' });
       }
 
       try {
-        if (user.name !== userName) {
+        if (USER_CONFIG.name !== userName) {
           return done(null, false, { message: 'bad username' });
         } else {
-          bcrypt.compare(password, user.password).then(response => {
+          bcrypt.compare(password, USER_CONFIG.password).then(response => {
             if (response !== true) {
               console.warn('Passwords do not match');
               return done(null, false, { message: 'passwords do not match' });
@@ -39,7 +33,7 @@ passport.use(
 
             console.warn('User found & authenticated');
             // note the return needed with passport local - remove this return for passport JWT
-            return done(null, user);
+            return done(null, USER_CONFIG);
           });
         }
       } catch (err) {
@@ -57,16 +51,16 @@ const opts = {
 passport.use(
   'jwt',
   new JWTstrategy(opts, (jwt_payload, done) => {
-    if (!user) {
+    if (!USER_CONFIG) {
       done(null, false, { message: 'User is not initialized' });
       return;
     }
 
     try {
-      if (user.name === jwt_payload.id) {
+      if (USER_CONFIG.name === jwt_payload.id) {
         // console.log('user found in db in passport');
         // note the return removed with passport JWT - add this return for passport local
-        done(null, user);
+        done(null, USER_CONFIG);
       } else {
         console.warn('Invalid user request');
         done(null, false);
@@ -84,5 +78,3 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
-
-init();
