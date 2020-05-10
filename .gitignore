@@ -32,6 +32,9 @@ dist.tar
 !init-file-structure/**/*
 !bin/**/*
 
+# Don't include local generated files
+world-meta-data.json
+
 # Don't include any local configuration files
 .serverrc
 .serverrc.json

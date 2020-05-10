@@ -18,6 +18,24 @@ class WorldMetaDataStore {
   data: IWorldInternal[] = [];
 
   /**
+   * After running our server once to retireve the available worlds to work with, we sync up
+   * to ensure our meta data lists only the worlds that truly do exist (by name). If the name
+   * was not listed, then the world gets removed from our meta data list.
+   */
+  sync(existingWorlds: string[]) {
+    const toRemove: (IWorldInternal | undefined)[] = [];
+
+    existingWorlds.forEach(worldName => {
+      toRemove.push(this.data.find(world => world.name === worldName));
+    });
+
+    toRemove.filter(Boolean).forEach(world => {
+      if (!world) return;
+      this.data.splice(this.data.indexOf(world), 1);
+    });
+  }
+
+  /**
    * Triggers all of the meta data to be saved to a local file
    */
   save() {
@@ -46,7 +64,7 @@ class WorldMetaDataStore {
 
       // Attempt to read the contents of the file
       try {
-        const data = fs.readJSONSync(filePath);
+        const data = JSON.parse(fs.readFileSync(filePath, { encoding: 'utf8' }));
 
         if (!Array.isArray(data)) {
           console.warn(`
