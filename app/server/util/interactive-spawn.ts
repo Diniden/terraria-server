@@ -23,7 +23,6 @@ const handleData = (
   data: string,
   inputs: [string, string | ((message: string) => string)][],
   ws: IPty,
-  echo: boolean,
   onData?: IInteractiveSpawn['onData'],
   outputContext?: string,
 ) => {
@@ -43,7 +42,6 @@ const handleData = (
     let input = found[1];
     if (typeof input === 'function') input = input(line);
     ws.write(input);
-    if (echo) process.stdout.write(input);
     inputs.splice(inputs.indexOf(found), 1);
   }
 
@@ -57,7 +55,6 @@ const handleData = (
  */
 export async function interactiveSpawn(options: IInteractiveSpawn) {
   console.warn('Starting interactive command', options.cmd);
-
   const params = Array.isArray(options.args) ? options.args : `${options.args}`.split(/\s+/);
 
   const proc = spawn(options.cmd, params, {
@@ -71,7 +68,6 @@ export async function interactiveSpawn(options: IInteractiveSpawn) {
       data,
       options.inputs,
       proc,
-      options.echo,
       options.onData,
       options.outputContext
     );
