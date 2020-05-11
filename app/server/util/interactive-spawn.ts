@@ -22,32 +22,40 @@ export interface IInteractiveSpawn {
 const handleData = (
   data: string,
   inputs: [string, string | ((message: string) => string)][],
-  ws: IPty,
+  pty: IPty,
   onData?: IInteractiveSpawn['onData'],
   outputContext?: string,
 ) => {
-  if (outputContext) {
-    process.stdout.write(`${outputContext} ${data}`);
-  }
+  const lines = data.split(/[\r\n]+/g).filter(Boolean);
 
-  else {
-    process.stdout.write(data);
-  }
+  lines.forEach(line => {
+    // We whitelist characters coming from the stdout pipe. Why? Because if we
+    // dont, we get rogue characters that smash the terminal's readability and
+    // we increase our reliability by handling only a handful of potential characters
+    line = line.replace(/[^\w\s+_\.\,\-=:;\(\)\\\/\?]/gi, '');
 
-  const line = Buffer.from(data).toString('utf8');
-  const found = inputs.find(pair => line.indexOf(pair[0]) >= 0);
-
-  if (found) {
-    console.log('INPUT FOUND', line, found[0]);
-    let input = found[1];
-    if (typeof input === 'function') input = input(line);
-    ws.write(input);
-    inputs.splice(inputs.indexOf(found), 1);
-  }
-
-  if (onData) {
-    onData(line);
-  }
+    if (outputContext) {
+      console.warn(`${outputContext} ${line}`);
+    }
+  
+    else {
+      console.warn(`${line}`);
+    }
+  
+    const found = inputs.find(pair => line.indexOf(pair[0]) >= 0);
+  
+    if (found) {
+      let input = found[1];
+      if (typeof input === 'function') input = input(line);
+      console.warn(`WRITING TO PTY, ${input}\n`);
+      pty.write(input);
+      inputs.splice(inputs.indexOf(found), 1);
+    }
+  
+    if (onData) {
+      onData(line);
+    }
+  });
 };
 
 /**
@@ -55,6 +63,7 @@ const handleData = (
  */
 export async function interactiveSpawn(options: IInteractiveSpawn) {
   console.warn('Starting interactive command', options.cmd);
+  console.warn('Input controls', options.inputs);
   const params = Array.isArray(options.args) ? options.args : `${options.args}`.split(/\s+/);
 
   const proc = spawn(options.cmd, params, {
@@ -65,7 +74,7 @@ export async function interactiveSpawn(options: IInteractiveSpawn) {
 
   proc.on('data', (data: string) => {
     handleData(
-      data,
+      Buffer.from(data).toString('utf8'),
       options.inputs,
       proc,
       options.onData,

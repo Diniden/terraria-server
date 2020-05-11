@@ -37,7 +37,7 @@ class WorldMetaDataStore {
       // If meta data is found, we update that meta data with the proper identifier required
       // to start the world when the prompt lists the worlds.
       if (found) {
-        found.loadId = i;
+        found.loadId = i + 1;
       }
 
       // If no meta data is found, we should generate some default meta data for that world

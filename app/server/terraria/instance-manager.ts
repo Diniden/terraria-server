@@ -340,6 +340,7 @@ export class InstanceManagerSingleton {
     });
 
     await p;
+    WorldMetaData.save();
 
     return {
       success,
@@ -409,6 +410,7 @@ export class InstanceManagerSingleton {
     });
 
     await p;
+    WorldMetaData.save();
 
     return {
       success,
