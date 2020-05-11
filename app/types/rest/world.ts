@@ -2,13 +2,15 @@ import Joi from '@hapi/joi';
 
 export interface IWorld {
   /** The difficulty this server was set to */
-  difficulty: string;
+  difficulty: 'Normal' | 'Expert' | 'Extreme' | 'Unknown';
   /** Number of players allowed on this server */
   maxPlayers: number;
   /** Unique name and identifier of the world */
   name: string;
   /** Number of players detected to be online */
   online: number;
+  /** The declared size of the world */
+  size: 'Small' | 'Medium' | 'Large' | 'Unknown';
   /** This is only populated from the client side. The server NEVER delivers the password */
   password?: string;
 }

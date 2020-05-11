@@ -51,7 +51,17 @@ export const ENV_CONFIG = {
   /** The number of active worlds this server will allow to run simultaneously at once. */
   WORLD_MAX: process.env.WORLD_MAX,
   /** This is where the server stores the meta data for the active worlds it has started up */
-  WORLD_DATA_PATH: process.env.WORLD_DATA_PATH
+  WORLD_DATA_PATH: process.env.WORLD_DATA_PATH,
+  /**
+   * This is how long it should take for a world to start up. If it takes longer the system will error
+   * and close the process.
+   */
+  WORLD_START_TIMEOUT: process.env.WORLD_START_TIMEOUT,
+  /**
+   * This is how long it should take for a world to start up. If it takes longer the system will error
+   * and close the process.
+   */
+  WORLD_CREATE_TIMEOUT: process.env.WORLD_CREATE_TIMEOUT,
 };
 
 export function applyEnvConfig(config: IConfig) {

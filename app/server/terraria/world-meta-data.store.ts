@@ -1,7 +1,7 @@
+import fs from "fs-extra";
 import path from "path";
 import { WORLD_CONFIG } from "../config/world.config";
 import { IWorldInternal, IWorldInternalSchema } from "../types";
-const fs = require("fs-extra");
 
 /**
  * Checks if a path is a directory or a file
@@ -11,28 +11,71 @@ function isDir(basePath: string) {
 }
 
 /**
- * This is an
+ * This is the store that monitors our meta data. It has actions necessary to sync the
+ * data to the file system and load the state from it.
  */
 class WorldMetaDataStore {
   /** This is all of the current data stored and known about active and inactive worlds */
   data: IWorldInternal[] = [];
 
   /**
-   * After running our server once to retireve the available worlds to work with, we sync up
+   * After running our server once to retrieve the available worlds to work with, we sync up
    * to ensure our meta data lists only the worlds that truly do exist (by name). If the name
-   * was not listed, then the world gets removed from our meta data list.
+   * was not listed, then the world gets removed from our meta data list. If the world
+   * exists, but no meta data is created, then we populate some default data for that world.
+   *
+   * This returns a list of meta data objects that needs to have a process executed to do
+   * a full deep sync.
    */
   sync(existingWorlds: string[]) {
     const toRemove: (IWorldInternal | undefined)[] = [];
 
-    existingWorlds.forEach(worldName => {
-      toRemove.push(this.data.find(world => world.name === worldName));
+    // First find which actual worlds exists but do not have meta data
+    existingWorlds.forEach((worldName, i) => {
+      const found = this.data.find(world => world.name === worldName);
+
+      // If meta data is found, we update that meta data with the proper identifier required
+      // to start the world when the prompt lists the worlds.
+      if (found) {
+        found.loadId = i;
+      }
+
+      // If no meta data is found, we should generate some default meta data for that world
+      else {
+        this.data.push({
+          name: worldName,
+          difficulty: 'Unknown',
+          isActive: false,
+          loadId: i,
+          maxPlayers: 8,
+          online: 0,
+          port: 7777,
+          size: "Unknown",
+          password: "",
+        });
+      }
     });
 
+    // If meta data exists, but no world exists for that meta data, then we prune that meta data
+    // out of our list.
+    this.data.forEach(world => {
+      const found = existingWorlds.find(name => (world.name === name));
+      if (!found) toRemove.push(world);
+    });
+
+    // Perform the remove operation
     toRemove.filter(Boolean).forEach(world => {
       if (!world) return;
       this.data.splice(this.data.indexOf(world), 1);
+      console.warn("DELETED META DATA FOR WORLD:", world.name);
     });
+  }
+
+  /**
+   * Looks for a world that macthes by name and provides that world with it's load identifier
+   */
+  syncId(name: string, id: number) {
+
   }
 
   /**
@@ -42,7 +85,21 @@ class WorldMetaDataStore {
     // Our validation of the validity of our file comes from loading the file initially
     // So we will save blindly because I'm lazy
     const filePath = WORLD_CONFIG.worldDataPath || path.resolve("world-meta-data.json");
-    fs.writeJSONSync(filePath, this.data);
+    console.warn('Saving world meta data...');
+
+    try {
+      fs.writeFileSync(
+        filePath,
+        JSON.stringify(this.data, null, 2),
+        { encoding: 'utf8' }
+      );
+      console.warn('World Meta Data saved!');
+    }
+
+    catch (err) {
+      console.warn('Could not save world meta data.');
+      console.warn(err.stack | err.message);
+    }
   }
 
   /**

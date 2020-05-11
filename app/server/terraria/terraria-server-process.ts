@@ -1,8 +1,26 @@
 import { ChildProcess } from "child_process";
+import colors from "colors/safe";
+import fs from "fs-extra";
 import { IPty } from "node-pty-prebuilt-multiarch";
+import path from "path";
 import shell from "shelljs";
 import kill from "tree-kill";
+import { IWorldInternal } from "../types";
 import { interactiveSpawn } from "../util/interactive-spawn";
+
+colors.setTheme({
+  '0': ["black"],
+  '1': ["red"],
+  '2': ["green"],
+  '3': ["yellow"],
+  '4': ["blue"],
+  '5': ["magenta"],
+  '6': ["cyan"],
+  '7': ["white"],
+  '8': ["gray"],
+});
+
+let pickTheme = 0;
 
 export interface ITerrariaServerProcess {
   /**
@@ -13,6 +31,10 @@ export interface ITerrariaServerProcess {
   inputs?: [string, string | ((message: string) => string)][];
   /** Provides feedback on the process executing */
   onData?(data: string): void;
+  /** Triggered if the process quits unexpectedly */
+  onExit?(): void;
+  /** The world this process is hosting. This is not set if the process is not hosting a world. */
+  world?: IWorldInternal;
 }
 
 /**
@@ -25,21 +47,80 @@ export class TerrariaServerProcess {
   private options: ITerrariaServerProcess;
   private childProcess?: ChildProcess;
   private childPty?: IPty;
+  private onSaveEnd?: Function;
+  private saveFinished?: Promise<void>;
+  private onSaveTimer?: NodeJS.Timeout;
+  private isDead: boolean = false;
+  private logStream?: fs.WriteStream;
 
   constructor(options: ITerrariaServerProcess) {
     this.options = options;
     this.startProcess();
   }
 
+  keepActive() {
+    if (this.options.world) this.options.world.isActive = true;
+  }
+
+  /**
+   * The port this process is occupying
+   */
+  get port() {
+    return this.options.world?.port || null;
+  }
+
+  /**
+   * The name of the world this process is hosting
+   */
+  get name() {
+    return this.options.world?.name || '';
+  }
+
   /**
    * Starts the process
    */
   private startProcess() {
+    this.startLogStream();
     if (this.options.inputs) this.startChildPty();
     else this.startChildProcess();
   }
 
-  private command(cmd: string) {
+  /**
+   * This ensures we have a file to log to and creates a stream for us to output to.
+   */
+  private startLogStream() {
+    if (this.options.world) {
+      // We must create a log stream so we have a log file to write to to record the deeds of each server
+      const logFilePath = path.resolve("logs", this.options.world.name);
+
+      try {
+        fs.ensureFileSync(logFilePath);
+        this.logStream = fs.createWriteStream(logFilePath, { flags: 'a' });
+
+        // If something causes our file stream to close, we need to see if it SHOULD be closed or
+        // if we are still logging. If we are logging still we need to re-ensure the file and rebuild the stream
+        this.logStream.on('close', () => {
+          delete this.logStream;
+          if (this.isDead) return;
+          this.startLogStream();
+          console.warn('Rebuilding Log Stream');
+        });
+      }
+
+      catch (err) {
+        console.warn(
+          'Could not establish a stream for the log file for the world starting up\n',
+          logFilePath
+        );
+      }
+    }
+  }
+
+  /**
+   * Executes an arbitrary command on the Terraria server process if available.
+   */
+  command(cmd: string) {
+    if (this.isDead) return;
     if (!this.childPty) {
       console.warn(`
         Attempted to trigger a ${cmd} on a Terraria Server instance but could not
@@ -53,16 +134,33 @@ export class TerrariaServerProcess {
   }
 
   /**
-   * Tells the terraria server to execute a save
+   * Tells the terraria server to execute a save and resolves when the save is assumed to have completed.
    */
-  save() {
+  async save() {
+    // Wait if a save operation is already taking place
+    if (this.onSaveEnd && this.saveFinished) {
+      await this.saveFinished;
+      return;
+    }
+
+    // Must not be dead and must have a related world for saves to be relevant
+    if (this.isDead || !this.options.world) return;
+    let resolve;
+    const p = new Promise<void>(r => (resolve = r));
+    this.onSaveEnd = resolve;
+    this.saveFinished = p;
     this.command('save');
+    await p;
+    delete this.onSaveEnd;
+    delete this.saveFinished;
   }
 
   /**
    * Tells the terraria server to save then exit
    */
-  exit() {
+  async exit() {
+    // Must not be dead and must have a related world for exits to be relevant
+    if (this.isDead || !this.options.world) return;
     this.command('exit');
   }
 
@@ -70,7 +168,31 @@ export class TerrariaServerProcess {
    * Handles data that pipes in on stdout
    */
   private onData = (str: string) => {
-    if (this.options.onData) this.options.onData(str);
+    // If logging is available we log the data piped in.
+    if (this.logStream) {
+      const lines = str.split(/[\r\n]+/g).filter(Boolean);
+      lines.forEach(line => {
+        if (!this.logStream) return;
+        this.logStream.write(`\n${new Date().toLocaleString('en-GB', { timeZone: 'UTC' })} -> `);
+        this.logStream.write(line);
+      });
+    }
+
+    // This is the routine for detecting when saving has completed. The server outputs "Validating world save"
+    // when the save completes. Since the operation does not have a distinctive save output message, we will
+    // simply wait for the validating message and wait a little bit of time to assume it's done. The validation
+    // messages fire off sufficiently rapidly for this to be a decently "safe" approach.
+    if (this.onSaveEnd) {
+      if (str.indexOf('Validating world save') >= 0) {
+        if (this.onSaveTimer) clearTimeout(this.onSaveTimer);
+        this.onSaveTimer = setTimeout(() => {
+          this.onSaveEnd?.();
+        }, 2000);
+      }
+    }
+
+    // Output the data piped from the process
+    this.options.onData?.(str);
   }
 
   /**
@@ -79,13 +201,34 @@ export class TerrariaServerProcess {
    */
   private async startChildPty() {
     if (!this.options.inputs) return;
+    pickTheme++;
+    pickTheme %= 9;
+    const theme = `${pickTheme}`;
+
     this.childPty = await interactiveSpawn({
       inputs: this.options.inputs,
       cmd: `${TerrariaServerProcess.serverStartScriptPath}`,
       args: '',
       echo: false,
-      onData: this.onData
+      onData: this.onData,
+      outputContext: this.options.world ?
+        // @ts-ignore The typings for colors does not reflect the custom theming the project allows for
+        colors[theme](`${this.options.world.name}`) :
+        undefined,
     });
+
+    this.childPty.onExit(() => {
+      this.isDead = true;
+      this.options.onExit?.();
+      console.log('TERRARIA SERVER STOPPED');
+    });
+
+    setTimeout(() => {
+      process.on('SIGTERM', () => console.log('TESTING EXIT'));
+      process.on('SIGINT', () => console.log('TESTING EXIT'));
+      process.on('uncaughtException', () => console.log('TESTING EXIT'));
+      process.on('exit', () => console.log('TESTING EXIT'));
+    }, 1000);
   }
 
   /**
@@ -104,7 +247,11 @@ export class TerrariaServerProcess {
 
     this.childProcess.stdout.on('data', (data: Buffer) => {
       const line = Buffer.from(data).toString();
-      this.onData?.(line);
+      this.onData(line);
+    });
+
+    this.childProcess.on('exit', () => {
+      this.options.onExit?.();
     });
   }
 
@@ -112,7 +259,9 @@ export class TerrariaServerProcess {
    * Fully kills this process
    */
   stop() {
+    if (this.isDead) return;
     if (this.childProcess) kill(this.childProcess.pid);
     if (this.childPty) kill(this.childPty.pid);
+    this.isDead = true;
   }
 }

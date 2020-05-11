@@ -12,6 +12,8 @@ export interface IInteractiveSpawn {
   inputs: [string, string | ((message: string) => string)][];
   /** Set to true to cause the messages to stream to the parent's console. */
   echo: boolean;
+  /** A header to apply to logs output to the console */
+  outputContext?: string;
 
   /** Callback when data is available from the pty process */
   onData?(data: string): void;
@@ -22,9 +24,17 @@ const handleData = (
   inputs: [string, string | ((message: string) => string)][],
   ws: IPty,
   echo: boolean,
-  onData?: IInteractiveSpawn['onData']
+  onData?: IInteractiveSpawn['onData'],
+  outputContext?: string,
 ) => {
-  process.stdout.write(data);
+  if (outputContext) {
+    process.stdout.write(`${outputContext} ${data}`);
+  }
+
+  else {
+    process.stdout.write(data);
+  }
+
   const line = Buffer.from(data).toString('utf8');
   const found = inputs.find(pair => line.indexOf(pair[0]) >= 0);
 
@@ -55,7 +65,16 @@ export async function interactiveSpawn(options: IInteractiveSpawn) {
     env: process.env as Record<string, string>
   });
 
-  proc.on('data', (data: string) => handleData(data, options.inputs, proc, options.echo));
+  proc.on('data', (data: string) => {
+    handleData(
+      data,
+      options.inputs,
+      proc,
+      options.echo,
+      options.onData,
+      options.outputContext
+    );
+  });
 
   return proc;
 }

@@ -84,7 +84,9 @@ async function startInstanceManager() {
 async function initConfiguration() {
   // Listen for program kill signals
   process.on('SIGTERM', handleProcessTermination(0));
+  process.on('SIGINT', handleProcessTermination(0));
   process.on('uncaughtException', handleProcessTermination(1));
+
   const explorer = cosmiconfig('server');
   const result = await explorer.search();
   let config: IConfig = result?.config;
@@ -101,8 +103,12 @@ async function initConfiguration() {
  */
 function handleProcessTermination(signal: number) {
   return async () => {
+    console.log('TERMINATING');
+    // Gracefully stop all of our running servers before exiting
+    await InstanceManager.stopAll(true);
+    // Finally, exit the program
     process.exit(signal);
-  }
+  };
 }
 
 /**
