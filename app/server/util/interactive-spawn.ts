@@ -32,7 +32,7 @@ const handleData = (
     // We whitelist characters coming from the stdout pipe. Why? Because if we
     // dont, we get rogue characters that smash the terminal's readability and
     // we increase our reliability by handling only a handful of potential characters
-    line = line.replace(/[^\w\s+_\.\,\-=:;\(\)\\\/\?]/gi, '');
+    line = line.replace(/[^\w\s+_\.\,\-=:;\(\)\\\/\?\'\"]/gi, '');
 
     if (outputContext) {
       console.warn(`${outputContext} ${line}`);
@@ -47,7 +47,7 @@ const handleData = (
     if (found) {
       let input = found[1];
       if (typeof input === 'function') input = input(line);
-      console.warn(`WRITING TO PTY, ${input}\n`);
+      console.warn(`WRITING TO PTY, ${input.trim()}`);
       pty.write(input);
       inputs.splice(inputs.indexOf(found), 1);
     }

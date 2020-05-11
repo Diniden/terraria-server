@@ -133,15 +133,15 @@ export class InstanceManagerSingleton {
 
     // Next we start up any world that our meta data has listed as active so all worlds
     // that were running last run are booted up again.
-    WorldMetaData.data.forEach(world => {
+    for (const world of WorldMetaData.data) {
       if (world.isActive) {
         // For start up, we have to set the world active to false so it can start.
         // It's not valid to start a world already active.
         world.isActive = false;
         // Start the world on bootup!
-        this.start(world);
+        await this.start(world);
       }
-    });
+    };
 
     delete this.initializing;
     this.initialized = true;
@@ -410,6 +410,9 @@ export class InstanceManagerSingleton {
     });
 
     await p;
+    // setTimeout(() => {
+    //   server.save();
+    // }, 20000);
     WorldMetaData.save();
 
     return {

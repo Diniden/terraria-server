@@ -130,7 +130,7 @@ export class TerrariaServerProcess {
       return;
     }
 
-    this.childPty.write(cmd);
+    this.childPty.write(`${cmd}\n`);
   }
 
   /**
