@@ -14,7 +14,7 @@ export class InstanceManagerSingleton {
   private arch: string;
   private os: 'mac' | 'windows' | 'linux';
   private serverStartScriptPath: string = '';
-  private serverExecutable: string = '';
+  private serverExecutables: string[] = [];
   private initializing?: Promise<void>;
   private initialized: boolean = false;
 
@@ -51,20 +51,22 @@ export class InstanceManagerSingleton {
     switch (this.os) {
       case 'mac': {
         this.serverStartScriptPath = path.resolve("binary/Mac/TerrariaServer.app/Contents/MacOS/TerrariaServer");
-        this.serverExecutable = path.resolve("binary/Mac/TerrariaServer.app/Contents/MacOS/TerrariaServer.bin.osx");
+        this.serverExecutables = [path.resolve("binary/Mac/TerrariaServer.app/Contents/MacOS/TerrariaServer.bin.osx")];
         break;
       }
 
       case 'linux': {
         this.serverStartScriptPath = path.resolve("binary/Linux/TerrariaServer");
-        const arch = this.arch === 'x64' ? '_x64' : '';
-        this.serverExecutable = path.resolve(`binary/Linux/TerrariaServer.bin.x86_${arch}`);
+        this.serverExecutables = [
+          path.resolve(`binary/Linux/TerrariaServer.bin.x86_64`),
+          path.resolve(`binary/Linux/TerrariaServer.bin.x86`),
+        ];
         break;
       }
 
       case 'windows': {
         this.serverStartScriptPath = path.resolve("binary/Windows/start-server.bat");
-        this.serverExecutable = path.resolve(`binary/Windows/TerrariaServer.exe`);
+        this.serverExecutables = [path.resolve(`binary/Windows/TerrariaServer.exe`)];
         break;
       }
 
@@ -78,10 +80,10 @@ export class InstanceManagerSingleton {
 
     // Make sure our execution files are executable
     shell.chmod('755', this.serverStartScriptPath);
-    shell.chmod('755', this.serverExecutable);
+    this.serverExecutables.forEach(exe => shell.chmod('755', exe));
     // Set our pathing properly for our single process executables
     TerrariaServerProcess.serverStartScriptPath = this.serverStartScriptPath;
-    TerrariaServerProcess.serverExecutable = this.serverExecutable;
+    TerrariaServerProcess.serverExecutables = this.serverExecutables;
 
     console.warn(`
       Terraria start script detected:

@@ -170,7 +170,7 @@ class WorldMetaDataStore {
       console.warn("No file found for world meta data at:", filePath);
       console.warn("The server will execute as though no worlds have been made yet");
       console.warn("and will generate a new world meta data file at the given location.");
-      console.log(fs);
+      console.log(filePath);
       fs.outputJSONSync(filePath, this.data);
     }
   }

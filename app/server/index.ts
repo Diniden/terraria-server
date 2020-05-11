@@ -103,10 +103,13 @@ async function initConfiguration() {
  */
 function handleProcessTermination(signal: number) {
   return async () => {
-    console.log('TERMINATING');
+    console.warn('TERMINATING');
     // Gracefully stop all of our running servers before exiting
     await InstanceManager.stopAll(true);
+    // Make sure our meta data has been saved
+    WorldMetaData.save();
     // Finally, exit the program
+    console.warn('EXIT', signal);
     process.exit(signal);
   };
 }

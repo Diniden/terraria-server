@@ -39,6 +39,7 @@ const handleData = (
   const found = inputs.find(pair => line.indexOf(pair[0]) >= 0);
 
   if (found) {
+    console.log('INPUT FOUND', line, found[0]);
     let input = found[1];
     if (typeof input === 'function') input = input(line);
     ws.write(input);

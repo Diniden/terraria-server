@@ -42,7 +42,7 @@ export interface ITerrariaServerProcess {
  */
 export class TerrariaServerProcess {
   static serverStartScriptPath: string = '';
-  static serverExecutable: string = '';
+  static serverExecutables: string[] = [];
 
   private options: ITerrariaServerProcess;
   private childProcess?: ChildProcess;
