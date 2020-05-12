@@ -39,3 +39,13 @@ There's some config because we all like config.
 
 Open that and use the commentry to figure out what my arbitrarily named properties mean and do.
 Good luck!
+
+## Disclaimer
+
+I am in no way affiliated with the makers of Terraria, nor do I own any of the products of Terraria.
+
+This project is not here to make money, nor is it intended to reflect any intentions of the owners
+of the Terraria brand and name.
+
+This is merely a little passion project so I can have a convenient way of spinning up worlds on my
+home tower and not have to run to my office whenever someone needs their world up and running.
