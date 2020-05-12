@@ -120,6 +120,8 @@ function handleProcessTermination(signal: number) {
  * Entry to the server execution
  */
 async function start() {
+  // Knowing the node environment before any execution is exrtremely helpful when debugging and deploying
+  console.warn("NODE_ENV", process.env.NODE_ENV);
   await initConfiguration();
   await startInstanceManager();
   await startServer();

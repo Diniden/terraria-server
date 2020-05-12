@@ -1,0 +1,64 @@
+# Path to the https certificate
+# httpsCert: /some/path/to/a/cert
+
+# The key for the https certificate
+# httpsKey: /some/path/to/a/key
+
+# The passphrase needed for the HTTPS certificate if one exists
+# httpsPassphrase: some-passphrase
+
+# The port to use if HTTPS is enabled
+# httpsServerPort: 443
+
+# The port for HTTP
+# serverPort: 80
+
+# The secret passphrase used to generate the JWT tokens. It is recommended to use an env var
+# JWT_SECRET for this instead of using this config for security.
+# jwtSecret: seeecret-seecret-hush-hush-hush
+
+# The user name of the admin (this is not relevant for the current single user the server supports)
+# adminName: diniden
+
+# The password the ADMIN (or all users) will use to access the web UI
+adminPassword: test
+
+# The path the server hosts resources from. This is handled very well by default, so don't
+# touch this unless you know what you're doing.
+# resourcePath: /some/path/to/stuff
+
+# The number of SALT hashes to execute for the bcrypt algorithm. It is recommended you put this in
+# an env variable instead: SALT_ROUNDS
+# saltRounds: 11
+
+#
+# The start PORTs the server can use to host worlds (If there are less ports available than MAX_WORLDS
+# then that number will be limited by the number of PORTs available).
+#
+# worldPortStart: 9000
+
+#
+# The end PORT range the server can use to host worlds (If there are less ports available than MAX_WORLDS
+# then that number will be limited by the number of PORTs available).
+#
+# worldPortEnd: 10000
+
+# The number of active worlds this server will allow to run simultaneously at once. How many
+# your server can handle depends on your hardware
+worldMax: 10
+
+# This is where the server stores the meta data for the active worlds it has started up
+# The default will be this project folder
+# worldDataPath: /some/path/to/put/things
+
+#
+# This is how long it should take for a world to start up. If it takes longer the system will error
+# and close the process.
+#
+# worldStartTimeout: 30000
+
+#
+# This is how long it should take for a world to start up. If it takes longer the system will error
+# and close the process.
+#
+# worldCreateTimeout: 60000

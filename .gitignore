@@ -35,11 +35,3 @@ dist.tar
 # Don't include local generated files
 world-meta-data.json
 logs
-
-# Don't include any local configuration files
-.serverrc
-.serverrc.json
-.serverrc.yaml
-.serverrc.yml
-.serverrc.js
-server.config.js

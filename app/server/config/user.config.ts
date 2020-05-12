@@ -8,12 +8,12 @@ export interface IUser {
 
 export const USER_CONFIG: IUser = {
   name: ENV_CONFIG.ADMIN_NAME || 'diniden',
-  password: '',
+  password: ENV_CONFIG.ADMIN_PASSWORD || '',
 };
 
 awaitConfig(async () => {
   Object.assign(USER_CONFIG, {
     name: ENV_CONFIG.ADMIN_NAME || 'diniden',
-    password: await HASH_CONFIG.hash(process.env.ADMIN_PASSWORD || 'a'),
+    password: await HASH_CONFIG.hash(ENV_CONFIG.ADMIN_PASSWORD || 'a'),
   });
 });

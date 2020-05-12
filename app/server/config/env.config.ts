@@ -36,8 +36,6 @@ export const ENV_CONFIG = {
   RESOURCE_PATH: process.env.RESOURCE_PATH,
   /** The number of SALT hashes to execute for the bcrypt algorithm */
   SALT_ROUNDS: process.env.SALT_ROUNDS,
-  /** The desired number of worlds your server instance should allow running at once */
-  MAX_WORLDS: process.env.MAX_WORLDS,
   /**
    * The start PORTs the server can use to host worlds (If there are less ports available than MAX_WORLDS
    * then that number will be limited by the number of PORTs available).
@@ -67,6 +65,10 @@ export const ENV_CONFIG = {
 export function applyEnvConfig(config: IConfig) {
   const toApply: any = {};
 
+  Object.keys(ENV_CONFIG).forEach((key: keyof typeof ENV_CONFIG) => {
+    if (ENV_CONFIG[key] === void 0) delete ENV_CONFIG[key];
+  });
+
   // Convert the cosmic config properties to environment var keys
   Object.keys(config).forEach((prop: keyof IConfig) => {
     toApply[constantCase(prop)] = config[prop];
@@ -75,8 +77,10 @@ export function applyEnvConfig(config: IConfig) {
   // Apply the config to the environment vars, but prioritize the already set environment vars
   Object.assign(
     ENV_CONFIG,
-    toApply,
-    ENV_CONFIG
+    Object.assign(
+      toApply,
+      ENV_CONFIG
+    )
   );
 
   awaiting.forEach(async fn => await fn());
