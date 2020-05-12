@@ -26,6 +26,11 @@ export interface IPassword {
 export class InputPrompt extends React.Component<IPassword> {
   state = {};
   @observable error = "";
+  input = React.createRef<HTMLInputElement>();
+
+  componentDidMount() {
+    this.input.current?.focus();
+  }
 
   handleAccept = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value || '';
@@ -39,7 +44,7 @@ export class InputPrompt extends React.Component<IPassword> {
     }
   }
 
-  handleChange() {
+  handleChange = () => {
     this.error = "";
   }
 
@@ -56,7 +61,7 @@ export class InputPrompt extends React.Component<IPassword> {
           null
         }
         <div className="InputPrompt__Label">{title ? title : 'Password:'}</div>
-        <input className="InputPrompt__InputPrompt" type={type} onChange={this.handleChange} onKeyPress={this.handleAccept} />
+        <input ref={this.input} className="InputPrompt__InputPrompt" type={type} onChange={this.handleChange} onKeyPress={this.handleAccept} />
       </div>
     );
   }

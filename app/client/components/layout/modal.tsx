@@ -1,4 +1,6 @@
 import classnames from 'classnames';
+import { observable } from 'mobx';
+import { observer } from 'mobx-react';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { destroyModal, ensureModal } from '../../util/ensure-modal';
@@ -20,12 +22,12 @@ export interface IModal {
  * This is a component that will render on top of everything with a presentation
  * box.
  */
+@observer
 export class Modal extends React.Component<IModal> {
-  state = {
-    isInside: false
-  };
+  isInside = false;
 
-  componentDidMount() {
+  constructor(props: IModal) {
+    super(props);
     ensureModal(PORTAL_ID)
     .addEventListener('mouseup', this.handleClickOff);
 
@@ -44,9 +46,7 @@ export class Modal extends React.Component<IModal> {
    * of the page is waiting for a click event to trigger a dismissal.
    */
   handleClickContents = () => {
-    this.setState({
-      isInside: true
-    });
+    this.isInside = true;
   }
 
   /**
@@ -62,13 +62,11 @@ export class Modal extends React.Component<IModal> {
    * This handles the click event when the user clicks outside the modal to dismiss it
    */
   handleClickOff = () => {
-    if (!this.state.isInside) {
+    if (!this.isInside) {
       this.props.onClose?.();
     }
 
-    this.setState({
-      isInside: false,
-    });
+    this.isInside = false;
   }
 
   render() {

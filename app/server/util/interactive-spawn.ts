@@ -19,9 +19,9 @@ export interface IInteractiveSpawn {
   onData?(data: string): void;
 }
 
-const handleData = (
+const handleData = async (
   data: string,
-  inputs: [string, string | ((message: string) => string)][],
+  inputs: IInteractiveSpawn['inputs'],
   pty: IPty,
   onData?: IInteractiveSpawn['onData'],
   outputContext?: string,
@@ -37,23 +37,23 @@ const handleData = (
     if (outputContext) {
       console.warn(`${outputContext} ${line}`);
     }
-  
+
     else {
       console.warn(`${line}`);
     }
-  
+
     const found = inputs.find(pair => line.indexOf(pair[0]) >= 0);
-  
+
+    if (onData) {
+      onData(line);
+    }
+
     if (found) {
       let input = found[1];
       if (typeof input === 'function') input = input(line);
       console.warn(`WRITING TO PTY, ${input.trim()}`);
       pty.write(input);
       inputs.splice(inputs.indexOf(found), 1);
-    }
-  
-    if (onData) {
-      onData(line);
     }
   });
 };
@@ -72,14 +72,25 @@ export async function interactiveSpawn(options: IInteractiveSpawn) {
     env: process.env as Record<string, string>
   });
 
+  let timer: NodeJS.Timeout;
+  let info = "";
+
   proc.on('data', (data: string) => {
-    handleData(
-      Buffer.from(data).toString('utf8'),
-      options.inputs,
-      proc,
-      options.onData,
-      options.outputContext
-    );
+    info += Buffer.from(data).toString('utf8');
+
+    // We debounce a tiny bit here because sometimes it takes a hair for our process to flush the
+    // buffer completely so you can get lines that are split up in odd ways
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      handleData(
+        info,
+        options.inputs,
+        proc,
+        options.onData,
+        options.outputContext
+      );
+      info = '';
+    }, 10);
   });
 
   return proc;

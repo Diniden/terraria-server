@@ -4,6 +4,8 @@ import { IWorld } from "../types/rest/world";
 export interface IWorldInternal extends IWorld {
   /** This stores whether or not the server is active/running */
   isActive: boolean;
+  /** Password WILL be defined internally */
+  password: string;
   /** This is the port this world is broadcast on */
   port: number;
   /**
@@ -14,15 +16,16 @@ export interface IWorldInternal extends IWorld {
 }
 
 export const IWorldInternalSchema = Joi.object({
+  connection: Joi.string(),
   difficulty: Joi.string().valid('Normal', 'Expert', 'Extreme', 'Unknown'),
   maxPlayers: Joi.number().min(1).max(8),
   name: Joi.string(),
   online: Joi.number().min(0).max(8),
   password: Joi.string().allow(''),
   port: Joi.number().min(1024).max(65535),
-  loadId: Joi.number().min(0),
+  loadId: Joi.number(),
   size: Joi.string().valid('Small', 'Medium', 'Large', 'Unknown'),
-  isActive: Joi.bool()
+  isActive: Joi.bool(),
 })
 .with('name', ['maxPlayers', 'difficulty', 'online', 'password', 'port', 'loadId'])
 ;

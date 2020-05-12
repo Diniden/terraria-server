@@ -13,7 +13,7 @@
     "no-misused-new": true,
     "no-string-literal": true,
     "no-string-throw": true,
-    "no-this-assignment": true,
+    "no-this-assignment": false,
     "no-unsafe-finally": true,
     "no-var-keyword": true,
     "triple-equals": [true],

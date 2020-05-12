@@ -18,7 +18,8 @@ export async function authorizationCheck(raw: Response) {
       return { error: Application.session.error };
 
     case 404:
-      break;
+      Application.session.error = "Resource Not Found";
+      return { error: Application.session.error };
 
     case 200:
     default:
@@ -36,7 +37,16 @@ export async function authorizationCheck(raw: Response) {
   }
 
   // If this is not an Unauthorized response, we simply parse out the JSON for the response
-  const json = JSON.parse(check);
+  let json: any = {};
+
+  try {
+    json = JSON.parse(check);
+  }
+
+  catch (err) {
+    console.warn("Unable to parse response body to json");
+    console.warn(check);
+  }
 
   // We check the contents of the JSON for further authorization notices
   if (json.session) {

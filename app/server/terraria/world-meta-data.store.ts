@@ -1,5 +1,6 @@
 import fs from "fs-extra";
 import path from "path";
+import { IWorld } from "../../types/rest/world";
 import { WORLD_CONFIG } from "../config/world.config";
 import { IWorldInternal, IWorldInternalSchema } from "../types";
 
@@ -17,6 +18,40 @@ function isDir(basePath: string) {
 class WorldMetaDataStore {
   /** This is all of the current data stored and known about active and inactive worlds */
   data: IWorldInternal[] = [];
+
+  /**
+   * This creates a stripped down object to make the object only have the information that
+   * should be present in an IWorld object.
+   *
+   * This will NOT contain any sensitive information such as passwords etc.
+   */
+  toExternalWorld(world: IWorldInternal): IWorld {
+    return {
+      difficulty: world.difficulty,
+      isActive: world.isActive,
+      maxPlayers: world.maxPlayers,
+      name: world.name,
+      online: world.online,
+      size: world.size,
+      connection: world.connection
+    };
+  }
+
+  /**
+   * This coverts a configured world into an internal world with set defaults
+   */
+  toInternalWorld(world: IWorld): IWorldInternal {
+    return Object.assign(
+      {},
+      {
+        isActive: false,
+        password: '',
+        port: 7777,
+        loadId: -1
+      },
+      world,
+    );
+  }
 
   /**
    * After running our server once to retrieve the available worlds to work with, we sync up
@@ -75,7 +110,8 @@ class WorldMetaDataStore {
    * Looks for a world that macthes by name and provides that world with it's load identifier
    */
   syncId(name: string, id: number) {
-
+    const found = this.data.find(world => (world.name === name));
+    if (found) found.loadId = id;
   }
 
   /**

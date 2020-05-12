@@ -1,7 +1,9 @@
 import classnames from 'classnames';
+import { stopPropagation, when } from 'lyra';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 import * as React from 'react';
+import { IWorld } from '../../../types/rest/world';
 import { Action } from '../../action';
 import { Application } from '../../store';
 import { World } from '../../store/domain.store';
@@ -10,6 +12,17 @@ import { Button } from '../primitive/button';
 import { InputPrompt } from './input-prompt';
 import './world-list.scss';
 
+enum promptPages {
+  START,
+  NEW_WORLD,
+  LOAD_WORLD,
+  NEW_WORLD_PASSWORD,
+  NEW_WORLD_DIFFICULTY,
+  NEW_WORLD_SIZE,
+  NEW_WORLD_MAX_PLAYERS,
+  LOAD_WORLD_PASSWORD,
+}
+
 export interface IWorldList {
   /** Provides a custom class name to the container of this component */
   className?: string;
@@ -17,24 +30,15 @@ export interface IWorldList {
   containerProps?: React.HTMLProps<HTMLDivElement>;
 }
 
-interface IState {
-  deletingWorld: World | null;
-  confirmingDelete: string | null;
-  newWorld: World | null;
-  newWorldPage: number;
-}
-
 @observer
 export class WorldList extends React.Component<IWorldList> {
-  state: IState = {
-    deletingWorld: null,
-    confirmingDelete: null,
-    newWorld: null,
-    newWorldPage: 0
-  };
-
+  @observable selectedWorld: IWorld | null = null;
+  @observable deletingWorld: IWorld | null = null;
+  @observable confirmingDelete: string | null = null;
+  @observable newWorld: IWorld | null = null;
+  @observable newWorldPage: promptPages = promptPages.START;
   @observable error: string;
-
+  @observable loading: boolean = false;
   pollId = -1;
 
   componentDidMount() {
@@ -48,26 +52,50 @@ export class WorldList extends React.Component<IWorldList> {
     clearInterval(this.pollId);
   }
 
-  handleCloseServer = (server: World) => () => {
-    this.setState({ deletingServer: server });
+  handleCloseWorld = (world: IWorld) => (e) => {
+    this.deletingWorld = world;
+    stopPropagation(e);
   }
 
   handleCloseModal = () => {
-    this.setState({
-      deletingServer: null,
-      confirmingDelete: null,
-      newWorld: null,
-    });
+    this.deletingWorld = null;
+    this.confirmingDelete = null;
+    this.newWorld = null;
+    this.selectedWorld = null;
   }
+
+  /**
+   * Handles selection of an inactive world when working on activating or creating a world
+   */
+  handleSelectInactiveWorld = (world: IWorld) => () => {
+    this.newWorld = world;
+    this.newWorldPage = promptPages.LOAD_WORLD_PASSWORD;
+  };
+
+  /**
+   * Handles selection of an active world to reveal how to connect to that world.
+   */
+  handleSelectActiveWorld = (world: IWorld) => () => {
+    this.selectedWorld = world;
+  };
 
   /**
    * When the user indicates the passqword entered should be the password for the world so the
    * world could be deleted.
    */
   handleAcceptDeletePassword = (value: string) => {
-    this.setState({
-      confirmingDelete: value
-    });
+    this.confirmingDelete = value;
+  }
+
+  /**
+   * This handles confirmed deletion of a world from the server list
+   */
+  handleDeleteWorld = async () => {
+    if (!this.deletingWorld) return;
+    this.loading = true;
+    await Action.World.deleteWorld(this.deletingWorld);
+    this.loading = false;
+    this.handleCloseModal();
   }
 
   /**
@@ -75,10 +103,9 @@ export class WorldList extends React.Component<IWorldList> {
    */
   handleAddWorld = async () => {
     // Begin a new world prompt dialog
-    this.setState({
-      newWorld: new World(),
-      newWorldPage: 0,
-    });
+    this.newWorld = new World();
+    this.newWorldPage = promptPages.START;
+    Application.session.error = '';
 
     // Check with the server for the worlds to make sure we are able to create a new world.
     await this.pollWorlds();
@@ -88,9 +115,10 @@ export class WorldList extends React.Component<IWorldList> {
    * After the prompts have finished to customize a new world, we submit the world to the server
    */
   handleCreateWorld = async () => {
-    const { newWorld } = this.state;
-    if (!newWorld) return;
-    const result = await Action.World.newWorld(newWorld);
+    if (!this.newWorld) return;
+    this.loading = true;
+    const result = await Action.World.newWorld(this.newWorld);
+    this.loading = false;
 
     if (!result) {
       this.error = "Could not create the new world\n";
@@ -108,41 +136,61 @@ export class WorldList extends React.Component<IWorldList> {
    */
   async pollWorlds() {
     await Action.World.fetchWorlds();
-
     const { worlds, maxWorlds } = Application.domain;
-    const { deletingWorld, newWorld } = this.state;
 
     // Validate if the world being delted still exists
-    if (deletingWorld && !worlds.find(World.find(deletingWorld))) {
+    if (this.deletingWorld && !worlds.find(World.findMethod(this.deletingWorld))) {
       this.handleCloseModal();
     }
 
     // Validate if we can still
-    if (newWorld && worlds.length >= maxWorlds) {
+    if (this.newWorld && worlds.length >= maxWorlds) {
       this.handleCloseModal();
     }
   }
 
   render() {
     const { className, containerProps } = this.props;
-    const { maxWorlds, worlds } = Application.domain;
+    const { maxWorlds, activeWorlds, deactivatedWorlds } = Application.domain;
 
     return (
       <div className={classnames("WorldList", className)} {...containerProps}>
+        {when(
+          Application.session.error,
+          <div className="WorldList__Error"></div>
+        )}
         <div className="WorldList__Title">
-          List of Active worlds ({this.renderRatio(worlds.length, maxWorlds)})
+          List of Active worlds ({this.renderRatio(activeWorlds.length, maxWorlds)})
         </div>
-        {Application.domain.worlds.map(this.renderServer)}
+        {activeWorlds.map(this.renderActiveWorld)}
         {
-          worlds.length < maxWorlds ? (
+          activeWorlds.length < maxWorlds ? (
             <div className="WorldList__Buttons WorldList--center">
               <Button label="Add World" onClick={this.handleAddWorld} />
             </div>
           ) : null
         }
-        {this.renderNewWorldPrompt()}
-        {this.renderDeletePrompt()}
+        {this.renderNewWorldPrompt(this.newWorld, this.newWorldPage, deactivatedWorlds)}
+        {this.renderDeletePrompt(this.deletingWorld, this.confirmingDelete)}
+        {this.renderConnection(this.selectedWorld)}
       </div>
+    );
+  }
+
+  /**
+   * When the user selects an active world, this shows the connection information
+   * to join that world.
+   */
+  renderConnection(world: IWorld | null) {
+    if (!world) return null;
+
+    return (
+      <Modal onClose={this.handleCloseModal}>
+        <div className="WorldList__PasswordPanel">
+          <div>{`This is how to connect to ${world.name}:`}</div>
+          <div>{world?.connection}</div>
+        </div>
+      </Modal>
     );
   }
 
@@ -157,8 +205,7 @@ export class WorldList extends React.Component<IWorldList> {
   /**
    * This renders the prompt needed to create a new world.
    */
-  renderNewWorldPrompt() {
-    const { newWorld, newWorldPage } = this.state;
+  renderNewWorldPrompt(newWorld: IWorld | null, newWorldPage: promptPages, deactivatedWorlds: IWorld[]) {
     const { worlds, maxWorlds } = Application.domain;
 
     // If the number of worlds exceeds our max limit then we can't make a new world, so just dismiss
@@ -167,104 +214,171 @@ export class WorldList extends React.Component<IWorldList> {
       return null;
     }
 
-    const setDifficulty = (difficulty: string) => () => {
+    const setDifficulty = (difficulty: IWorld['difficulty']) => () => {
+      if (!newWorld) return;
       newWorld.difficulty = difficulty;
-      this.setState({ newWorldPage: newWorldPage + 1 });
+      this.newWorldPage = promptPages.NEW_WORLD_SIZE;
+    };
+
+    const setSize = (size: IWorld['size']) => () => {
+      if (!newWorld) return;
+      newWorld.size = size;
+      this.newWorldPage = promptPages.NEW_WORLD_MAX_PLAYERS;
+    };
+
+    const pages: {[key in promptPages]: React.ReactElement} = {
+      [promptPages.START]:
+      <div className="WorldList__PasswordPanel">
+        {this.renderError()}
+        <div className="WorldList__Buttons">
+          <Button label="New World" onClick={() => this.newWorldPage = promptPages.NEW_WORLD} />
+          <Button label="Load World" onClick={() => this.newWorldPage = promptPages.LOAD_WORLD} />
+        </div>
+      </div>,
+
+      [promptPages.NEW_WORLD]:
+      <div className="WorldList__PasswordPanel">
+        {this.renderError()}
+        <InputPrompt
+          key="NameOfWorld"
+          title="Name of World:"
+          type="text"
+          onAccept={(value: string) => {
+            if (!newWorld) return;
+            newWorld.name = value;
+
+            // Make sure the name is available
+            if (worlds.find(World.findMethod(newWorld))) {
+              Application.session.error = "This name is already taken.";
+            }
+
+            this.newWorldPage = promptPages.NEW_WORLD_PASSWORD;
+          }}
+        />
+      </div>,
+
+      [promptPages.NEW_WORLD_PASSWORD]:
+      <div className="WorldList__PasswordPanel">
+        {this.renderError()}
+        <InputPrompt
+          key="Password"
+          allowEmpty={true}
+          title={`Password for ${newWorld.name}:`}
+          type="text"
+          onAccept={(value: string) => {
+            if (!newWorld) return;
+            newWorld.password = value;
+            this.newWorldPage = promptPages.NEW_WORLD_DIFFICULTY;
+          }}
+        />
+      </div>,
+
+      [promptPages.NEW_WORLD_DIFFICULTY]:
+      <div className="WorldList__PasswordPanel">
+        {this.renderError()}
+        <div>{`Select a difficulty for ${newWorld.name}`}</div>
+        <div className="WorldList__Buttons">
+          <Button label="Normal" onClick={setDifficulty("Normal")} />
+          <Button label="Expert" onClick={setDifficulty("Expert")} />
+          <Button label="Extreme" onClick={setDifficulty("Extreme")} />
+        </div>
+      </div>,
+
+      [promptPages.NEW_WORLD_SIZE]:
+      <div className="WorldList__PasswordPanel">
+        {this.renderError()}
+        <div>{`Select a size for ${newWorld.name}`}</div>
+        <div className="WorldList__Buttons">
+          <Button label="Small" onClick={setSize("Small")} />
+          <Button label="Medium" onClick={setSize("Medium")} />
+          <Button label="Large" onClick={setSize("Large")} />
+        </div>
+      </div>,
+
+      [promptPages.NEW_WORLD_MAX_PLAYERS]:
+      <div className="WorldList__PasswordPanel">
+        {this.renderError()}
+        <InputPrompt
+          key="MaxPlayers"
+          title={`Number of players for ${newWorld.name} (1 - 8):`}
+          type="text"
+          onAccept={(value: string) => {
+            if (!newWorld) return;
+            const val = Number.parseFloat(value);
+
+            if (isNaN(val)) {
+              this.error = "Must be a number";
+              return;
+            }
+
+            if (val < 1 || val > 8) {
+              this.error = "Must be a number between 1 - 8";
+              return;
+            }
+
+            newWorld.maxPlayers = val;
+            this.handleCreateWorld();
+          }}
+        />
+      </div>,
+
+      [promptPages.LOAD_WORLD]:
+      <div className="WorldList__PasswordPanel">
+        {this.renderError()}
+        {deactivatedWorlds.map(this.renderInactiveWorld)}
+      </div>,
+
+      [promptPages.LOAD_WORLD_PASSWORD]:
+      <div className="WorldList__PasswordPanel">
+        {this.renderError()}
+        <InputPrompt
+          key="Password"
+          allowEmpty={true}
+          title={`Password for ${newWorld.name}:`}
+          type="text"
+          onAccept={(value: string) => {
+            if (!newWorld) return;
+            newWorld.password = value;
+            this.newWorldPage = promptPages.NEW_WORLD_MAX_PLAYERS;
+          }}
+        />
+      </div>,
     };
 
     return (
-      <Modal onClose={this.handleCloseModal}>
-        {[
-          <div className="WorldList__PasswordPanel">
-            {this.renderError()}
-            <InputPrompt
-              key="NameOfWorld"
-              title="Name of World:"
-              type="text"
-              onAccept={(value: string) => {
-                newWorld.name = value;
-
-                // Make sure the name is available
-                if (worlds.find(World.find(newWorld))) {
-                  Application.session.error = "This name is already taken.";
-                }
-
-                this.setState({ newWorldPage: newWorldPage + 1 });
-              }}
-            />
-          </div>,
-
-          <div className="WorldList__PasswordPanel">
-            {this.renderError()}
-            <InputPrompt
-              key="Password"
-              allowEmpty={true}
-              title={`Password for ${newWorld.name}:`}
-              type="text"
-              onAccept={(value: string) => {
-                newWorld.password = value;
-                this.setState({ newWorldPage: newWorldPage + 1 });
-              }}
-            />
-          </div>,
-
-          <div className="WorldList__PasswordPanel">
-            {this.renderError()}
-            <div>{`Select a difficulty for ${newWorld.name}`}</div>
-            <div className="WorldList__Buttons">
-              <Button label="Normal" onClick={setDifficulty("Normal")} />
-              <Button label="Expert" onClick={setDifficulty("Expert")} />
-              <Button label="Extreme" onClick={setDifficulty("Extreme")} />
-            </div>
-          </div>,
-
-          <div className="WorldList__PasswordPanel">
-            {this.renderError()}
-            <InputPrompt
-              key="MaxPlayers"
-              title={`Number of players for ${newWorld.name} (1 - 8):`}
-              type="text"
-              onAccept={(value: string) => {
-                const val = Number.parseFloat(value);
-
-                if (isNaN(val)) {
-                  this.error = "Must be a number";
-                  return;
-                }
-
-                if (val < 1 || val > 8) {
-                  this.error = "Must be a number between 1 - 8";
-                  return;
-                }
-
-                newWorld.maxPlayers = val;
-                this.handleCreateWorld();
-              }}
-            />
-          </div>,
-        ][newWorldPage]}
+      <Modal onClose={when(!this.loading, () => this.handleCloseModal, )}>
+        {when(this.loading, (
+          <div className="WorldList__PromptLoading">
+            Loading...
+          </div>
+        ), pages[newWorldPage])}
       </Modal>
     );
   }
 
-  renderDeletePrompt() {
-    const { deletingWorld, confirmingDelete } = this.state;
+  /**
+   * Renders our prompt for deleting a world
+   */
+  renderDeletePrompt(deletingWorld: IWorld | null, confirmingDelete: string | null) {
     const { worlds } = Application.domain;
 
     // Always make sure the server is available for deleting. If our polling updates and says this
     // server doesn't exist anymore, then this prompt should just disappear.
-    if (!deletingWorld || !worlds.find(World.find(deletingWorld))) {
+    if (!deletingWorld || !worlds.find(World.findMethod(deletingWorld))) {
       return null;
     }
 
     return (
       <Modal onClose={this.handleCloseModal}>
-        {
-          confirmingDelete ? (
+        {when(this.loading,
+          <div className="WorldList__PromptLoading">
+            Loading...
+          </div>,
+          confirmingDelete !== null ? (
             <div className="WorldList__PasswordPanel">
               <div>Are you sure?</div>
               <div className="WorldList__Buttons">
-                <Button label="Yes" />
+                <Button label="Yes" onClick={this.handleDeleteWorld}/>
                 <Button label="No" onClick={this.handleCloseModal}/>
               </div>
             </div>
@@ -280,11 +394,14 @@ export class WorldList extends React.Component<IWorldList> {
               />
             </div>
           )
-        }
+        )}
       </Modal>
     );
   }
 
+  /**
+   * Common form for rendering a ratio of two numbers
+   */
   renderRatio(left: number, right: number) {
     return (
       <span className={classnames(left >= right ? 'WorldList--error' : null)}>
@@ -293,13 +410,28 @@ export class WorldList extends React.Component<IWorldList> {
     );
   }
 
-  renderServer = (world: World, index: number) =>
+  /**
+   * Renders a server listing, displaying any relevant server information
+   */
+  renderActiveWorld = (world: IWorld, index: number) =>
     (
-      <div key={index} className="WorldList__World">
+      <div key={index} className="WorldList__World" onClick={this.handleSelectActiveWorld(world)}>
         <div className="WorldList__Label">
-          {`${world.name} (${world.difficulty})`} ({this.renderRatio(world.online, world.maxPlayers)})
+          {`${world.name} (${world.difficulty}) (${world.size}) Online:`} ({this.renderRatio(world.online, world.maxPlayers)})
         </div>
-        <div className="WorldList__Actions" onClick={this.handleCloseServer(world)}>X</div>
+        <div className="WorldList__Actions" onClick={this.handleCloseWorld(world)}>X</div>
+      </div>
+    )
+
+  /**
+   * Renders an inactive world for selecting to re-activate it
+   */
+  renderInactiveWorld = (world: World, index: number) =>
+    (
+      <div key={index} className="WorldList__World" onClick={this.handleSelectInactiveWorld(world)}>
+        <div className="WorldList__Label">
+          {`${world.name} (${world.difficulty}) (${world.size})`}
+        </div>
       </div>
     )
 }

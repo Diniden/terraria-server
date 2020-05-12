@@ -1,9 +1,8 @@
-import path from "path";
-import Platform from 'platform-detect/os.mjs';
-import shell from "shelljs";
+import publicIp from "public-ip";
 import { IWorld } from "../../types/rest/world";
 import { WORLD_CONFIG } from "../config/world.config";
 import { IWorldInternal } from "../types";
+import { findExecutable } from "./find-executable";
 import { ITerrariaServerProcess, TerrariaServerProcess } from "./terraria-server-process";
 import { WorldMetaData } from "./world-meta-data.store";
 
@@ -11,12 +10,9 @@ import { WorldMetaData } from "./world-meta-data.store";
  * This is the manager that creates new world instances and monitors
  */
 export class InstanceManagerSingleton {
-  private arch: string;
-  private os: 'mac' | 'windows' | 'linux';
-  private serverStartScriptPath: string = '';
-  private serverExecutables: string[] = [];
   private initializing?: Promise<void>;
   private initialized: boolean = false;
+  private autoSaveInterval: NodeJS.Timer;
 
   private runningProcesses: TerrariaServerProcess[] = [];
 
@@ -39,51 +35,12 @@ export class InstanceManagerSingleton {
     const p = new Promise<void>(r => (resolve = r));
     this.initializing = p;
 
-    // First we determine which operating system we're on.
-    if (Platform.macos) this.os = 'mac';
-    if (Platform.windows) this.os = 'windows';
-    if (Platform.linux) this.os = 'linux';
+    // Locate our executables
+    const exe = findExecutable();
 
-    // Next we determine which node architecture is running so we'll run the same architecture build
-    this.arch = require('os').arch();
-
-    // Make sure our start script and executables are truly executable
-    switch (this.os) {
-      case 'mac': {
-        this.serverStartScriptPath = path.resolve("binary/Mac/TerrariaServer.app/Contents/MacOS/TerrariaServer");
-        this.serverExecutables = [path.resolve("binary/Mac/TerrariaServer.app/Contents/MacOS/TerrariaServer.bin.osx")];
-        break;
-      }
-
-      case 'linux': {
-        this.serverStartScriptPath = path.resolve("binary/Linux/TerrariaServer");
-        this.serverExecutables = [
-          path.resolve(`binary/Linux/TerrariaServer.bin.x86_64`),
-          path.resolve(`binary/Linux/TerrariaServer.bin.x86`),
-        ];
-        break;
-      }
-
-      case 'windows': {
-        this.serverStartScriptPath = path.resolve("binary/Windows/start-server.bat");
-        this.serverExecutables = [path.resolve(`binary/Windows/TerrariaServer.exe`)];
-        break;
-      }
-
-      default: {
-        console.warn(
-          'It appears your platform is not windows, linux, or macos, which means its not supported'
-        );
-        process.exit(1);
-      }
-    }
-
-    // Make sure our execution files are executable
-    shell.chmod('755', this.serverStartScriptPath);
-    this.serverExecutables.forEach(exe => shell.chmod('755', exe));
     // Set our pathing properly for our single process executables
-    TerrariaServerProcess.serverStartScriptPath = this.serverStartScriptPath;
-    TerrariaServerProcess.serverExecutables = this.serverExecutables;
+    TerrariaServerProcess.serverStartScriptPath = exe.serverStartScriptPath;
+    TerrariaServerProcess.serverExecutables = exe.serverExecutables;
 
     console.warn(`
       Terraria start script detected:
@@ -141,10 +98,27 @@ export class InstanceManagerSingleton {
         // Start the world on bootup!
         await this.start(world);
       }
-    };
+    }
+
+    // Start the auto saving procedure
+    this.initAutoSave();
 
     delete this.initializing;
     this.initialized = true;
+  }
+
+  /**
+   * Starts up a process that will automatically
+   */
+  initAutoSave() {
+    if (this.autoSaveInterval) clearInterval(this.autoSaveInterval);
+
+    // Auto save every 30 minutes
+    this.autoSaveInterval = setInterval(() => {
+      this.runningProcesses.forEach(server => {
+        server.save();
+      });
+    }, 30 * 60 * 1000);
   }
 
   /**
@@ -175,7 +149,14 @@ export class InstanceManagerSingleton {
 
       if (data.indexOf('Choose World:') >= 0) {
         done = true;
-        onFinish?.();
+
+        if (onFinish) onFinish();
+        else {
+          names.forEach((name, i) => {
+            console.warn('SYNC LOAD ID', name, i);
+            WorldMetaData.syncId(name, i);
+          });
+        }
       }
 
       return false;
@@ -185,16 +166,17 @@ export class InstanceManagerSingleton {
   /**
    * Parses server data for indication that the server has started and is ready to accept users.
    */
-  private createServerStartedParser(world: IWorldInternal, timeout: NodeJS.Timeout, resolve?: Function) {
+  private createServerStartedParser(world: IWorldInternal, timeoutId: { timer: number }, resolve?: Function) {
     let complete = false;
 
-    return (data: string) => {
+    return (data: string, server: TerrariaServerProcess) => {
       if (!complete && data.indexOf("Type 'help' for a list of commands.") >= 0) {
-        clearTimeout(timeout);
+        clearTimeout(timeoutId.timer);
         world.isActive = true;
         console.warn('The world', world.name, 'has successfully started');
         resolve?.();
         complete = true;
+        server.startedSuccessfully();
       }
 
       return complete;
@@ -204,18 +186,37 @@ export class InstanceManagerSingleton {
   /**
    * Parses server data for indication of users joining and leaving
    */
-  private createOnlineParser(world: IWorldInternal) {
-    return (data: string) => {
+  private createOnlinePlayerParser(world: IWorldInternal) {
+    return (data: string, server: TerrariaServerProcess) => {
       if (data.indexOf("has joined") >= 0) {
         world.online++;
       }
 
+      // When a user leaves, we should save the server state so the user can at least
+      // expect his latest work to be preserved.
       if (data.indexOf("has left") >= 0) {
         world.online--;
+        server.save();
       }
 
       // This process never completes
       return false;
+    };
+  }
+
+  /**
+   * This creates a timer reloader that reloads a timeout time every time a new
+   * piece of data streams in. This lets you create a timeout that only times out if the
+   * server process is not outputting any additional information.
+   */
+  private createTimerReloadParser(callback: Function, timeout: number, timeoutId: { timer: number }) {
+    timeoutId.timer = setTimeout(callback, timeout);
+
+    return (data: string) => {
+      if (data) {
+        clearTimeout(timeoutId.timer);
+        timeoutId.timer = setTimeout(callback, timeout);
+      }
     };
   }
 
@@ -256,6 +257,7 @@ export class InstanceManagerSingleton {
     const index = this.runningProcesses.indexOf(process);
     if (index >= 0) this.runningProcesses.splice(index, 1);
     await process.save();
+    console.warn('Killing process for world', process.name);
     process.stop();
   }
 
@@ -276,7 +278,8 @@ export class InstanceManagerSingleton {
 
     // Start up a timeout to stop the start up process if it's taking too long. This is
     // currently our only form of error handling for the situation.
-    const timeout = setTimeout(async () => {
+    const timeoutId = { timer: -1 };
+    const timer = this.createTimerReloadParser(async () => {
       success = false;
       error = `
         ERROR: Could not create the specified world in less than
@@ -290,7 +293,9 @@ export class InstanceManagerSingleton {
       if (server) {
         await this.stopServerProcess(server);
       }
-    }, WORLD_CONFIG.worldStartTimeout);
+
+      resolve?.();
+    }, WORLD_CONFIG.worldStartTimeout, timeoutId);
 
     const sizePick: {[key in IWorld['size']]: number} = {
       Small: 1,
@@ -308,8 +313,6 @@ export class InstanceManagerSingleton {
 
     // Make our sync id process to use while processing our new server
     const syncIds = this.createSyncIdParser();
-    const serverStart = this.createServerStartedParser(world, timeout, resolve);
-    const playerConnection = this.createOnlineParser(world);
 
     // Start up the server and answer all of the initialization questions
     const server = this.newServerProcess({
@@ -317,21 +320,25 @@ export class InstanceManagerSingleton {
       inputs: [
         ['Choose World:', `n\n`],
         ['Choose size:', `${sizePick[world.size]}\n`],
-        ['Choose Difficulty:', `${difficultyPick[world.difficulty]}\n`],
+        ['Choose difficulty:', `${difficultyPick[world.difficulty]}\n`],
         ['Enter world name:', `${world.name}\n`],
-        ['Choose World:', `${world.loadId}\n`],
-        ['Max players (press enter for 8):', `${world.maxPlayers}\n`],
-        ['Server port (press enter for 7777):', `${world.port}\n`],
-        ['Automatically forward port? (y/n):', `n\n`],
-        ['Server password (press enter for none):', `${world.password}\n`],
+
+        // The second time we see the choose world option, we should stop this process
+        // as the world has been successfully created
+        ['Choose World:', () => {
+          clearTimeout(timeoutId.timer);
+          this.stopServerProcess(server).then(() => {
+            resolve?.();
+          });
+          return '';
+        }],
       ],
 
       onData: (line: string) => {
-        syncIds(line);
-
-        if (serverStart(line)) {
-          playerConnection(line);
+        if (syncIds(line)) {
+          syncIds(line);
         }
+        timer(line);
       },
 
       onExit: async () => {
@@ -359,12 +366,13 @@ export class InstanceManagerSingleton {
     console.warn('Starting world:', world.name);
     let resolve: Function | undefined;
     const p = new Promise(r => (resolve = r));
-    let success = false;
+    let success = true;
     let error;
 
     // Start up a timeout to stop the start up process if it's taking too long. This is
     // currently our only form of error handling for the situation.
-    const timeout = setTimeout(() => {
+    const timeoutId = { timer: -1 };
+    const timer = this.createTimerReloadParser(async () => {
       success = false;
       error = `
         ERROR: Could not start the specified world in less than
@@ -378,18 +386,20 @@ export class InstanceManagerSingleton {
       if (server) {
         this.stopServerProcess(server);
       }
-    }, WORLD_CONFIG.worldStartTimeout);
+
+      resolve?.();
+    }, WORLD_CONFIG.worldStartTimeout, timeoutId);
 
     // Make our sync id process to use while processing our new server
     const syncIds = this.createSyncIdParser();
-    const serverStart = this.createServerStartedParser(world, timeout, resolve);
-    const playerConnection = this.createOnlineParser(world);
+    const serverStart = this.createServerStartedParser(world, timeoutId, resolve);
+    const playerConnection = this.createOnlinePlayerParser(world);
 
     // Start up the server and answer all of the initialization questions
     const server = this.newServerProcess({
       world,
       inputs: [
-        ['Choose World:', `${world.loadId}\n`],
+        ['Choose World:', () => `${world.loadId}\n`],
         ['Max players (press enter for 8):', `${world.maxPlayers}\n`],
         ['Server port (press enter for 7777):', `${world.port}\n`],
         ['Automatically forward port? (y/n):', `n\n`],
@@ -399,8 +409,12 @@ export class InstanceManagerSingleton {
       onData: (line: string) => {
         syncIds(line);
 
-        if (serverStart(line)) {
-          playerConnection(line);
+        if (serverStart(line, server)) {
+          playerConnection(line, server);
+        }
+
+        else {
+          timer(line);
         }
       },
 
@@ -410,10 +424,11 @@ export class InstanceManagerSingleton {
     });
 
     await p;
-    // setTimeout(() => {
-    //   server.save();
-    // }, 20000);
     WorldMetaData.save();
+
+    if (success) {
+      world.connection = `IP: ${await publicIp.v4()} Port: ${world.port}`;
+    }
 
     return {
       success,
@@ -438,7 +453,9 @@ export class InstanceManagerSingleton {
     }
 
     // Tell the server process to shut down gracefully
-    this.stopServerProcess(process);
+    console.warn("Shutting down world", process.name);
+    await this.stopServerProcess(process);
+    world.isActive = false;
 
     return {
       success: true,

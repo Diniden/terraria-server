@@ -10,13 +10,20 @@
     align-items: center;
   }
 
+  &__Error {
+    color: rgba(200, 10, 10, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &__World {
     cursor: pointer;
     display: flex;
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     flex-direction: row;
     justify-content: space-between;
-    width: 500px;
+    width: 100%;
     border: 2px solid transparent;
     padding: 2px;
 
@@ -39,12 +46,26 @@
 
   &__PasswordPanel {
     width: 550px;
-    height: 400px;
+    min-height: 400px;
+    max-height: 600px;
+    overflow: auto;
     padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  &__PromptLoading {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    min-width: 550px;
+    min-height: 400px;
   }
 
   &__Buttons {

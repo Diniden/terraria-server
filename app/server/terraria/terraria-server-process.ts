@@ -49,8 +49,8 @@ export class TerrariaServerProcess {
   private childPty?: IPty;
   private onSaveEnd?: Function;
   private saveFinished?: Promise<void>;
-  private onSaveTimer?: NodeJS.Timeout;
   private isDead: boolean = false;
+  private isStarted: boolean = false;
   private logStream?: fs.WriteStream;
 
   constructor(options: ITerrariaServerProcess) {
@@ -60,6 +60,10 @@ export class TerrariaServerProcess {
 
   keepActive() {
     if (this.options.world) this.options.world.isActive = true;
+  }
+
+  startedSuccessfully() {
+    this.isStarted = true;
   }
 
   /**
@@ -120,6 +124,7 @@ export class TerrariaServerProcess {
    * Executes an arbitrary command on the Terraria server process if available.
    */
   command(cmd: string) {
+    if (!this.isStarted) return;
     if (this.isDead) return;
     if (!this.childPty) {
       console.warn(`
@@ -137,6 +142,8 @@ export class TerrariaServerProcess {
    * Tells the terraria server to execute a save and resolves when the save is assumed to have completed.
    */
   async save() {
+    if (!this.isStarted) return;
+
     // Wait if a save operation is already taking place
     if (this.onSaveEnd && this.saveFinished) {
       await this.saveFinished;
@@ -149,6 +156,7 @@ export class TerrariaServerProcess {
     const p = new Promise<void>(r => (resolve = r));
     this.onSaveEnd = resolve;
     this.saveFinished = p;
+    console.warn('Saving world', this.name);
     this.command('save');
     await p;
     delete this.onSaveEnd;
@@ -183,11 +191,9 @@ export class TerrariaServerProcess {
     // simply wait for the validating message and wait a little bit of time to assume it's done. The validation
     // messages fire off sufficiently rapidly for this to be a decently "safe" approach.
     if (this.onSaveEnd) {
-      if (str.indexOf('Validating world save') >= 0) {
-        if (this.onSaveTimer) clearTimeout(this.onSaveTimer);
-        this.onSaveTimer = setTimeout(() => {
-          this.onSaveEnd?.();
-        }, 2000);
+      if (str.indexOf('Backing up world file') >= 0) {
+        console.warn('Save completed for', this.name);
+        this.onSaveEnd?.();
       }
     }
 
@@ -220,15 +226,7 @@ export class TerrariaServerProcess {
     this.childPty.onExit(() => {
       this.isDead = true;
       this.options.onExit?.();
-      console.log('TERRARIA SERVER STOPPED');
     });
-
-    setTimeout(() => {
-      process.on('SIGTERM', () => console.log('TESTING EXIT'));
-      process.on('SIGINT', () => console.log('TESTING EXIT'));
-      process.on('uncaughtException', () => console.log('TESTING EXIT'));
-      process.on('exit', () => console.log('TESTING EXIT'));
-    }, 1000);
   }
 
   /**
