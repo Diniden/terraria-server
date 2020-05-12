@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "lyra dev",
     "release": "lyra release",
-    "start": "lyra start",
+    "start": "node scripts/start",
     "unit-test": "lyra unit-test",
     "unit-test-dev": "lyra unit-test-dev",
     "sync": "lyra sync",
