@@ -28,6 +28,12 @@ nefarious.
 - run this:
 
 ```shell
+npm i
+```
+
+- then this:
+
+```shell
 npm start
 ```
 
