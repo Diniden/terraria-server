@@ -85,6 +85,7 @@ export class WorldList extends React.Component<IWorldList> {
    */
   handleAcceptDeletePassword = (value: string) => {
     this.confirmingDelete = value;
+    if (this.deletingWorld) this.deletingWorld.password = value;
   }
 
   /**

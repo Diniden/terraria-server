@@ -119,6 +119,14 @@ export function RESTWorld(app: Express) {
     const world = WorldMetaData.data.find(world => world.name === req.body.name);
 
     if (world && world.isActive) {
+      if (world.password && world.password !== req.body.password) {
+        res.status(200).send({
+          success: false,
+          error: 'Incorrect password for the world specified.'
+        });
+        return;
+      }
+
       res.status(200).send(await InstanceManager.stop(world));
     }
 
