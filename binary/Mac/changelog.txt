@@ -1,3 +1,1692 @@
+Version 1.4 Changes -----------------------------------------------------------------------------------------------
+
+I. Journey's End New Content and Additions
+
+A. Major Features:
+	Added Journey Mode, a brand new world and character difficulty mode that offers unprecedented control over the way you play. Features unique powers such as item duplication, weather control, spawn rate and difficulty sliders, and more.
+	Added Master Mode, a new highest difficulty surpassing that of Expert. Test your skills against even harder challenges, and perhaps be rewarded with some unique rewards from each boss
+	Added two brand new bosses to seek out and challenge
+	Added the Bestiary, an encyclopedia of the enemies, allies, and critters you encounter on your journey
+	Added Golf, a new fun pastime for when you want to take a break from all the monster slaying
+	Added Windy Day weather, along with various ambient effects and even some enemies
+	Added Town Pylons and NPC Happiness, an expansion on the town system that culminates with the ability to build a teleportation network to towns around the world
+
+B. Menu/UI:
+	Officially adding Texture Pack support, which now has its own option in the main menu
+	Added RGB Lighting to the game for Razer, Corsair, and Logitech hardware
+	Added Block Swap, a mechanic that allows the player to replace pre-existing blocks with new ones, without having to mine them up first. As a bonus, this also allows you to swap Chests and Dressers, while keeping the chest inventory intact!
+	Terraria now has a brand new series of intro splash screens and an intro sequence
+	Added a completely overhauled Character and World Creation Menu
+	Added Boss Health Bars
+	Added Emote Commands and menu
+	Adding loading screen informative help text when generating worlds
+	Added two new Health/Mana Bar style options
+	Added a number of new minimap border options
+	Added a Recommended Achievement icon to guide the player
+	Added a new achievement to craft a workbench
+
+C. Ambience:
+	Added Windy Day weather, along with various ambient effects and even some enemies
+	Added a variety of ambient background objects in the sky
+	Added a new celebratory event after defeating a boss or invasion for the first time. What a fortunate time to be a Terrarian!
+	Added the graveyard minibiome
+	Added uncommon thunderstorm ambient weather
+	Added a chance for meteor showers, which dramatically increase falling star rates
+	Added new falling star animations in the sky
+	Added the ability for the player character to blink, close their eyes, or squint, as circumstances call for it
+
+D. Worldgen and Biomes:
+	Added dozens of new biome backgrounds
+	The Underground Desert now has some structural changes, new loot, and a variety of new threats
+	Added new paintings to Underground Desert houses, done by the testers!
+	Added Oasis minibiomes
+	Added Oasis ferns
+	Added cattails
+	Added lilypads
+	Added a new desert palm tree style
+	Added new Granite, Marble, Living Tree and Desert rubble piles to those biomes
+	Added flower vines to grassy caves
+	Added natural flowers to the Jungle, Crimson, Corruption, and Hallow
+	Added natural tall flowers
+	Added flower patches, ore veins and a few other surface microbiomes
+	Added a variety of new structure changes to the Dungeon
+	Added a substantial number of new mapscreen backgrounds
+	Added several new glowing moss biome variants
+	Added several new traps to worldgen
+	Added several new moon appearance variations
+	Added some new rare shell variants, as well as the Shell Pile block
+	Added sea grass
+	Added a unique underground layer background when in the Ocean
+	Added new mushroom biome plants
+	Added Seaweed, which can grow at the bottom of the Ocean
+	Updated the Ocean biome with some new variations
+	Added Underground Gem Trees
+	Added a Hardmode Desert Chest and Biome Key
+	Added Yellow Willow and Sakura Trees
+	Added a variety of fruit that can be found from hitting trees
+
+E. Music:
+	Added an entirely new title theme, Journey's End
+	Added the Windy Day theme
+	Added the Space Day theme
+	Added the Ocean Night theme
+	Added the Town Day and Night themes
+	Added the Storm theme
+	Added the Slime Rain theme
+	Added the Graveyard theme
+	Added the Underground Jungle theme
+	Added the Surface Night Jungle theme
+	Added the Duke Fishron boss theme
+	Added the Morning Rain theme
+	Added the Console Title theme
+	Added the Underground Desert theme
+	Added themes for the new bosses
+	Added music boxes for all of the newly introduced tracks
+	Long overdue, the winning track of Terraria’s music contest by Xenon and DJ Sniper has been implemented as a music box!
+
+F. Enemies and Critters:
+	Added two new bosses
+	Added several Blood Moon fishing enemies
+	Added a few Windy Day enemies
+	Add a few other enemies to several different biomes, such as Mushroom and Underground
+	Added Gnomes
+	Added wild friendly Fairies, as well as fairy logs
+	Naturally, we also added Bottled Fairies
+	Added over a dozen new critters
+	Added several Underworld critters
+	Added Gold Goldfish and several other Gold Critters
+
+G. NPCs and Pylons:
+	Added the Golfer NPC
+	Added the Zoologist NPC
+	Added an NPC Happiness system based on where and who they live with
+	Added Town Pylons, a method of rapid transport between established towns
+	Added Cat, Dog, and Bunny Town Pet NPCs
+
+H. Fishing:
+	Added Blood Moon fishing, a dangerous pastime filled with new enemies and new rewards
+	Added Oasis fishing and a number of new items from it, such as a fishing rod
+	Added two new Oasis Quest Fish
+	Added new methods of Lava Fishing and significantly expanded the Lava Fishing loot pool
+	Added Chum Buckets for fishing
+	Added Ice, Oasis, Lava, and Ocean Fishing Crates
+
+I. Equipment and Items:
+	Added a new ultimate sword, a celebration of your journey, from beginning to end
+	Added the Celebration Mk2 to Moon Lord’s loot pool, an improved replacement version of Celebration, which has been given a different source
+	Added the Super Star Shooter, a hardmode Star Cannon
+	Added an entirely new class of Summoner weapons, Whips
+	Added the Hallowed Summoner Helmet
+	Added over a dozen new accessory tinkers
+	Added special crafting recipes which can only be made in the presence of the Ecto Mist of Graveyards
+	Several NPCs will now sell special wares when they are in a graveyard
+	(Re)-added the Zapinator, and now comes in two color variants
+	Added a couple music instruments with basic musical functionality, and added some control over the pitch of The Axe’s sound
+	Added several “Amber” items to match other Gem crafting recipes
+	Added Finch Staff and several other new summon weapons
+	Added the Stepping Stool accessory
+	Added several new Rocket variants
+	Added Fledgling Wings
+	(Re)-added the Lunar Drills, which are now rebalanced to offer pros and cons compared to the Lunar Pickaxes
+	Added Dirt Bombs and Sticky Dirt Bombs
+	Added Tungsten Bullet, so Tungsten worlds can craft their ammo too
+	Added Sergeant United Shield
+	Added Jousting Lances
+	Added several other new swords
+	Added a variety of kites
+	Added over 50 new food and drink items to the game
+	Added paper airplanes
+	Added 9 new items to Underground Desert loot
+	Added Footballs
+	And many more weapons, accessories, and other useful tools!
+	
+	I1. Golf Related Equipment:
+		Added several types of Golf Clubs for different purposes, coming in several different visual varieties
+		Added Golf Balls in different colors
+		Added Golf Tee and Golf Cup
+		Added Golf Whistle
+		Added Country Club Vanity outfit
+		Added Golf Chest
+		Added Golf Cart Mount
+		Added Golf Trophies
+		Added several Golf Paintings
+		Added a Lawnmower and the ability to mow grass to prevent tall grass from growing back (for better golfing, of course)
+		Added Arrow Signs, that can have the arrow pointed in different directions
+
+J. Furniture and Blocks:
+	Added Void Vault and Void Bag
+	Added some wind impacted furniture
+	Added several new bricks/walls to go with ores or blocks that did not have them
+	Added 8 new full furniture sets and matching blocks
+	Added a collection of placeable walls we collectively refer to as “Ecto Walls”, specifically, craftable variants of over 50 previously worldgen only walls
+	Added a method of crafting placeable versions of Gem-studded Stone Blocks and walls normally found in worldgen
+	Moss can now be harvested as an item with a paint scraper
+	Moss now spreads to, and can be planted on Gray Brick to make Mossy Brick!
+	Added a substantial number of new banners, including new enemies and some old ones who never had banners
+	Added several decorative columns and beams
+	Added Graveyard Paintings and several other Graveyard based furniture and block items items
+	Added new Statues
+	Added a questionably large number of toilets
+	Added several new lava themed decorative items
+	Added several new biome themed torches: Desert, Coral, Corrupt, Crimson, Hallowed and Jungle
+	New biome torches can now drop from pots in their respective biomes
+	Added matching campfires to go with all of these new torches
+	Added two new water changing fountains
+	Added two new Monoliths
+	Added potted indoor trees
+	Added a few new wiring related items
+	Added the Truffle Worm Cage and cages for most of the new critters
+	Added the final paint color
+
+K. Vanity Outfits, Pets, and Mounts:
+	Added over a dozen new vanity outfits
+	Added several new hair and hat based vanity items
+	Added several animal ear and tail vanity items
+	Added several new vanity accessories
+	Added three new dyes
+	Added two dozen new hairstyles
+	Added the last of the dev sets
+	Added more than ten new pets
+	Added more than ten new mounts
+	Added Minecarp, Digging Molecart and many other vanity Minecart variants
+
+II. Journey's End: Changes and Revisions to Pre-Existing Content:
+	
+A. UI, Menus, Options, and Quality of Life:
+	The game will now initially launch by default in borderless windowed mode, and attempt to auto-detect your proper resolution
+	Characters on the player select screen will now animate when selected
+	Launching the game should now automatically generate a ResourcePacks folder in your save folder for texture packs
+	The main menu shows a new background every time a “day” passes
+	The world creation menu can generate random world names for you
+	Improved the visibility of the Cloud On/Off buttons on the Player and World menus to improve clarity
+	There is now improved UI feedback when attempting to delete favorited characters, explaining why
+	The player/world menu scroll bar is removed if there are not enough saves to need scrolling
+	There is now a button to instantly apply resolution changes from the menu settings
+	The Death screen now has a timer until you respawn, and you can also quit out of the game while dead. Your timer will continue to tick down while on the main menu, and if you rejoin while it is still active, you will still be dead
+	You can now change the eye and skin color of your character at a Dresser
+	Added a setting option that allows you to toggle whether Hovering Wings work by holding down, or by pressing down once. Particularly impactful on Gamepad
+	If various things happen while the game is minimized on your task bar, it will now flash. This includes things like taking damage, spawning, or worldgen finishing
+	There are now icons on your map showing your world spawn and your current bed spawn point
+	Player, NPC, and Boss Icons, as well as several other icons, now have a white outline on the map to increase visibility
+	Added the ability to double click on the map to make a ping for other players to see
+	Teammate names now display on the screen in an easier to read way
+	Holding backspace in chat deletes text faster
+	You can now chat/talk in single player, for using emotes or seeing past world messages
+	You can now copy/paste sign text and it will include line breaks
+	Quick Stack will now prioritize Piggy Banks, Safes, Defender’s Forge, Void Vault, and the portable Money Trough and Void Bag
+	The viable range when Quick Stacking to nearby chests has increased by 25%
+	You can no longer place favorited Money Troughs inside of themselves
+	Added a blue box under item mouseover text in the inventory to increase text readability. This feature has an option to turn it off if preferred.
+	Currently selected recipe now has a gold highlight
+	The currently active hotbar slot is now brighter when the inventory is open
+	Paint, Actuators, and Ale can now be placed in Ammo Slots
+	Sorting your inventory will now attempt to put ammo in any free Ammo slots
+	Sorting your inventory will attempt to sort your coin slots in order
+	Music Boxes now make an audio indication that they have recorded
+	You can now place Music Boxes in your vanity slot to listen to them
+	Buff durations timer display now rounds up instead of down
+	Expanded and improved the Biome visual settings in the Camera mode
+	Added an option that allows decreasing the size of the minimap
+	There is now an option setting to activate/deactivate the Tile Grid overlay on both Gamepad and Keyboard/Mouse
+	UI Scale can now be set as low as 50%, with a maximum of 200%
+	The default cursor now has a white outline, but you can still change this in the options
+	Achievements now make a sound when unlocked
+	If someone attempts to quit out of the game mid-save, the game will still attempt to finish saving, which should prevent a lot of save corruptions
+	Multiplayer dedicated servers now save every 10 minutes, rather than every morning
+	The dedicated server should now prevent your PC from going to sleep when inactive, which would stop the server
+	
+	A1. Gamepad Related Changes:
+		Changed how Gamepad LT and RT buttons navigate through the inventory menus. They will make a complete loop if you continue pressing the same button, while previously LT and RT could each only send you to different parts of the UI
+		There is now a Gamepad option in the Keybinding settings to change the speed of moving the cursor through the inventory, called “Interface Movement Delay”
+		Added improved Gamepad button options for removing housing status for NPCs
+		Added an option in the config file to completely disable Gamepad support (for people who have their own custom Gamepad setup that can’t work with ours)
+		When utilizing the Gamepad “Use from inventory” feature, it will use consumable items like potions or magic mirrors immediately
+		Attempting to craft another item while holding the previous crafted item on Gamepad will place the first item in your inventory to free up space
+		Quick Craft on Gamepad no longer crafts items as fast, to prevent it from flooding your inventory and multi-crafting items by accident
+		When using Gamepad, only NPCs near the player will show their names, instead of all of them on screen
+
+B. Worldgen and Biomes:
+	Heavily optimized worldgen speed
+	A wide variety of natural background walls from different biomes can now be interchangeably Clentaminated. Several Jungle backgrounds can be converted, but cannot be cleansed back to Jungle, only to stone. Previously, they were completely immune to the Clentaminator.
+	Dramatically changed the layout and frequency of deserts in worldgen, they should be larger but less common, with more natural dunes
+	The Ice Biome should now generate further away from spawn, and in a more narrow shape
+	Natural underground minecart tracks can now be much longer and come in more interesting configurations
+	Underground Mushroom worldgen is now much larger and redesigned
+	Updated mushroom tree tops and some underground mushroom backwalls
+	Improved how Marble Biome walls generate, no longer quite as “square”
+	Icicles in infected biomes now take on the color of that biome, rather than being blue
+	Rain now takes on the water color of the biome it is falling in
+	Increased chest limit from 1000 to 8000
+	In response to the increasingly complex world gen making Underground Cabins more broken down and full of furniture, the odds of cabin paintings spawning has been increased until they are more reasonably found
+	Grass growing in front of Grassy/Flowery Walls will grow flowers too, unlike in front of other backgrounds
+	Sunflowers now block the spread of Hallow
+	Critter statues now generate during worldgen
+	Wood Chests now have a chance to contain a stack of wood
+	Added a system that would fill in very small holes in naturally generated walls on worldgen to make a more polished backwall appearance
+	Sandstorms are now significantly less common, particularly in the early game
+	Reduced the intensity of Mighty Wind, it will now push you less
+	Rain is slightly less common
+
+C. Art Improvements and Visual Effects:
+	The following things have been resprited/polished:
+	[indent]Hallowed Armor has been completely reworked visually, and now has an Ancient Hallowed Armor variant to use the old style
+	The Skyware furniture set
+	All of the cloud background art, including the addition of some familiar looking clouds . . .
+	Golem, Queen Bee, and Everscream
+	Eye Patch, Goggles, 0x33's Aviators and Glasses item icons, so that they are easier to see in the inventory
+	Harpy, Mummy, and Wolf enemies
+	The Goblin Invasion enemies
+	Dungeon Skeletons
+	The Truffle NPC
+	Many previously color-swapped Biome-wood-variant furniture items have been made more unique
+	Dozens of background rubble piles from different biomes
+	The sprites for many tree tops
+	The Lunar Invasion planets visible in the sky
+	The Hardmode Dungeon Chests[/indent]
+	On a more subtle note, due to a revision of how player armor animations work, all of the chest armor and vanity outfits in the game have been touched up, with changes ranging from a few pixels to complete revisions to some, such as the Cowboy and Pixie outfits
+	Made it so that Jack ‘O Lantern (the tile) and explosive Jack ‘O Lanterns no longer use the same sprite
+	Several dozen wall item icons were adjusted so that the vast majority of wall items are now consistently sized
+	Food, Drinks, and Potions are now held in the players hand and have improved eating/drinking animations
+	A number of hats which previously did not show hair now show hair!
+	Boss Bags now look much more sparkly and visible, to help people find them after a fight
+	Fallen Stars have been given a visual overhaul, both during their falling animation, and their item art
+	Improved how Eater of Worlds and Destroyer visually spawn into the world
+	Nebula’s shader is now slightly less pink, and the enemies in it have a pulsing effect to make them stand out more visually
+	All of the Jump in a Bottles that did not previously have visible vanity options now can be visibly seen on the player
+	Lunar Armor sets no longer lose some of their visual brightness when only wearing one piece. Individual pieces will still have the same brightness as if you wore the full set.
+	Elf Copter, Santa-NK1, and Everscream’s projectiles were given increased light and visibility
+	Queen Bee’s stinger projectile was given a larger sprite and is easier to see
+	Ambient night lighting may vary depending on the moon phase
+	There are now many more stars in the night sky
+	Redesigned the targeting icon for summoner lock-on
+
+D. Gameplay:
+	Reaching the end of the Pumpkin and Frost Moon will unlock one in-game day of Halloween and Christmas season, respectively
+	The start date for Halloween events in game is now October 10th
+	Gravestones will now show the date of death
+	NPCs that die in Hardcore mode will drop Gravestones
+	Desert Fossil can now be mined at any pickaxe power or with bombs. However, it is fragile and adjacent fossil blocks may break when you mine it, costing you some of the ore.
+	Desert Fossil based gear is now weaker because it is available sooner.
+	Increased the max stack size of a ton of items
+	You can now “Return” bought items for the full purchase price as long as you have not closed the shop window
+	Hitting trees with an axe may now drop things sometimes
+	Did an extensive review of sell values across the entire game, increasing the consistency of sell values. This particularly includes things like items that had no sell value but should have, consistent sell value of items dropped from the same source, and much more.
+	Expert enemies who steal your money will now be saved in that area and respawn if you come back. You can see their locations and how much money they have on the map.
+	Titan Glove and its tinkers now give autoswing to all Melee Weapons (and Whips!)
+	Celestial Pillar fragment drops now scale with player count in Expert
+	Wood, Iron, and Gold Crates drop better quality ore depending on which level of crate it is. Wood Crates, for instance, only drop Copper/Tin/Iron/Lead.
+	All fishing crates now come in pre-Wall of Flesh and post-Wall of Flesh variants. Pre-Wall of Flesh variants do not contain Hardmode Ores.
+	Gold Crates now have a chance to drop Life Crystals and Enchanted Swords
+	Dungeon Crates may now include Books
+	Flower Boots are now included in the Jungle Crate's loot pool
+	Penguin and Turtle Pets can now be obtained rarely from their respective Biome crates
+	You can now fish up Alchemy Tables in the Dungeon
+	The Angler now has dialogue that will tell you how many quests you have completed for him
+	Angler’s Quest rewards are now more likely to give you the Info Accessories. Additionally, he will not give you duplicates of an accessory you have in your inventory, unless you already have them all.
+	Coral Blocks have been entirely resprited, and are no longer given as rewards from the Angler. Instead, they can be crafted.
+	Pirate Map and Snow Globe items can now stack to 20
+	Massively overhauled the Guide’s help dialogue, adding hints and tips for content all the way up to the Lunar Invasion, addressing all new NPCs since 1.1, replacing outdated information, and bringing some previously bugged lines back into circulation
+	The game will now detect if you’ve been stationary/AFK for a while and avoid spawning worms on you
+	Cacti must now be cut down before you can break the sand beneath them, like trees
+	Most non-Dungeon/Invasion enemies should no longer be able to open doors except during Blood Moons or Eclipses
+	Doors will now automatically open for you when approached. This option can toggled in the Settings
+	Doors will now attempt to open the other way if forward is blocked by something
+	Doors that have icicles grow in front of them will now break the icicles when you open them. Also applies to other ground based rubble.
+	Geyser traps are now set off just by stepping on them
+	Vile and Vicious Powder can now be used to spread their respective biome before Hardmode
+	Meteorite, Crimtane, and Demonite now have higher Metal Detector priority than Gold/Platinum
+	Pumpkin Moon now has more careful limits on how many total bosses can spawn to reduce serious server performance issues
+	Moon Lord now drops Super Healing Potions instead of Greater Healing Potions
+	It is now easier to grapple elsewhere when already grappled to a platform or minecart track
+	Players who are stealthed or invisible no longer have mouseover text or health bars.
+	A few of the more common Pumpkin and Frost Moon enemies now require more kills per banner drop
+	If a player is falling far enough that they will take fall damage, but an enemy hits them and knocks them back, it will reset their fall damage
+	Parties can no longer happen if the Party Girl is not present. Try talking to her next time a natural party starts!
+	Butterflies and Fireflies no longer spawn in the rain or when it is very windy
+	Players can now spawn several blocks above or below their spawn point if the location is covered by blocks, rather than destroying those blocks, to increase flexibility of building at spawn.
+	Infected Ice and Hardened Sand Blocks can now be used to craft some biome torches
+	Acorns now autoswing
+	Using Smart Cursor to plant Pumpkin Seeds will only replace fully grown Pumpkins now
+	The Temple Raider achievement should now be unlocked upon opening the locked temple door, not breaking Lihzahrd Bricks
+	Enemies that reflect attacks (Large Mimics, Solar Selenians) now make a distinctive sound when it happens
+	Reduced the volume on Vortex Beater, Sniper Rifle and Solar Eruption
+	Removed the hissing sound effect from Vortex Beater, Last Prism and Charged Blaster Cannon
+
+E. NPCs, Critters, and Enemies:
+	Antlion Swarmers and Chargers can now be found in small and large variants, with appropriate differences in strength
+	Jellyfish and Granite Golems spawned from statues now drop their items even less frequently, and reduced the sell value of some of those drops
+	Granite Elementals can no longer fly through walls
+	Reduced the volume on Granite Golem’s death sound
+	Crimslimes now inflict Blindness and drop Blindfolds
+	The Giant Cursed Skull now inflicts Curse and drops the Nazar
+	Beehive Bees in the Jungle will now target enemies as well as the player
+	Maneater type enemies can no longer be killed by mining the block they are attached to
+	Clowns are now much more dangerous and throw Chattering Teeth Bombs
+	Many enemies which previously stopped spawning after defeating the Wall of Flesh can now be found at reduced rates even in Hardmode
+	Several "minion" enemies that have no banners are now subject to the banner effects that affect their creator (such as Baby Mothron and the Mothron Banner)
+	Enemies have an increased chance to drop bonus amounts of money when killed
+	Enemies drop extra money during Blood Moons
+	Eater of Worlds now has more segments, even more so in Expert Mode
+	King Slime is now somewhat harder to abuse with ropes
+	Plantera's Tentacles now have health scaling in Expert Multiplayer
+	Brain of Cthulhu's Creepers now have health scaling in Expert Multiplayer
+	Expert Brain of Cthulhu and his Creepers now have increased knockback resistance per player present on a server, ultimately becoming immune to knockback.
+	Expert Skeletron Prime now moves faster when spinning.
+	Old One’s Army now has some Expert scaling in multiplayer
+	Martian Saucers in normal mode no longer have a phase two, and die as soon as their turrets are destroyed
+	There are now less Martian Saucers per invasion, and they are less likely to chain spawn
+	Martian Saucers can now shoot their death beam through blocks. However, they are slower and their beams easier to avoid.
+	Several Martian Invasion drops are now dropped from regular Martians, decreasing the random nature of the Martian Saucer’s drop pool
+	Golem attacks more aggressively the more players are present in Expert, and also slightly harder to cheese
+	Golem will now enrage when out of the jungle or on the surface
+	Moon Lord’s Phantasmal Death Ray will now penetrate blocks that are between it and the player
+	Frogs can now swim
+	Explosive Bunnies can now be released as critters and can explode
+	Enchanted Nightcrawlers can now spawn naturally during meteor showers
+	Gold Critters are now more rare
+
+F. Equipment, Armor, and Weapons:
+	The Ruler’s utility effect is now always available for players to turn on or off. The Ruler item can now be used as a weapon instead, and is still used in crafting recipes.
+	The Breathing Reed and Umbrella can now be used as weapons, and can still be used for their original purposes as well
+	The Throwing subclass has been combined with the Ranged class. Previously Thrown weapons now do Ranged damage
+	Shortswords can now be used in all directions, not just forward
+	Titanium Armor now has a new set bonus, and Shadow Dodge has been repurposed as Holy Protection, the new Set Bonus for Hallowed Armor
+	Medusa Head and Charged Blaster Cannon have been heavily redesigned and should be more effective in combat
+	Some other weapons have had some moderate redesigns to improve their effectiveness, including but not limited to: Magic Missile, Flamelash, Rainbow Rod, Poison and Venom Staff, Staff of -Earth, and Heat Ray
+	A host of other weapon, armor, tool and accessory adjustments, some small, some minor. For more, please check out the Balance Changes section
+	Vanity Accessory slots now can only hold accessories with a visual vanity effect
+	Gravity Globe can now be toggled in mid-air
+	Tiki Armor, Pygmy Necklace, and the Hercules Beetle can now be purchased without carrying Pygmy Staff as long as you have defeated Plantera
+	Blessed Apple now only drops from Unicorns, but at a higher drop rate than before
+	Cenx's Tiara now drops with both of her dev set bundle
+	0x33's Aviators are now dropped from Master-mode Eye of Cthulhu
+	Arkhalis is now dropped in the Arkhalis dev set bundle
+
+G. Blocks and Furniture:
+	Upgraded Mannequins, they now have an interactable inventory which allows visible accessories such as wings, as well as dye support. They can also be painted, and are no longer destroyed unless their inventory is empty
+	Weapon Racks are now paintable. You can also place Fish on Weapon Racks for display purposes.
+	Players can now sit in chairs, sofas, thrones, benches, and they can lay down in beds to sleep. Sleeping in beds will speed up time. If in multiplayer, time will only speed up if all players are sleeping.
+	Goblin, Eyeball, Hornet, Imp, and Corrupt Statues now spawn enemies when wired
+	You can now craft Ice Chests, and its name and the Frozen Chest’s name were swapped to match furniture consistency
+	Living Wood, Skyware, and Lihzahrd Chests are now craftable
+	Temple traps now require higher pickaxe power to mine to prevent obtaining them too early
+	Changed the light colors of the light sources in following sets so that each set uses consistent lighting: Marble, Pearlwood, Mahogany, Spooky, Steampunk, Palm Wood, Ebonwood, Shadewood, Glass, Living Wood, and Frozen. Ebonwood's Candelabra was resprited to visually match this updated color.
+	Bewitching Station now generates light, because it had candles all this time
+	Water and Peace Candles can now be wired to turn on or off, which will toggle their buff as well
+	Shells and Starfish will now generate over time on beaches
+	Cloud Blocks now prevent fall damage
+	Campfires also no longer give their buff when turned off
+	Placing Minecart tracks with Smart Cursor should create smarter and cleaner tracks than before
+	The Stone Slab had the wrong blending, preventing it from being used nicely with most other blocks, and this has been fixed. However, we listened to your concerns, and have added an Accent Stone Slab block, which will function the same as the old Stone Slab did
+	Dynasty Wood blends better with other tiles now
+	Special glass blocks like Waterfall, Confetti, etc now have better merging with other tiles
+	Infected Hardened Sands are now craftable into glass like regular Hardened Sand
+	Statues can now face both directions
+	Bone Blocks are now mined back up as Bones, which can be crafted into other things, or replaced as Bone Blocks as needed with a Bone Wand
+	Staff of Regrowth no longer places moss on stone, as moss is now accessed through other means
+	Ammo Box now has a shotgun cocking sound effect when used
+
+
+
+III. Journey's End: Balance Changes:
+A. Bosses:
+	Moon Lord
+	Moon Lord’s attack pattern has been slightly tweaked to be more consistent, as the different eyes would become desynced over time, resulting in a more random fight (which was not intended). In addition, the amount of time that his forehead eye spends open is slightly increased
+	Moon Lord’s Phantasmal Death Ray will now penetrate blocks that are between it and the player
+	Enemies should no longer spawn during Moon Lord’s fight, unless they spawn outside of his radius in multiplayer
+	Moon Lord will now drop his loot even if you die during his death animation
+
+	Golem
+	Golem attacks more aggressively the more players are present in Expert, and also slightly harder to cheese
+	Golem will now enrage when out of the jungle or on the surface
+
+	Plantera
+	Plantera's Tentacle Chompers now have health scaling in Expert Multiplayer
+
+	Skeletron Prime
+	Expert Skeletron Prime now moves faster when spinning.
+
+	Brain of Cthulhu
+	Expert Brain of Cthulhu and his Creepers now have increased knockback resistance per player present on a server, ultimately becoming immune to knockback
+	Brain of Cthulhu's Creepers now have health scaling in Expert Multiplayer
+
+	Eater of Worlds
+	Eater of Worlds now has more segments, even more so in Expert Mode
+
+	King Slime
+	King Slime is now somewhat harder to abuse with ropes
+
+	Martian Saucer
+	Martian Saucers in difficulties below Expert no longer have a phase two, and die as soon as their turrets are destroyed
+	There are now less Martian Saucers per invasion, and they are less likely to chain spawn
+	Martian Saucers can now shoot their death beam through blocks. However, they are slower and their beams easier to avoid.
+
+B. Enemies:
+	Crimslimes
+	Now inflict the Blindness debuff and drop Blindfolds
+
+	Crimson Axe
+	Now inflicts the Cursed debuff
+
+	Giant Cursed Skull
+	Now inflicts the Cursed debuff on contact and via projectile, and drops Nazars
+
+	Tomb Crawler
+	Head Damage decreased from 16 to 14
+	Body and Tail Damage decreased from 10 to 7
+	Life decreased from 50 to 40
+	Reduced size
+	Only 1 Tomb Crawler should spawn at a time under normal circumstances
+
+	Sand Slime
+	Damage increased from 10 to 15
+	Life increased from 40 to 50
+	Knockback multiplier decreased from 0.8 to 0.7
+	Now only spawns as uncommon enemies in the Underground Desert
+
+	Flying Fish
+	Money drop value increased from 90 Copper to 3 Silver
+	Flying Fish are now slightly less common on Rainy Days
+
+	Clown
+	Damage increased from 50 to 60
+	Defense increased from 20 to 25
+	Life increased from 400 to 800
+	Knockback multiplier decreased from 0.4 to 0.2
+	They now attack much faster
+	Happy Bombs now explode when near the player
+	They now throw Chattering Teeth Bombs as well
+
+	Etherian Lightning Bug
+	Projectile Damage increased from 20 to 100 (Note: This was actually an accidental placeholder number. It did 1 damage to the Etherian Crystal, and was likely to do the same to most players)
+
+	Hoplite
+	Decreased Javelin Damage from 48 to 36
+
+	Angry Tumbler
+	Defense decreased from 10 to 6
+	Javelin Damage decreased from 48 to 36
+	Max speed decreased from 4 to 3
+	Money drop value decreased from 1.3 Silver to 1 Silver
+
+	Bone Throwing Skeletons (Expert Only)
+	Projectile Damage decreased from 80 to 60
+
+	Other
+	Purple, Red, Yellow, and Black Slimes now drop 1-3 extra gel each
+	Man Eater type enemies can no longer be killed by mining the block they are attached to
+	Umbrella Slime money drop value increased from 25 Copper to 1 Silver
+	Granite Elementals can no longer fly through walls
+	Beehive Bees in the Jungle will now target enemies as well as the player (not including the Queen Bee)
+
+C. Armor:
+	Ninja Set
+	Instead of throwing bonuses, each piece now gives a global 3% critical chance
+	New Set bonus: 20% movement speed
+
+	Gladiator Set
+	Helmet, Breastplate, and Leggings Defense increased by 1 each
+
+	Fossil Set
+	Fossil Helmet Defense decreased from 3 to 2
+	Fossil Plate Defense decreased from 6 to 4
+	Fossil Greaves Defense decreased from 4 to 2
+	Each piece of the set now gives 3% Ranged critical chance
+	New Set bonus: 20% chance not to consume ammo
+	Now available earlier due to the change to Desert Fossil mining
+
+	Green Cap
+	Defense increased from 0 to 2
+
+	Night Vision Helmet
+	Defense increased from 2 to 4
+
+	Cactus Set
+	Cactus Breastplate Defense decreased from 2 to 1
+
+	Forbidden Set
+	As a whole set, Forbidden is unchanged. However, the benefits of Forbidden Robes and Treads have been split evenly, with each now giving 40 mana and +1 Minion count
+
+	Titanium Set
+	New Set Bonus: Titanium Barrier
+	As you attack enemies, titanium shards accumulate and spin around you
+	These shards deal damage to enemies at close range, and inflict knockback.
+	Use them defensively to keep enemies away, or for the bold, aggressively to inflict extra damage.
+
+	Hallowed Set
+	New Set Bonus: Holy Protection
+	Familiar to most users as Shadow Dodge, Hallowed has had its previously stat-based set bonus replaced with a periodic immunity to damage.
+	Upon attacking an enemy, you will gain a buff. If an enemy hits you during this buff, you will gain a very brief immunity to damage.
+	After this period of immunity, at least 30 seconds must pass before you can re-activate the immunity buff.
+
+	Squire Set
+	Squire Great Helm and Greaves Defense each increased by 1
+	Squire Great Helm's healing decreased by 50%
+
+	Chlorophyte Set (Melee)
+	Chlorophyte Mask Defense decreased from 25 to 20
+	Chlorophyte set bonus now gives an additional 5% Damage Reduction if you are wearing the Chlorophyte Mask
+
+	Turtle Armor
+	Set bonus now gives 15% Damage Reduction
+	Set bonus Thorns damage now does twice as much
+
+	Spectre Armor (Mask)
+	Set bonus projectiles now deal 100% of the original damage instead of 50%
+	The "recovery rate" that determines how many new projectiles can be generated over time has increased from 150 to 250
+
+	Spooky Set
+	Overall Defense increased from 27 to 30, with each piece gaining 1 Defense
+	Spooky Breastplate now gives +2 Minion count instead of +1
+	Spooky Leggings now give 20% movement speed
+
+	Valhalla Set
+	Total Defense of the set is increased by 4, but has been redistributed
+	Valhalla Helmet Defense increased from 14 to 20
+	Valhalla Breastplate Defense decreased from 30 to 24
+	Valhalla Greaves Defense increased from 20 to 24
+	Valhalla Breastplate's healing decreased by 50%
+
+	Nebula Armor
+	Healing Booster effect now gives 3 HP/s instead of 5, with a maximum of 9 HP/s possible now
+
+	Solar Armor
+	Solar Helmet critical chance bonus increased from 17% to 26%
+	Solar Breastplate melee damage bonus increased from 22% to 29%
+	Each piece of the set now gives 1 HP/s regen
+	Instead of 30% damage reduction whenever you have charges, you now have 12% damage reduction at all times, and 20% additional damage reduction while charges are active. In practice, this is roughly equivalent to the same 30% it used to give due to how the two values are multiplied.
+	Recharge time between shield charges reduced by 1 second
+
+	Stardust Armor
+	Stardust Guardian now has a more much vigorous and aggressive attack, and he will attack automatically without prompting. All resemblance to a certain anime is purely coincidental.
+
+D. Melee Weapons:
+	Shortswords
+	Shortswords can now be used in all directions, not just forward
+	Gold Shortsword damage increased from 11 to 12
+
+	Flails
+	Flails now have entirely new behavior, and a few different functionality modes.
+	If you click and hold the mouse button, they will swing around rapidly, doing low knock back and hitting rapidly in a small circle around you.
+	If you click and use them normally, you will shoot them forward similar to how they use to be used, but they will move much faster than they did before. The damage dealt is double in this mode.
+	Finally, if you click while it is in midair after having shot it forward, it will drop suddenly and lay on the ground. This can be used as a stationary damaging obstacle like a Spiky Ball on enemies walking towards you.
+	Some flails have had some stat tweaks to fit with this new setup, such as having slightly longer or shorter range, but generally speaking, all of them should perform better than before.
+
+	Cactus Sword
+	Damage decreased from 9 to 8
+	Use Time increased from 25 to 32
+	Knockback decreased from 5 to 4.5
+
+	Trident
+	Damage increased from 11 to 14
+	Knockback increased from 5 to 6
+	When held, gives unrestricted movement in water
+
+	Chain Knife
+	Damage increased from 11 to 12
+
+	Enchanted Sword
+	Damage decreased from 24 to 23
+	Use Time increased from 18 to 21
+	Knockback decreased from 5.25 to 4.25
+
+	Falcon Blade
+	Damage decreased from 30 to 25
+	Use Time increased from 15 to 20
+
+	Light's Bane
+	Size Scale increased from 1.1 to 1.4 (Makes it bigger)
+
+	Amazon
+	Damage decreased from 20 to 18
+	Crafting: Stingers Required increased from 2 to 12
+	Crafting: Jungle Spores Required increased from 3 to 9
+
+	Beekeeper
+	Damage decreased from 26 to 24
+	Use Time increased from 20 to 22
+	Knockback decreased from 5.3 to 5
+	Is no longer autoswing
+
+	Muramasa
+	Damage increased from 19 to 21
+
+	Fiery Greatsword
+	Use Time decreased from 34 to 30
+
+	Breaker Blade
+	Damage increased from 39 to 43
+	Use Time decreased from 30 to 29
+	Gained a special mechanic where it will deal 2x damage to enemies with over 90% health
+
+	Cobalt Sword
+	Unchanged, but listing here intentionally to ensure there was no oversight. Cobalt Sword's damage was previously much higher than it should have been, but we are using it as the new baseline which the rest of the swords are being compared to.
+
+	Palladium Sword
+	Damage increased from 41 to 45
+
+	Mythril Sword
+	Damage increased from 44 to 49
+
+	Orichalcum Sword
+	Damage increased from 47 to 50
+	Use Time decreased from 26 to 25
+
+	Adamantite Sword
+	Damage increased from 50 to 56
+	Use Time decreased from 27 to 26
+
+	Titanium Sword
+	Damage increased from 52 to 58
+	Use Time decreased from 26 to 25
+
+	Phasesabers (All)
+	Damage increased from 41 to 42
+	Use Time decreased from 25 to 20
+
+	Beam Sword
+	Use Time increased from 15 to 20 (Does not impact Projectile cooldown)
+
+	Fetid Baghnakhs
+	Damage decreased from 70 to 60
+	Use Time increased from 7 to 8
+	Only gains 25% benefit from increased melee speed stats
+
+	Anchor
+	Damage increased from 30 to 55
+	Use Time decreased from 30 to 20
+
+	Format C
+	Damage increased from 29 to 35
+
+	Gradient
+	Damage increased from 34 to 44
+
+	Chik
+	Damage decreased from 39 to 38
+
+	Amarok
+	Damage increased from 43 to 47
+
+	HelFire
+	Damage increased from 41 to 45
+
+	Excalibur
+	Damage increased from 57 to 66
+	Use Time decreased from 25 to 20
+
+	Brand of the Inferno
+	Damage increased from 44 to 85
+
+	Sleepy Octopod
+	Smash attack now does 3x damage, up from 2x
+
+	Code 2
+	Damage increased from 47 to 54
+
+	Chlorophyte Claymore
+	Damage increased from 75 to 80
+
+	True Night's Edge
+	Damage increased from 90 to 105
+
+	Psycho Knife
+	Note: Functionality overhaul renders this weapon akin to an upgraded Fetid Baghnakhs. It maintains its Stealth bonus.
+	Damage increased from 70 to 85
+	Use Time decreased from 20 to 8
+	Only gains 33% benefit from increased melee speed stats
+
+	Keybrand
+	Damage increased from 70 to 85
+	Now deals up to 150% more damage based on how injured an enemy is
+
+	Kraken
+	Damage increased from 90 to 95
+	Now has a 10% critical chance
+
+	Scourge of the Corruptor
+	Average projectiles spawned from each shot increased from 2.3 to 2.66
+
+	Golem Fist
+	Damage increased from 76 to 90
+
+	Christmas Tree Sword
+	Projectile has been completely overhauled. Instead of firing one ornament, it fires several ball ornaments and a star ornament that will hover in place for a few seconds before falling to the ground.
+	Is now autoswing
+
+	Daybreak
+	Technically a bug, fixed an issue where Daybreak would not spread its debuff if your attack killed the target in one hit. Now spreads the debuff to nearby enemies even if the attack kills the target in one hit
+
+
+E. Ranged Weapons:
+	Bone Javelin
+	Damage decreased from 29 to 20 due to earlier tier
+
+	Bee's Knees
+	Damage decreased from 26 to 23
+	Use Time increased from 23 to 24
+
+	Handgun
+	Use Time decreased from 12 to 10
+
+	Hellwing Bow
+	Damage increased from 20 to 22
+	Use Time decreased from 14 to 13
+	Knockback increased from 5 to 5.5
+
+	Clockwork Assault Rifle
+	Damage decreased from 19 to 17
+
+	All 6 Ore Repeaters
+	Use Time decreased by 1
+
+	Marrow
+	Damage increased from 40 to 50
+
+	Ice Bow
+	Damage decreased from 46 to 39
+	Use Time decreased from 21 to 16
+	Now auto-fire
+	Note: Despite the damage reduction, this will result in a stronger bow overall, albeit more defense-impacted than bows like Marrow. Change is primarily meant to introduce variation between the bows.
+
+	Daedalus Stormbow
+	Damage decreased from 43 to 38
+	When using Holy, Unholy, Hellfire, or Jester arrows, shoots an average of 2.66 arrows, instead of the normal average of 3.33 arrows
+
+	Dart Pistol
+	Damage increased from 28 to 33
+
+	Dart Rifle
+	Damage increased from 52 to 62
+
+	Toxikarp
+	Use Time decreased from 14 to 10
+
+	Hallowed Repeater
+	Damage increased from 43 to 53
+	Use Time decreased from 19 to 16
+
+	Flamethrower
+	Damage increased from 27 to 35
+	Applies a 15% damage penalty to the next hit for each enemy a projectile pierces
+
+	Phantom Phoenix
+	Damage increased from 24x2 to 32x2
+	Use Time decreased from 20 to 18
+	Phoenix projectile now fires on every 3rd shot instead of every 4th
+
+	Chlorophyte Shotbow
+	Average arrows per shot decreased from 2.7 to 2.33
+
+	Venus Magnum
+	Damage increased from 38 to 50
+
+	Grenade Launcher
+	Use Time decreased from 30 to 20
+
+	Rocket Launcher
+	Damage decreased from 50 to 45
+	Does 2x damage on direct hits to a single target
+
+	Proximity Mine Launcher
+	Does 3x damage when mines are stationary, normal damage when they are still moving
+	Use Time increased from 40 to 50
+	Reduced the number of active mines that you can have at once
+
+	Piranha Gun
+	Now shoots 3 Piranhas, which can attack the same or different targets
+	The rate at which the Piranhas can bite has been decreased slightly on an individual basis, but the total DPS the three Piranhas can do is now much higher
+
+	Pulse Bow
+	Damage increased from 65 to 85
+	Use Time decreased from 22 to 20
+	Damage reduction for each target hit increased from 10% to 20%
+
+	Stynger
+	Does 2x damage on direct hits to a single target (Only applies to the initial bolt, not the fragments)
+
+	Celebration
+	Damage decreased from 65 to 25 (Note: Rocket damage is very high and is added to this. Even Rocket 1s deal 40, so the actual damage reduction is 105 to 65 even using the worst Rockets)
+	Bonus Critical chance of 10% removed
+	Now sold by the Party Girl after Golem
+
+	Elf Melter
+	Damage increased from 40 to 60
+	Applies a 15% damage penalty to the next hit for each enemy a projectile pierces
+
+	S.D.M.G.
+	Damage increased from 77 to 85
+	Chance to not consume ammo increased from 50% to 66%
+
+
+F. Magic Weapons:
+	Wand of Sparking
+	Increased damage from 8 to 14
+	Use Time decreased from 28 to 26
+	Increased On Fire! chance from 33% to 50%
+	Now has a 10% critical chance
+
+	Magic Missile
+	Projectile is faster and has homing if you release it
+	Has a moderate AoE damage explosion on impact
+	Use Time increased from 17 to 18
+	Mana Cost increased from 10 to 12
+
+	Flamelash
+	Projectile is faster and has homing if you release it
+	Now pierces and can hit a second time. Has a moderate AoE damage explosion after the second hit.
+	Damage decreased from 40 to 36
+	Use Time increased from 20 to 30
+	Mana Cost increased from 12 to 18
+
+	Staff of Frost
+	Use Time decreased from 20 to 16
+	Mana cost decreased from 14 to 12
+
+	Cursed Flames
+	Damage increased from 36 to 50
+	Use Time decreased from 20 to 15
+	Mana cost decreased from 12 to 9
+	Related: See Cursed Inferno buff
+
+	Flower of Frost
+	Damage increased from 55 to 60
+	Use Time decreased from 20 to 12
+	Mana cost decreased from 17 to 11
+	Increased Frostburn chance from 50% to 100%
+
+	Crystal Storm
+	Damage increased from 25 to 32
+	Mana cost increased from 4 to 5
+
+	Poison Staff
+	Note: Previously, due to piercing immunity frames, only one projectile from each shot would hit each target, resulting in a lot of lost damage. We've implemented a system that allows ALL of the projectiles to hit a target, dramatically improving its shotgun-like functionality. However, to offset this gain, it has had to have some of its stats reduced. On the whole, this should now be a stronger weapon, however.
+	Damage decreased from 48 to 43
+	Reduced number of enemies that each projectile can hit from 4 to 3
+	Applies a 25% damage penalty to the next hit for each enemy a projectile pierces
+	Projectiles now have a limited range
+
+	Crystal Vile Shard
+	Damage increased from 19 to 25
+	The duration that the projectiles linger (and deal damage) is increased by roughly 70%
+
+	Clinger Staff
+	Height of the Clinger flames increased by 50%
+	No longer has a hit limit
+	Can now inflict Cursed Inferno debuff (Related: See Cursed Inferno buff)
+	Can now inflict critical hits
+
+	Medusa Head - Complete Overhaul
+	Rather than being charged, this weapon is now channeled and its range substantially reduced.
+	When channeled, it will be held in front of the player. If no enemies are present, it will not fire, and will consume no mana.
+	When enemies are in range, it will constantly attack any nearby enemies, consuming mana for each attack.
+	Can hit up to 3 targets with each attack (does not consume extra mana)
+	Damage is now set to 40
+	Mana cost has been decreased from 18 to 15, however, it can now fire up to 4 times per second, increasing the speed at which it consumes mana
+
+	Sky Fracture
+	Mana cost increased from 14 to 17
+
+	Spirit Flame
+	Use Time decreased from 30 to 22
+	Mana Cost decreased from 18 to 14
+
+	Rainbow Rod
+	Projectile is faster and has homing if you release it
+	Now pierces and hits up to 3 times.
+	Has a moderate AoE radius on impact
+	Damage 74 -> 50
+	Use Time increased from 18 to 25
+	Mana Cost 18 -> 21
+	Can touch tiles without exploding now.
+
+	Unholy Trident
+	Use Time decreased from 22 to 17
+	Mana cost decreased from 25 to 19
+
+	Tome of Infinite Wisdom
+	Damage increased from 24 to 32
+	Use Time decreased from 30 to 25
+
+	Venom Staff
+	Note: Has received the same general overhaul as Poison Staff. Should be much improved in actual use, but needs stat reductions to offset this change. Give it a try before you judge! :)
+	Damage decreased from 63 to 44
+	Reduced number of enemies that each projectile can hit from 7 to 5
+	Applies a 25% damage penalty to the next hit for each enemy a projectile pierces
+	Now has a range before projectiles die, 50% longer than Poison Staff's
+
+	Wasp Gun
+	Note: This may sound like a nerf on paper, but it trades "hit count" for total damage, and will actually result in dramatically more DPS for the Wasp Gun. Less Wasps, more damage.
+	Damage increased from 21 to 31
+	Use Time increased from 11 to 18
+	Wasps can now bounce/pierce only 3 times instead of 4
+	Wasps per Cast: Reduced to an average of 3
+	Mana cost increased from 6 to 10
+
+	Nettle Burst
+	Damage increased from 28 to 35
+	Mana cost increased from 10 to 12
+
+	Spectre Staff
+	Damage decreased from 72 to 65
+	Each projectile can now hit up to 3 times, rather than only once
+	Mana cost increased from 11 to 15
+
+	Staff of Earth
+	Actual damage mostly unchanged, but lists its "max speed" damage now rather than its "low speed" damage
+	Now has a 20% critical chance
+	Mana Cost increased from 15 to 18
+	Use Time decreased from 40 to 24
+	Projectile speed greatly increased, as a result, has better range and much harder to fall below the minimum threshold to maintain maximum damage
+
+	Heat Ray
+	Note: There were too many "full piercing" weapons at this tier, and not enough high single target damage weapons. Heat Ray changed to avoid redundancy with Shadowbeam Staff and Staff of Earth and give the class more versatility. 
+	Damage increased from 55 to 80
+	Use Time decreased from 16 to 10
+	Can no longer pierce and hit multiple enemies
+
+	Bat Scepter
+	Average Bats per cast increased from 2 to 2.5
+	Mana cost increased from 3 to 6
+
+	Charged Blaster Cannon - Complete Overhaul
+	This weapon still charges, but it now fires constantly while charging.
+	For the first second of charging, you will fire 6 single-target pellets, each dealing a base damage of 100 (up from 50)
+	For the next two seconds, you will fire 3 total piercing blasts, each dealing a base damage of 250 (up from 100)
+	After this, it will shoot the laser beam, which is unchanged from the original implementation
+	You can also quick-fire pellets without charging. The fire rate of these pellets is much higher than the previous implementation.
+	The mana cost of charging is unchanged, however, quick firing will naturally consume more mana as the fire rate has increased significantly.
+
+	Nebula Blaze
+	Use Time decreased from 15 to 12
+	Mana cost decreased from 18 to 12
+
+G. Summons:
+	Summoned minions now adjust their damage dynamically based on your current equipment and damage buffs
+
+	"Some (though not all) Summons now use their own damage immunity timer system. In practice, what this means is that they will no longer interfere with the use of other weapons by maxing out the enemy's immunity frames. All affected minions are set on their own damage timer to most correctly match their pre-change DPS, but some changes are to be expected comparing 1.3.5 DPS to 1.4 DPS. In general, even if there is some minor loss or gain of DPS compared to pre-change performance, it should be worth the improvement to overall performance. Examples of minions impacted by this change:
+	- Slime Staff
+	- Spider Staff
+	- Pirate Staff
+	- Optic Staff
+	- Raven Staff
+	- Deadly Sphere Staff
+	- Stardust Dragon Staff
+	- Some of the new summons also utilize this system"
+
+	Imp Staff
+	Damage decreased from 21 to 17
+	Fire Rate increased dramatically
+
+	Raven Staff
+	Damage increased from 37 to 55
+	Flight speed doubled
+
+	Rainbow Crystal Staff
+	Damage decreased from 150 to 80
+	Fixed accuracy issues, improved the speed at which sparkles explode. Should easily do more damage than before.
+
+H. Ammo:
+	Arrows and Thrown ranged weapons no longer have a chance to drop as items for reuse
+
+	Bone Arrows
+	Now pierces one time
+
+	Chlorophyte Arrows
+	No longer pierce targets
+	Projectile speed is increased
+	Can now bounce several times, and will "Smart Bounce" at a nearby target if one is in range
+	Post-bounce arrows only deal 66% damage
+
+	Holy Arrows
+	Falling Stars can no longer pierce and hit a second target
+	Falling Stars now do 50% of the original damage instead of 100%
+
+	Nano Bullets
+	Damage increased from 10 to 15
+	Price of Nanites increased
+
+	Venom Bullets
+	Damage increased from 14 to 15
+	Related: See Venom buff
+	Price of Vial of Venom increased
+
+	Venom Arrows
+	Damage increased from 17 to 19
+	Related: See Venom buff
+	Price of Vial of Venom increased
+
+	Crystal Dart
+	Damage increased from 15 to 17
+
+	Cursed Dart
+	Damage increased from 9 to 10
+	Related: See Cursed Inferno buff
+
+	Ichor Dart
+	Damage increased from 10 to 12
+
+I. Accessories, Hooks, and Mounts:
+	You no longer gain stacked benefits from wearing multiple Celestial Stone variants
+	In addition to its previous Confusion effect, Brain of Confusion now gives a 1/6 chance to avoid enemy attacks. Upon avoiding an attack, you will gain a temporary buff that gives 20% critical chance for a few seconds, during which time you cannot avoid additional attacks.
+	Titan Glove and its tinkers now give autoswing to all Melee Weapons (and Whips!)
+
+	Wing Balance has been heavily balanced across the entirety of the game.
+	With only a few exceptions, wings found at the same tier should be roughly equivalent in power. Exceptions are usually particularly hard or particularly easy to get.
+	Unfortunately, its difficult to share exact stats for wings, partially because there are dozens of them that have been changed, and their stats don't easily translate to easily readable stats.
+	The best short summary is that over a dozen sets of wings were buffed, and that Leaf and Frozen Wings have been reduced in power, as they were too strong for their tier.
+	Other major notes:
+	- Butterfly and Bee Wings can now only drop after the Mech Bosses, but their power has been increased proportionally.
+	- Previously, most wings from Wall of Flesh until Golem were very similar in power, and didn't offer a lot of reason to upgrade. These have now been spread out, creating a more gradual, consistent increase in wing power across the course of the game.
+
+
+	Shrimpy Truffle now gives its increased speed and damage bonus when in the rain.
+	Basilisk Mount now has a double jump
+
+	Bat Hook
+	Pull In Speed decreased from 16 to 13  (This is the speed at which it pulls the player to the hook)
+	Shoot speed decreased from 15.5 to 13.5
+
+	Thorn Hook
+	Pull in speed increased from 11 to 12
+	Shoot speed increased from 15 to 16
+
+	Lunar Hook
+	Pull in Speed increased from 13 to 16
+	Shoot speed increased from 16 to 18
+
+J. Tools and Mining:
+	All axes, hamaxes, chainsaws and other tools with axe-functionality have their wood cutting speed increased by 20%
+	All drills and chainsaws now dig faster than their non-mechanical counterparts, but have shorter range. Additionally, optimized digging loadouts still perform better on pickaxes/axes, but drills and chainsaws will be faster on non-optimized loadouts
+	Desert Fossil can now be mined at any pickaxe power or with bombs. However, it is fragile and adjacent fossil blocks may break when you mine it, costing you some of the ore.
+	Desert Fossil based gear is now weaker because it is available sooner.
+	Hellforges now require Demonite Pickaxe or higher to break. They also now protect the tiles below them from being broken while in the Underworld. This does not apply outside of the Underworld.
+
+	Cactus Pickaxe
+	Use Time decreased from 16 to 15
+	Damage decreased from 5 to 4
+
+	Bone Pickaxe
+	Mining power increased from 50 to 55
+
+	Reaver Shark
+	Mining power decreased from 100 to 59
+
+	Laser Drill
+	Range increased from 10 to 11
+	Use Time decreased from 7 to 6
+	No longer has axe functionality
+
+K. Buffs, Debuffs and Potions:
+	A substantial number of Buff Potions have had their durations increased, many as much as twice as long
+	The Well Fed buff has been divided into three tiers, with the lowest tier being equal to the original, and the strongest being 2x as strong as the original
+	All of the Food in the game, including the 50+ new Food items, have had their durations and tiers adjusted to have a more consistent reward for the difficulty of obtaining them. Short duration foods might have a higher tier, while long duration foods might have a lower tier. Find what is most efficient for you!
+	Well Fed Buff now gives a mining speed bonus
+	Invisibility Potion now has an added benefit of reducing enemy spawn rates by 20%
+	Restoration Potions no longer heal mana, but heal 10 more life for a total of 90, and induce even less Potion Sickness, now only 45 seconds
+	Sharpening Station's Armor Piercing bonus has been increased from 4 to 12
+
+	Cursed Inferno Debuff
+	Damage per second increased from 12 to 24 on both player and enemy versions of the debuff
+	Ghoul, Clinger, and Spazmatism Cursed Inferno duration decreased somewhat to mitigate the increased danger to the player
+	All other sources of this debuff are intended recipients of the improved damage
+
+	Venom Debuff
+	Damage per second increased from 12 to 30 on both player and enemy versions of the debuff
+	Pygmy and Queen Spider Staff Venom duration decreased to mitigate the increased potency
+	Black Recluse and Sand Poacher Venom duration decreased somewhat to mitigate the increased danger to the player
+	All other sources of this debuff are intended recipients of the improved damage
+
+L. Fishing:
+	Bait is more likely to be consumed
+	Very high fishing power now gives decreasing returns
+	Fishing Power is 1.1x during Blood Moons
+	Swordfish is now less common when fishing
+	Golden Carp is less common when fishing
+	Biome Crates are now guaranteed to drop a chest item, instead of only sometimes
+	Dungeon Crates will now always drop a Gold Lockbox
+	Flower Boots are now included in the Jungle Crates loot pool
+	Wood, Iron, and Gold Crates drop better quality ore depending on which level of crate it is. Wood Crates, for instance, only drop Copper/Tin/Iron/Lead.
+	Penguin and Turtle Pets can now be obtained rarely from their respective Biome crates
+	All fishing crates now come in pre-Wall of Flesh and post-Wall of Flesh variants. Pre-Wall of Flesh variants do not contain Hardmode Ores.
+	Gold Crates now have a chance to drop Life Crystals and Enchanted Swords
+
+M. Drops:
+	Amber is slightly more common from Fossils, and can generate naturally in the Underground Desert
+	Angler’s Quest rewards are now more likely to give you the Info Accessories. Additionally, he will not give you duplicates of an accessory you have in your inventory, unless you already have them all already
+	Basic Dye materials now give 2 of that dye instead of 1 when crafting
+	Coin Portal chances when breaking pots has been decreased by half
+	Enemies have an increased chance to drop bonus amounts of money when killed
+	Enemies drop extra money during Blood Moons
+	Golden Keys should now drop more often from enemies and pots, and Dungeon Slimes are slightly more common
+	Gold Critters are now more rare
+	Jellyfish and Granite Golems spawned from statues now drop their items even less frequently, and decreased the sell value of some of those drops
+	Lava Charms can only be found in chests within the lava layer now, but Lava Fishing now provides a secondary renewable source for them
+	Mandible Blade can now be dropped by Antlion Swarmers
+	Moon Lord now drops Super Healing Potions instead of Greater Healing Potions
+	Mushroom Grass Seed drop rate increased from 1/50 to 1/40
+	Nature’s Gifts now spawn slightly more often in the Jungle
+	Picksaw now has a ¼ chance to drop from Golem in addition to his other loot, instead of being part of his main drop pool. This drop rate is 33% from Expert Treasure Bags.
+	Rod of Discord's drop rate in Expert mode is now 1/400
+	Strange Plants no longer generate during worldgen, and will not start appearing until Hardmode
+	Throwing Knives in chests now come in much larger stacks
+	Water Walking Boots now have a 1/10 chance to appear in Water Chests, increased from 1/15
+	Several Martian Invasion drops are now dropped from regular Martians instead of Martian Saucers, decreasing the random nature of the Martian Saucer’s drop pool
+
+N. Misc:
+	The Nurse now charges increasing amounts of money for healing as the game progresses
+	Town NPCs now get a little stronger every time you defeat a boss
+	Sandstorms are now significantly less common, particularly in the early game
+	Reduced the intensity of Mighty Wind
+	Rain is slightly less common
+	Dungeon Spike damage has increased from 40 to 60, and inflicts Bleeding
+	Temple Wooden Spike damage has increased from 60 to 80, and inflicts Bleeding
+	Gem and Rainbow Torches now give 10 torches per crafting instead of 3
+	Glowsticks and Torches now stack to 999
+	All Bombs, Grenades, and Dynamite now stack to 99
+	Ore Bars now stack to 999
+	Alchemy Seeds and Plants now stack to 999
+	Tissue Samples and Shadow Scales now stack to 999
+	Pirate Map and Snow Globe items can now stack to 20
+	Increased consistency of boss money drops
+	Did an extensive review of sell values across the entire game, increasing the consistency of sell values. This particularly includes things like items that had no sell value but should have, consistent sell value of items dropped from the same source, infinite money exploits by buying-low/selling-high through crafting, and much more
+
+
+IV. Journey's End: Bug Fixes:
+
+A. Gameplay and Combat Bugs:
+	Fixed an issue where Copper and Tin Bows were considered Melee weapons for the purposes of prefixes
+	Fixed an issue where firing Tome of Infinite Wisdom on a sloping minecart track would cause the pages to fire in all directions
+	Fixed an issue where using Tome of Infinite Wisdom’s right click functionality while on a Drill Mount would drain all of your mana almost instantly
+	Fixed an exploit where dying to Chaos State while holding a Rod of Discord in the cursor on a Hardcore character would cause the next character used to inherit said Rod of Discord
+	Fixed an issue where the last segment of Solar Eruption’s blade didn’t actually do damage
+	Added protections to prevent a very rare bug where the Solar Eruption debuff would kill its own user
+	Fixed an oversight in Halloween drop rates based on HP that caused Bladed Gloves and Bloody Machete to be too rare in Expert
+	Fixed an issue where extremely high melee speed thresholds would break the behavior of weapons like Sky Dragon’s Fury
+	You can no longer use Sniper Scopes and Binoculars while dead
+	Staff of Regrowth no longer breaks rocks and other rubble
+	Fixed an issue where you could use certain channeled weapons but switch to another weapon and use that weapon as well
+	Fixed an issue where certain channeled weapons and tools would continue being used even after the player is turned to stone
+	Fixed an issue where, after using a cooldown timed projectile sword, switching to another hotbar slot via number key would delete 1 consumable from that slot
+	Fixed a number of damage type inconsistencies including projectiles doing the wrong damage type, weapons receiving/not receiving damage type set or potion bonuses in error, critical rates being applied incorrectly, and a lot more
+	Fixed a number of edge cases where things like mount damage or Shield of Cthulhu dashing would not register on the DPS meter
+	Fixed an issue where having two types of dash abilities and removing one of them mid dash would unexpectedly double your dash distance
+	Fixed a similar issue where removing a dash accessory mid dash would prevent Hermes-type boots from letting you run until you put the dash accessory back on
+	Fixed some exploits involving Flower Boots
+	Fixed a issue where using Sandstorm in a Bottle then instantly shooting multiple grappling hooks to different blocks would leave the character spinning back and forth forever
+	Fixed an issue where several wings (Fin, Bat, Mothron) had a faulty acceleration speed
+	Fixed an issue where Spore Sac would only work near blocks, but not when only near platforms
+	Fixed an issue where Neptune Shell wearing players could stick their head in water and die, because head-submersion wasn’t enough to turn you into a merman, but it was enough to drown
+	Fixed an inconsistency with how Cloud in a Bottle behaved differently with wings than other Jump Bottles
+	Fixed an issue where Sharktooth Necklace and Banner Buff would not apply to a variety of atypical attacks
+	Fixed an issue where Stopwatch wouldn’t correctly display player speed while on some mounts, like while falling with the Slime Mount
+	Fixed an issue where moving sideways on a rope would be considered 0 MPH for the Stopwatch
+	Fixed an issue where some wings would produce light even in vanity slots
+	Fixed a number of increased placement range boosters (Toolbelt, Builder Potion) not stacking correctly
+	Mime Mask is now properly considered a vanity helmet
+	Fixed a tendency for certain automatic attacks like Sentries or Chlorophyte Armor to attack invincible enemies such as Dungeon Spike Balls or Blazing Wheels
+	Fixed an issue where some Shroomite and Chlorophyte armor bonuses would not stack
+	Fixed some inconsistencies with armor bonuses applied to the damage type of Snowball related attacks
+	Fixed an issue where Frost/Necro Armor made inconsistent special armor sounds depending on if they were in vanity/normal armor slots and also when worn with each other
+	Fixed an exploit (or made it substantially harder) to avoid damage with the Slime Mount and Target Dummies
+	Fixed an issue where flying mounts would very slowly increase in height over time
+	Fixed an issue where flying mounts could descend through lowered platforms
+	Fixed an issue where you could not use Quick Buff while riding the Drill Containment Unit
+	Fixed an extra double jump only when jumping out of water while riding the Slime Mount
+	Fixed a minecart issue where tracks that ran directly into conveyor belts would cause the minecart to derail
+	Fixed an issue that made jumps fail sometimes in fast moving minecarts
+	Fixed an issue where Lightning Sentries that were placed on sloped blocks underwater would sink into the ground
+	Fixed an issue where Queen Spider Sentry could not have multiple summons with Sentry boosting gear
+	Potentially fixed an issue where Smart Cursor would fail constantly when at the very edge of the world
+	Fixed an issue where Smart Select did not suggest Desert Fossil for Extractinator
+	Fixed an issue where Smart Select would favor a Flare Gun with no flares over a stack of Glowsticks
+	Fixed an issue where climbing on rope at the edge of the world would cause the camera to move away from the player
+	Fixed a hoik-related issue where using a grapple and ropes could cause the camera to leave the player behind entirely
+	Fixed an issue where looking at buff furniture (Campfires, Heart Lanterns) with binoculars or sniper rifles would give you the buff
+	Fixed a number of crafting inconsistencies with required crafting stations for different types of platforms. Most are by hand now, but a handful require special stations
+	Fixed a bunch of crafting station inconsistencies with furniture sets
+	Fixed inconsistencies with reflected projectiles inflicting debuffs on the player; they should not be inflicting debuffs at all
+	Fixed some inconsistencies with Warmth Potion and cold based attacks not receiving protection
+	Fixed an issue where drinking a Flask while a previous Flask was active would remove the first flask buff but not give the new buff
+	Reduced the effectiveness of exploiting portals and fall damage to be immune to bosses and other threats
+	Fixed the infamous Infinite Fishing Line exploit
+	Fixed an issue where switching items in the moment of reeling in an item from fishing would forfeit that item
+	Fixed an issue where Angler Quest rewards decreased in quality after 150 Quests
+	Added some protection against an issue where music tracks would keep playing quietly in the background when teleporting to other biomes
+	The Kraken Yoyo should now also give the Robbing the Grave achievement
+	Fixing (again) an issue where the Funkytown achievement would unlock from teleporting out of an Underground Mushroom Biome
+	Fixed an audio issue where Pad Thai made a drinking sound instead of an eating sound
+	Fixed an issue where some wall items would be placed substantially slower than other wall items
+	Fixed an issue where opening a Money Trough while holding an item would use the item and open the Money Trough
+	Fixed a number of minor inconsistencies between 4k and non-4k resolution gameplay
+	Fixed an issue where picking up a lot of coins would give the correct amount of money, but the money displayed on screen was incorrect
+	Fixed an issue where spawn points at the Ocean of large worlds would constantly reset themselves
+
+	A1. Reverse Gravity Bugs"
+		Fixed (again) an issue where Celestial Pillar shields would fly into the sky when reversing gravity
+		Fixed an issue where pressing UP to flip Gravity would dismount the player from flying mounts. Now, it simply does not flip Gravity when in mounts.
+		Fixed a reverse gravity issue where the Floating Piggy Bank’s mouseover detection would be in the wrong direction
+		Fixed a reverse gravity issue where Blizzard Staff-style weapons would converge in the opposite direction of where you aimed
+		Fixed a reverse gravity issue where the player would get stuck on hammered platforms
+		Fixed an issue where Forbidden Set’s ring didn’t flip properly in reverse gravity
+		Fixed a reverse gravity issue where some weapons wouldn’t flip with the player
+		Fixed a reverse gravity issue where cobwebs didn’t correctly slow inverted players
+
+	A2. Camera Mode Bugs:
+		Substantially improved/fixed the way that Camera mode captures Celestial backgrounds/shaders and weather effects
+		Fixed an issue where some projectiles would not appear in Camera screenshots
+		Fixed an issue where waterfalls and other similar visuals did not display in Camera mode images
+		Fixed issue where Stardust Guardian appears in front of the player in Camera screenshots
+		Fixed an issue where some tiles, such as Pressure Plates, would draw in the wrong layer when taking Camera screenshots
+
+B. World, Background, and Worldgen Bugs:
+	Dramatically improved sky island house/furniture generation, fixing houses generating with no furniture or doors
+	Fixed an issue where cobwebs in worldgen would sometimes delete naturally generated wires
+	Improved failsafes and detection for broken or floating chests in worldgen, which can be unbreakable or even corrupt world files
+	Fixed a worldgen issue where Mushroom Cabins had mushrooms occupying the same place as other furniture, which tended to break them
+	Fixed a minor worldgen quirk where a single platform would spawn at the edge of the Dungeon’s stairs
+	Fixed a typo issue that resulted in underground chests having twice as many Water Walking Potions and Dangersense Potions as intended, instead of a chance for Titan Potions
+	The behavior of the very last Sign when reaching the Sign limit is less buggy now
+	Fixed an issue where Campfire minibiomes used “player placed” dirt walls
+	Fixed an issue where naturally generated Statue traps would not have a statue
+	Fixed an issue where Gold Chests were unable to generate outside of Underground Cabins in the Cavern layer
+	Fixed the vast majority of situations where underground explosive rigged ore minibiomes would generate without the detonator
+	Fixed an issue where minecart tracks would generate over Life Crystals and Chests
+	Fixed an issue where Crimson Vines would spawn in unviable locations, and break spontaneously when the player approached them
+	Fixed an issue where Hardmode world generation would fill caves with unusual background walls
+	Fixed a number of worldgen issues that ultimately resulted in beaches being way too small, especially on the right side or when the Jungle was too close
+	Fixed a rare worldgen issue where Beaches would devour part of the Dungeon, and sometimes, even the Old Man
+	Fixed a subtle worldgen issue in the Dungeon where Marble/Granite biomes that had generated under it would still leave some of the Dungeon Bricks hammered in the same shape they were when before the Dungeon generated
+	Fixed a worldgen issue where sometimes Sky Lakes would take priority at the expense of regular Sky Islands
+	Fixed the infamous “drunken Dungeon” where worldgen has the Dungeon sticking high up out of the ground
+	Fixed a worldgen issue where altars of the opposite world evil would sometimes generate in your world
+	Fixed an issue where Demon/Crimson Altars would spawn in large clusters at the edge of the ocean
+	Fixed a long running issue where “tall Oceans” would appear in worldgen
+	Fixed a worldgen issue where Queen Bee’s hive should have been full of natural honeyfalls but they weren’t working
+	Fixed an issue where Corrupt/Crimson Chasms generated over the Dungeon and blocked its entrance
+	Fixed an issue where large clumps of underground sand would generate near spawn, subjecting the player to an immediate desert biome
+	Fixed an issue where worlds would not use all of the background variants available
+	Significantly improved how the Temple’s Golem room generates to reduce the possibility of being inaccessible
+	Fixed an issue where Lihzahrd Altars would sometimes spawn on top of breakable spikes and traps
+	Improved worldgen to reduce the possibility of the Temple’s door being blocked off by Lihzahrd Blocks
+	Fixed an issue where sometimes the hallway leading into the Temple would be full of mud instead of Lihzahrd Walls
+	Fixed an issue where different operating systems would see slightly different world seed results, though we will have to keep an eye out for this recurring
+	Increased the minimum range from spawn that Sky Islands require, to prevent spawning on them
+	Partially fixed an issue where multiple Crimson Caverns would spawn over top of each other, rending their hearts too easy to reach. They should now be encased in Crimstone even when it does happen.
+	Fixed a very rare issue where a pyramid entrance overlapping a grassy cave would fill the entire pyramid with grass
+	Fixed an issue where spreading biomes would infect a far larger range than normal on Underground Desert walls
+	Fixed an issue where quitting while in the middle of a Slime Rain would reset its duration
+	Fixed a message about Slime Rain ending when quitting out of a Slime Raining world and joining one that has no Slime Rain
+	Fixed an issue where Corruption always took priority over Crimson, even if Crimson had far more blocks
+	Fixed a visual issue where background clouds would appear “impossibly low” in the ocean
+	Fixed a background issue where black borders could be seen at the bottom of the Underworld’s background
+	Fixed some issues with black bars at the bottom of the sky right at the edge of the Underground layer
+	Fixed an issue where the top edge of the the underground layer’s backwall would flicker into visibility on screen instead of off screen
+
+C. Visual/Spriting Issues:
+	Fixed a number of visual issues with Space Creature Costume
+	Fixed some spriting issues on the Raincoat
+	Removed a stray pixel while swinging weapons when wearing the female Snow Coat
+	Fixed a stray blue pixel on the Eater of Worlds Mask
+	Fixed an issue where some dyed Old One’s Army armors would dye your backpacks and capes as well
+	Fixed an issue where some of the Old One’s Army armors could not be dyed properly, or would retain colors from the player’s default outfit
+	Fixed a layering issue where a female character’s bare hand would be visible even when covered by gloves and shields
+	Fixed a wide variety of Cape related transparency issues, which should result in Capes looking better overall
+	Fixed a number of issues with and dramatically improved the way Shields and Capes draw/layer in relation to each other
+	Fixed a surprisingly difficult to resolve issue where Jim’s Legs had a cape that did not play well with certain other vanity items, such as the Mermaid Adornment
+	Fixed an issue where Valhalla Knight’s Helmet and Tam O' Shanter would bob awkwardly while moving
+	Fixed a visual issue where Vortex Armor had a weird bobbing effect
+	Fixed a visual issue where the Kimono would appear in front of Shoes accessories
+	Fixed a visual issue where players with Lamia/Mermaid Tail would somehow visually wear boots despite having no feet
+	Fixed an issue where blindfolds drew over the player’s hair instead of under
+	Fixed an issue where dyes for face accessories and the familiar wig would not show up properly on the player’s map head icon
+	Fixed an issue where Twilight Hair Dye only looked right when also using Twilight Armor Dye
+	Fixed an issue where a number of armors (Aaron’s, Vortex, Nebula, Obsidian) had an unsightly band of graphical issues around the waist
+	Fixed an issue where Shield of Cthulhu would be slightly cut off graphically when dashing
+	Fixed some issues with the way Belt accessories display on the player during various animation frames
+	Animated accessories now no longer animate when paused
+	Fixed an issue where wearing a full set of Lunar Armor would cause Party Hair Dye to generate excessive amounts of confetti
+	Fixed an issue where Master Ninja Gear, Tabi, and Blackbelt created smoke that reacted oddly to dyes
+	Fixed an issue where Forbidden Armor’s set bonus could create a spammy spray of sparks
+	Fixed a visual issue where head accessories on the map would be offset and jitter slightly when you moved
+	Fixed an issue where the player’s head appeared in the wrong position on the map when riding some mounts
+	Scutlix Mount no longer makes Honey effects when summoned
+	Fixed an issue where backpacks and other such things drew at incorrect heights when on mounts
+	Fixed an issue where the Slime Mount was drawing offset by one half pixel
+	Fixed several hundred Pet/Dye combinations that came out either broken, invisible, or showing no dye at all, most famously, Zephyr Fish and any Hades Dye
+	Fixed an issue where the Keybrand wasn’t actually in your hand when you swung it
+	Fixed a visual issue where Betsy’s Wrath would hover outside of the player’s hand when shooting it in some directions
+	Fixed an issue where the player swung Magic Droppers backwards when using them
+	Fixed a visual issue where some magic weapons would shake in the player’s hand when you used them while moving
+	Fixed a visual issue related to holding up while grappling to platforms, and then using weapons
+	Reduced the chances and hopefully fixed a visual dust bug most often seen when using the Last Prism in a sandstorm, where spinning white crosses would float in place
+	Fixed a sprite issue that caused some Crimson and Underground background walls to not loop smoothly when moving horizontally
+	Fixed some stray pixels in a surface Crimson background
+	Fixed an issue where blocks would not be visible at all in extremely dark locations in the Underworld on Trippy/Retro lighting
+	Fixed an issue where the glowing parts of Meteorite and Martian Platforms would not change position to match when they were hammered
+	Fixed a stray pixel that would flicker off and on in the Goldfish Bowl
+	Fixed a stray pixel on Pumpkin Doors
+	Fixed an issue where Pumpkin Blocks were missing some pixels
+	Fixed the Waterleaf Sprout sprite so that it isn’t so hard to see
+	Fixed a sprite issue with several pianos where standing on them or placing items on them looked like they were floating
+	Fixed a subtle issue that almost no one noticed, where Ancient Manipulator’s glow effect was off center by a few pixels
+	Fixed an issue where Goblin Tinkerer’s sprite looked blurry/distorted
+	Fixed a spriting issue where a number of bipedal enemies had subtly broken walking animations
+	Fixed some extremely subtle stray pixels floating near Crimson Axe enemies
+	Fixed an issue where Celestial Pillars that were hovering “in” a small puddle or pond would have the pond appear in front of them
+	Fixed a visual issue where Tortoise-type enemies would be pushed down into the ground slightly
+	Fixed a number of minor sprite issues where pixels did not use the proper 2x2 format
+	Snow should no longer fall indoors when the ceiling is offscreen
+	Improved an issue where there were unusual red flickers when near the Underworld
+	Fixed an issue where waterfalls would fall through thin ice
+	Fixed a visual issue that happened if a player went underground during a Blood Moon, which would break the Blood Moon shader effect for the rest of that gameplay session
+	Fixed a layering issue where fishing line draw in front of Money Trough but the fishing rod drew behind it
+	Fixed a UI overlap issue where the name of a Dresser and the Shirt icon for using it would cover each other
+	Fixed an issue where Ruler UI would scale with Game Zoom, not UI Scale
+	Fixed an issue where Miner’s Wobble hasn’t been working for a while
+	Fixed an issue where Dryad’s Blessing leaves would turn black on certain lighting settings
+
+D. Block and Furniture Bugs:
+	Protected the blocks supporting the Locked Temple Door from being broken, resulting in a floating door
+	Dropped sand and other falling tiles that cannot land as tiles will now turn into items to pick up
+	Fixed an issue where Meteorite ore flashed oddly and turned transparent when using Spelunker Potion
+	Fixed an issue where you could actuate falling blocks, make the block fall, and then place furniture on top of those spots and it would partially actuate as well
+	Fixed an issue with falling blocks floating in the air in multiplayer
+	Fixed an issue where Marble blocks actually merged with doors
+	Fixed inconsistent behavior between right and left facing hammered blocks and how they react to torches being placed near them
+	Fixed an issue where Crystal Blocks merged oddly with other blocks
+	Fixed an issue where a number of half-blocks put alongside a column of another block would have graphical issues
+	Fixed an issue where Desert Fossil was not revealed by Spelunker Potion
+	Fixed an issue where blocks that were under tree branches could not be hammered or actuated
+	Fixed an issue where you could place torches against sloped blocks facing right, but not left
+	Fixed an issue where Luminite Brick’s art was not framed correctly, resulting in the tiles not visually connecting to each other
+	Fixed some issues interacting with Team Blocks that stemmed from no longer used mechanics
+	Fixed an issue where instantly destroying moss with explosives would drop no stone
+	Fixed an issue where the Drill Mount could hammer otherwise unhammerable tiles, such as Traps
+	Fixed a visual issue where unhammered dirt blocks surrounded by hammered dirt blocks on both sides would display incorrectly
+	Fixed an issue where Rainbow Bricks lost their rainbow effect when hammered
+	Fixed an issue where large blocks of placed spikes would turn black in the center
+	Different types of cloud blocks now blend with each other
+	Fixed an issue where sloped Rain/Snow Clouds did not show rain/snow in the sloped corner
+	Fixed an extremely rare exploit where meteorites could land and burrow into the Temple, destroying the Lihzahrd Bricks if it was exposed to the surface
+	Fixed an issue where sloped Inactive Stone blocks would unslope themselves the next time you joined the world
+	Fixed an issue where placing the Eternia Crystal on your spawn and respawning during the Old One’s Army event would break the crystal
+	Fixed an issue where ice stalactites were offset slightly from their proper position
+	Fixed an issue where standing at a specific height beneath a chest would allow you to open it but instantly close it again
+	Fixed an issue where the mouseover range for some chests was extremely small compared to others
+	Fixed an issue where some Dressers were not eligible for Quick Stack to Nearby Chests
+	Fixed an issue where wiring some Lanterns by the base would only turn them partly off, instead of all the way off
+	Fixed some unusual behaviors when placing Teal Pressure Pads on the sides and bottoms of various hammered block shapes
+	Fixed an issue where the Lamp Post was not valid lighting for housing
+	Added map mouseover text to a number of tiles that did not have them, including Geysers, Wire Bulbs, and Enchanted Nightcrawler Cages
+	Fixed a number of tiles that were drawing a few pixels too low/to the side, such as some clocks, chandeliers, Green mushrooms, and chairs.
+	Fixed an issue where you could place Trapdoors on top of yourself
+	Fixed an issue where numerous furniture items could not be placed on the intersection of stairs and platforms
+	Fixed an issue where you could use actuators to break a Lihzahrd Altar early
+	Sunflowers can now be placed in front of walls
+	Fixed an issue where Gravestones and Jungle Plants would not break when the block beneath them was actuated
+	Fixed a method of duplicating armors off of Mannequins
+	Fixed an issue where torches placed on blocks directly above a door would “wobble” when opening the door
+	Fixed some issues where campfires could be turned off, submerged in water, then relit underwater, as well as inconsistency with how water broke on/off campfires in multiplayer
+	Fixed a very hard to encounter issue where placing a ton of Christmas Trees at various light levels would result in some of them glowing
+	Fixed a tile issue where gravestones would not break if the blocks beneath them were hammered
+	Strange Plants should now show up on Metal Detector
+	Fixed an issue where Jungle and Mushroom Plants would continue to grow on actuated mud, resulting in their items immediately breaking off and falling to be collected
+	Fixed an issue where a significant number of platforms in the game generated the wrong dust when broken
+	Fixed an issue where only some alchemy herbs in pots could be smart cursor replaced with fresh seeds
+	Fixed a multiplayer issue where opening a trap door so that it overlapped with stairs would permanently make that part of the stairs invisible until the server was reset
+	Fixed a visual issue where Prickly Pear flowers always looked cactus green even on infected variants of cacti
+	Fixed a certain duplication exploit involving item frames
+	Fixed a certain duplication exploit involving teleporters
+	Fixed a certain duplication exploit involving doors
+	Fixed a potentially serious, world corrupting issue with leaving furniture on top of Ice Blocks and then quitting out of the world
+	Fixed an issue where you could not place a block on a single isolated piece of back wall
+	Fixed a visual issue on Dungeon Tile walls that made it look like solid chunks of walls were not fully filled in
+	Fixed an issue where Green, Blue, and Pink Dungeon walls made dirt dust when broken
+	Fixed an issue where Underground Desert Walls were susceptible to constant neverending reinfection by the opposite infection biome
+	Fixed an issue where Player-placed Obsidian Brick Walls were dramatically darker than natural Obsidian Brick Walls
+	Fixed a framing issue with Marble Walls that caused them to have unwanted lines
+	Fixed an issue where Mushroom Wall was not valid housing
+	Fixed a visual issue with Bone Walls sometimes being very big and layering improperly
+	Fixed an issue where Iron Fences and Sails were not considered valid housing walls
+	Fixed an wall issue that caused the corner of Luminite Walls to vanish if they had a block over them
+	Fixed an issue where backwalls with torches on them would break in one hit, even if that wall should take more than one hammer hit to break
+	Fixed an issue where Smart Cursor would attempt to break walls behind Demon Altars pre-Wall of Flesh, but hit the altar instead, hurting you. It will no longer aim for these walls
+	Fixed an issue where Deep Sky Blue paint was actually deep green on some tiles
+	Fixed some inconsistent situations where painting grass blocks would not always correctly spread its paint to attached tall grass, flowers and vines
+	Fixed some issues with waterfalls and sloped blocks
+	Fixed an issue where water would continue to be destroyed by lava that overlapped a minecart track. Obsidian (and Honey/Crispy Honey) will now form appropriately, destroying the track, in such scenarios
+	Fixed an issue where waterfalls running down a slope would sometimes tunnel through a block and come out the other side
+	Fixed some inconsistencies with certain items not being able to be placed on Weapon Racks like they should
+	Fixed an issue where the Grand Design could not be placed in Item Frames
+	Fixed an issue where placing too many torches would render a home invalid due to no free space
+	Fixed an issue where a houses have just enough room initially, but when plants grow out of a decorative clay pot, there suddenly wasn’t quite enough space
+
+E. NPC and Enemy Bugs:
+	Fixed an infamous exploit involving Duck Statues. No, we did not remove Ducks. You people are silly.
+	Fixed an issue where Bunnies spawned from statues during Parties would not wear Party Hats
+	Fixed an issue where you could release critters into solid blocks, which is horrible
+	Fixed a multiplayer exploit where Lucky Coin and its tinkers still worked on Statue spawned enemies
+	Fixed an issue where a number of enemy AIs would run away when spawned from statues because they were not in their home biome
+	Town NPCs no longer rudely walk on Dynasty Tables
+	Fixing a number of NPCs not being properly summoned by King/Queen Statues
+	Fixed an issue where Bubble Block houses were somewhat unreliable and NPCs would move out
+	Fixed an issue where NPCs walking on a platform directly above blocks would bounce up and down on the platform, but ONLY while walking left
+	Improved a number of unwanted double interactions when talking to NPCs standing in front of furniture
+	Fixed an issue where opening a door in a house would invalidate the NPC’s housing there because the door took up too much space
+	Fixed an issue where Real Estate Agent achievement would not unlock if the last NPC was rescued instead of moved in
+	Fixed an issue where wearing Frost Armor would apply Frostburn to friendly NPC’s attacks as well. Also fixed an issue where wearing Frost Armor would make Pirate attacks inflict Frostburn on your NPCs
+	Fixed an issue where NPCs who were safe inside of their homes would start to panic and run outside if an enemy got near the house
+	Fixed an issue where Tax Collector fell out of the bottom of the map but didn’t die
+	Fixed an issue where NPCs could not teleport home if their housing flag was over half-blocks
+	Fixed an issue where NPCs could walk into tight corners and end up getting stuck there, spinning around rapidly
+	Fixed an issue where the Tax Collector liked parties. Clearly out of character.
+	Fixed an issue where Traveling Merchant would never visit if all of the nearby surfaces were covered in minecart tracks
+	Fixed an issue where the Nurse would get stuck underwater indefinitely healing herself from drowning
+	NPCs will no longer emote at you while invisible
+	King Slime will no longer teleport rapidly and spawn camp a dead player
+	Fixed a multiplayer issue where King Slime would sometimes be too large
+	Fixed an exploit where King Slime’s minions would drop Souls of Light/Night when underground
+	Fixed an issue where breaking more Orbs/Hearts after summoning Eater of Worlds/Brain of Cthulhu would summon a second one
+	Queen Bee should no longer be summoned and attack you if her Larvae are broken when no one is nearby, including from liquids settling on worldgen
+	Fixed an issue where Flying Dutchmen parts would despawn at different distances from the player, resulting in it spontaneously dying sometimes
+	Fixed an issue where Goblin Summoners did not keep the Invasion music playing like other Goblins
+	Fixed an issue where running from an enraged Skeletron Prime might cause his arms to despawn
+	Fixed an issue with the Twins where their map icons were mixed up
+	Improved the positioning of Lihzahrd Altar and how Golem spawns above it, reducing the possibility of him being stuck in the ceiling and making it hard to defeat him
+	Fixed an issue where Pumpking counted for 3 enemies on your Radar
+	Added death effects so that Ancient Vision no longer simply ceases to exist when killed
+	Fixed an issue where the aggro'd Cultist music played at a really large distance
+	Fixed an issue where Chlorophyte Leaf Crystal would keep shooting uselessly at the Cultists Sigil and kill innocent Cultist bystanders by accident
+	Fixed an issue where stray Antlion sand balls would land in the Dungeon and prevent Cultists from spawning
+	Fixed an issue where if you killed passive Cultists in one hit, one by one, it would not anger them
+	Changed meteor spawns so that they can no longer fall on the Cultists worship spot, preventing them from spawning
+	Improved “Cultist Spawn Zone” functionality to remove some rare situations where minor variations of the Dungeon’s entrance would prevent the Cultists from spawning
+	Fixed a rare issue where Celestial Pillars would spawn high in the sky
+	Fixed an issue where Celestial Invasion enemies would not spawn on a giant arena comprised entirely of player-placed walls
+	Fixed a more common issue where Celestial Pillars would sink into the ground a bit more every time you loaded your world
+	Fixed an issue where Moon Lord’s Phantasmal Death Ray would keep firing if you killed his forehead eye in the middle of it
+	Fixed an issue where Dripplers and Ravens would not descend through platforms
+	Fixed an issue where Red Pigrons could not spawn on Crimson Ice
+	Fixed a multiplayer issue where Mothron had a tendency to despawn mid-fight
+	Fixed an issue where wall-crawling Possessed would spawncamp dead players during Eclipses
+	Fixed an issue where Antlions would spawn anywhere, if the background was sandstone
+	Fixed an issue where Pirate Parrots could not fly down through platforms
+	Fixed an issue where conveyor belts overrode biome spawns
+	Fixed an issue where platforms would interfere with natural biome spawns
+	Fixed an issue where Rainbow Slimes could not spawn on Hallow Blocks, even though they can only spawn in the Hallow. They are now much more common.
+	Fixed an issue where Angry Tumblers would kill you in the desert, and then track you down from hundreds of blocks away and attack you again at your spawn point
+	Fixed an issue where only Lost Girl could drop coins, not Nymph. Also applied to Slimer and several other form changing enemies.
+	Fixed an issue where enemies that can change form (Spiders, Slimer, Lost Girl) and had picked up money in Expert would lose that money upon changing form
+	Fixed an issue where Clown and Skeleton Merchant were not rare enemies
+	Fixed an issue where Goblin Warriors and several other similar enemies would fall through the floor in 3-block tall hallways
+	Fixed an issue where some quadruped enemies would fall through blocks when running into certain dead ends
+	Fixed an issue where two different worm enemies of the same species would show a single health bar in the space between them that was an average of their total health
+	Fixed an issue where Wall Creepers and Granite Golems used the wrong sound effects
+	Fixed an issue where Demons made sounds, but Voodoo Demons did not
+	Fixed Wall-crawling enemies being susceptible to confusion but not acting confused
+	Fixed an issue where Bone Javelins would hit one enemy but not inflict the damage over time effect, while inflicting the damage over time on a second enemy instead
+	Fixed an issue where Sroller’s hitbox was off center
+	Fixed an issue where Drakanians did not drop the Drakomire Rider banner
+	Fixed an issue where Angry Tumblers would visually draw behind doors and actuated blocks, which made it hard to see them
+	Fixed an issue where Stardust Cells would sometimes be incredibly huge
+	Fixed an issue where Stardust Cells couldn’t move through platforms
+	Fixed an issue where Solar Selenians did not show up on Tally Counter
+	Fixed a visual issue where large zombies would slightly clip into the ground
+	Fixed an issue where enemy archers who were Confused would run away at high speeds
+	Fixed an issue where wall-crawling Blood Crawlers and Sand Poachers had an off center hitbox
+	Fixed an issue where Witherbeasts would desync and vanish sometimes when attacked in multiplayer
+	Fixed an issue where "Ghost Mode" Old One's Army enemies would cause unusual water ripples
+
+F. Projectile, Pet, and Minion Bugs:
+	Fixed an issue where excessive Possessed Hatchets and certain Minions would result in Possessed Hatchets stacking up in large quantities
+	Fixed Flame Trap's flames hitting targets behind, below, and on top the flame trap
+	Fixed an issue where certain projectiles could have Striking Moment applied twice
+	Fixed an issue where Seedler nuts were gaining Magic Quiver’s arrow speed bonus
+	Fixed an issue where Chain Guillotine had a really weird hitbox
+	Fixed a collision issue where Yoyos could get stuck in blocks when underwater
+	Fixed an issue where Yoyos behaved increasingly erratically at high melee speeds, ultimately culminating with them breaking entirely and being unusable
+	Fixed an issue where Daybreak and Bone Javelin Spears would layer incorrectly behind Flying Dutchmen
+	Fixed an issue where Daybreak would not spread its debuff if your attack killed the target in one hit. Now spreads the debuff to nearby enemies even if the attack kills the target in one hit.
+	Fixed a multiplayer issue where Dart Traps projectiles could not activate Portal Turrets properly
+	Nimbus and Crimson Rod projectiles are now less likely to pierce through blocks
+	Fixed an issue where the Book of Skulls projectile flashed excessively in high lighting situations
+	Fixed an issue with the Ice Rod that led to excessive FPS loss
+	Fixed an issue where Vampire Knives would not fire when backed up against a wall
+	Fixed an issue where Falling Stars would clip through conveyor belts and end up embedded in the dirt
+	Fixed an issue where throwing dozens of Spelunker Glowsticks would make sparkles for every glowstick, making treasure sparkle way too much
+	Fixed Fungi Bulb’s projectiles behaving oddly, and not very effectively, in Expert
+	Fixed an issue where Stardust Dragon would leave the edge of the screen and despawn
+	Fixed a layering issue where Stardust Dragon’s head was laying in the wrong order with the rest of its segments
+	Fixed an issue where Spider Minions counted for less than one minion
+	Fixed an issue where Pirate Minions would fail to return to you when left behind, and were just pretty dumb in general
+	Improved how Spider Minion and Spider Pet handle 1-block tall walls, preventing them from shaking wildly in place
+	Potentially fixed a rare issue where flying Pygmy minions that were submerged in lava would turn into a straight black line while attacking enemies
+	Fixed an issue where minions would cut various tiles like cobwebs or grass with their body
+	Fixed an issue where Companion Cube would jump constantly in tight corridors
+	Fixed a visual issue where the Old One’s Army pets had rough edges/scaling when they were floating at an angle
+	Fixed an issue where the Tiki Mask pet would shake violently when submerged in water
+	Fixed the Cursed Sapling Pet not showing dyes if summoned via its item
+
+G. Inventory, Menu, and Tooltips/Text Bugs:
+	Fixed a tooltip issue where Shroomite Breastplate had an unlisted 13% increased range damage
+	Fixed a tooltip issue where Paladin’s Shield had knockback immunity but did not indicate that it did
+	Fixed a tooltip inaccuracy on Spider Armor indicating that it gave the wrong damage %
+	Fixed Suspicious Looking Tentacle not using the "Expert" exclusive tag and rarity color
+	Fixed and clarified hundreds of other item and armor tooltips to give more specific numbers, explanations, and use more consistent terminology across the game
+	Fixed a ton of incorrect/inconsistent item rarities, while acknowledging that item rarities across 5000 items are a rough science and there will always be some inconsistencies
+	Fixed tons of typos, spelling errors, spacing issues, punctuation issues, and general tooltip, dialogue, and text polish across the entirety of the game
+	Renamed Snowfall and Sandfall to actually be called “Snowfall Blocks” and “Sandfall Blocks” respectively
+	Fixed a number of projectiles having incorrect names, displaying internal naming IDs in death messages when they kill the player
+	Coins now only display their damage when the user has a Coin Gun
+	Fixed some complicated change-making bugs involving coin stacks disappearing when quickstacking to Piggy Banks
+	Fixed an issue where Quickstacking Coins from inventory was still allowed, even though Quickstacking from Coin slots is not allowed
+	Fixed an exploit where Etherian mana could be stored in large quantities in chests between invasions
+	Fixed an issue where the game would frequently automatically default to Hotbar Slot 9 when closing the inventory
+	Fixed an issue where right clicking a single favorited item to pick it up would remove its favorite status
+	Fixed an exploit where players could put large gems in the trash to avoid losing them on death
+	Fixed an issue where placing a Music Box or Fish Bowl would temporarily disable some inventory functionality as a side effect of them also being equipment
+	Fixing an issue where Info Accessory icons disappeared when renaming chests
+	Fixed some issues where left sidebar builder buttons would have unusual spacing
+	Fixed an issue where there was a slight overlap between the PVP button and Dye slots
+	Fixed an issue where opening chests would make info accessory icons move
+	Fixed an issue where Hardened Sand was a crafting material but did not display as a Material, and made infected Hardened Sands craftable into Glass as well
+	Fixed an issue where Glass Clocks had two recipes
+	Fixed an issue where Tax Collector’s vanity set was sold from two different NPCs
+	Fixed an issue where Tin Hammer could not be reforged
+	Fixed an issue where weapons would lose their prefix when closing a full inventory
+	Fixed an issue where weapons would generate with an invisible temporary prefix, the primary symptom of which was that their rarity color would be different from normal until the world was reloaded
+	Fixed an issue where Hermes Boots in the 6th accessory slot in Normal mode would make dashing sounds anyway, even though you didn’t dash
+	Fixed an issue where 6th accessory slot dye in normal mode would rarely cause dye issues on other accessories
+	Fixed an issue where the Dresser UI interface would only show generic hair, not your current hair
+	Fixed an issue where you could get achievements while dead, and the game would try to let you click on them, but they would fail to show you the achievement menu
+	It should now be harder to double-bind keyboard inputs and lock yourself out of entering the menu, but players who manage to do so will still need to delete or modify their input profiles file to fix it
+	Fixed an issue where quitting a world while holding a torch would result in your player menu character holding their hand out
+	Fixed an issue where character play time doesn’t increase when Autopause is on
+	Fixed a workaround that let you make character names that were way too long
+	Fixed an issue where Achievement sorting buttons made no sound effects
+	Fixed an issue where Celestial backgrounds would remain visible for an extended time on the main menu after quitting out when the background was visible
+	Fixed an annoying sound issue involving the character creation sliders making repetitive noises, or no sound at all, when mousing over them
+	Fixed an infamous minor issue where the Parallax setting would constantly reset itself to 99% instead of 100%
+	Fixed an issue where, when moving NPCs and holding a tool, it would show both the NPC’s head and the tool cursor
+	Fixed Tavernkeep’s special progression messages displaying out of order
+	Fixed an issue where the Angler would not say most of his dialogue
+	Fixed a multiplayer issue with Angler dialogue where the world name would not be listed at all
+	Fixed some inconsistent or inaccurate Fishing Quest dialogue text
+	Fixed a number of continuing issues with NPCs referring to Corruption/Demon Altars while in Crimson worlds
+	Fixed an issue where shift-clicking items into the Guide or Goblin Tinkerer’s special slots would make no sound
+	Fixed an issue where special text code (item icons and color) did not work on chest text
+	Improved some issues with line breaks and text color in chat
+	Fixed an issue where, when chatting, if you hit Enter right after the very last key pressed, it would use that key again after the message was sent, sometimes activating hotkeys like Potions or Mounts
+	Fixed an issue where mousing over the Banner Buff while near extremely high numbers of banners would cut off the text in an ugly way
+	Fixed some UI Scale/Resolution issues that caused the minimap and other UI elements to overlap and allowed you to hit two buttons at once
+	Improved issues with how the UI scales for people with a really short displays, preventing it from cutting off the UI at the bottom
+	Fixed an issue where trying to open a Money Trough floating over a chest would always open the chest
+	Fixed an issue where the item mouseover text for Soul items and Yorai’s Scowl/Spell would be very high above the item
+	Fixed a Linux issue where certain key inputs would be perceived as repeated inputs, and would spam behaviors in game
+	Fixed an issue where, after alt+tabbing out of the game, moving the cursor around your computer screen would click audibly over settings options in the game
+
+H. Crashes and other very severe issues:
+	Added protection against Chests generating over Bee Larvae during initial worldgen, resulting in an instant crash on world load
+	Fixed several dozen worldgen freezes/crashes, and ran thousands of consecutive worldgens for days on end to catch as many more as possible
+	Fixed a potential crash issue where, if you started generating a world and then received a Steam invite, trying to join that invite would usually crash your world, or have other chaotic side effects like showing you partially generated worlds
+	Fixed a potential crash issue when using Life Drain while in reverse gravity
+	Fixed an achievement related crash that happened when killing the Wall of Flesh in some worlds
+	Fixed an extremely serious issue where naming your characters “.” or “..” could lead to deleting your saves folder
+	Fixed an issue where Mac’s dedicated server file did not install correctly
+	Fixed a rare crash involving Giant Tortoises not dealing well with sloped tiles
+	Fixed a crash issue where attempting to access the Captures folder via the in-game button would crash the game if you had no Captures folder
+
+I. Multiplayer Bugs:
+	Fixed a server issue where, after reaching the capacity of the server, no one could join the server even if people left
+	Fixed a server issue where setting the password to include either one or two quotation marks would prevent people from joining
+	Creating a new character when trying to join a multiplayer session via Steam should no longer take you back to the singleplayer menu after
+	Improved and hopefully fixed Boss Bag not dropping for everyone in multiplayer, particularly King Slime and Eater of Worlds
+	Fixed an issue where a number of pre-existing projectiles would not be visible to players joining a server
+	Fixed a multiplayer issue where players who were grappled on to walls when a new player joined in would appear to be constantly falling from that spot
+	Fixed an issue where the Bee Mount did not sync its hovering with servers, resulting in unusual visual issues for other players
+	Fixed a multiplayer issue where placing a block over, harvesting with Staff of Regrowth, replacing with seeds, or otherwise harvesting alchemy herbs would not provide all of the expected seeds and herbs
+	Fixed a multiplayer issue where Signs placed above trapdoors would duplicate and behave oddly when opening the trapdoor
+	Fixed a long standing Multiplayer issue where signs and gravestones would not show mouseover text for other players if they were created within that session
+	Fixed a multiplayer issue where the Frost Legion completion flag was not set correctly in servers, preventing players from buying the special hats from Clothier
+	Fixed a multiplayer issue where Ghost Hardcore players in would not update correctly for other players
+	Fixed a multiplayer issue where critters standing on platforms at night would constantly fall down and then teleport back up to the top of the platform
+	Fixed a multiplayer issue where players couldn’t see each other swinging Old One’s Army sentry staves
+	Fixed a multiplayer issue where Brand of the Inferno’s special animations and sounds would not show for other players
+	Fixed a multiplayer issue where Vilethorn-type weapons didn’t play their sounds correctly for other players
+	Fixed a multiplayer issue where breaking certain blocks didn’t make sound effects
+	Fixed an issue where player sensors did not make sounds in multiplayer
+	Fixed a multiplayer issue where Dungeon Guardian and Skeletron were not roaring
+	Fixed a multiplayer issue where swinging Solar Eruption exactly once would not make a sound for other players
+	Fixed some visual and audio desyncing with the Sky Fracture when on Multiplayer servers
+	Fixed an issue where in-game text over chatting player’s heads did not scale properly with UI Scale
+	Fixed an issue where Portal Gun Stations did not make sounds, and Portal Guns did not make sounds in multiplayer
+	Fixed an issue with Portal Gun portals not working correctly when they lead to an unloaded chunk in multiplayer
+	Fixed a multiplayer issue where Portal Gun portals could overlap each other and lead to inconsistent behavior
+	Fixed an exploit where dead Hardcore characters could view the map
+	Fixed a multiplayer issue where Molotov induced On Fire in PVP would not work correctly
+	Fixed an issue where being killed in PVP by Inferno Potion announces that you were killed by whatever was in the killer’s hand, such as a cell phone
+	Fixed some PVP desyncronization related to Solar Armor explosions
+
+J. Gamepad Bugs and Functionality Issues:
+	Fixed an issue where the Stylist’s menu had no visible indicator of which hairstyle you were selecting when using a Gamepad
+	Fixed some inaccurate on-screen button help text relating to grappling when using a Gamepad
+	Fixed an issue where the Lock On icon would become stuck when switching back to Keyboard and Mouse when using a Gamepad
+	Fixed an issue where if the player was grappled onto a minecart track while using a Gamepad, attempting to use a minecart would shoot another hook out and leave them hanging between the two
+	Fixed an issue where the on screen Gamepad Zoom In/Out text was using reversed buttons
+	Fixed a Gamepad Settings issue where pressing A to enter certain sub-menus would inadvertently toggle settings in other sub-menus
+	Fixed an issue where the Trash button didn’t do anything when using a Gamepad
+	Fixed an issue where mining on a rope gave the player less mining distance when using a Gamepad
+	Fixed an issue where swapping back and forth from a Gamepad to Keyboard/Mouse while entering text into some menus would enter phantom letters
+	Fixed an issue where if you turned on visible Housing icons and then switched to Keyboard/Mouse, you could not turn them off again when using a Gamepad
+	Improved some Gamepad Smart Select mechanics regarding torches and pickaxes when aiming at blocks
+
+
+
+
+
+
+
 Version 1.3.5.3 Changes-----------------------------------------------------------------------------------------------
 
 Fixes:

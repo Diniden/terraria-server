@@ -14,7 +14,11 @@ BASENAME=`basename "$0"`
 if [ "$UNAME" == "Darwin" ]; then
 	ext=osx
 else
-	ext=x86
+	if [ "$ARCH" == "x86_64" ]; then
+		ext=x86_64
+	else
+		ext=x86
+	fi
 	for arg in "$@"
 	do
 		case "$arg" in

@@ -2,7 +2,7 @@ import Joi from '@hapi/joi';
 
 export interface IWorld {
   /** The difficulty this server was set to */
-  difficulty: 'Normal' | 'Expert' | 'Extreme' | 'Unknown';
+  difficulty: 'Classic' | 'Expert' | 'Master' | 'Journey' | 'Unknown';
   /**
    * This indicates whether or not the server is active/running. There is no point to the
    * client populating this. It is only feedback from the server.
@@ -26,10 +26,10 @@ export interface IWorld {
  * Joi schema for the IWorld interface
  */
 export const IWorldSchema = Joi.object({
-  difficulty: Joi.string().valid('Normal', 'Expert', 'Extreme', 'Unknown'),
-  maxPlayers: Joi.number().min(1).max(8),
+  difficulty: Joi.string().valid('Classic', 'Expert', 'Master', 'Journey', 'Unknown'),
+  maxPlayers: Joi.number().min(1).max(16),
   name: Joi.string(),
-  online: Joi.number().min(0).max(8),
+  online: Joi.number().min(0).max(16),
   password: Joi.string().allow(''),
   size: Joi.string().valid('Small', 'Medium', 'Large', 'Unknown'),
   isActive: Joi.bool(),

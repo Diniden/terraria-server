@@ -52,7 +52,7 @@ export class WorldList extends React.Component<IWorldList> {
     clearInterval(this.pollId);
   }
 
-  handleCloseWorld = (world: IWorld) => (e) => {
+  handleCloseWorld = (world: IWorld) => (e: any) => {
     this.deletingWorld = world;
     stopPropagation(e);
   }
@@ -279,9 +279,10 @@ export class WorldList extends React.Component<IWorldList> {
         {this.renderError()}
         <div>{`Select a difficulty for ${newWorld.name}`}</div>
         <div className="WorldList__Buttons">
-          <Button label="Normal" onClick={setDifficulty("Normal")} />
+          <Button label="Classic" onClick={setDifficulty("Classic")} />
           <Button label="Expert" onClick={setDifficulty("Expert")} />
-          <Button label="Extreme" onClick={setDifficulty("Extreme")} />
+          <Button label="Master" onClick={setDifficulty("Master")} />
+          <Button label="Journey" onClick={setDifficulty("Journey")} />
         </div>
       </div>,
 
@@ -301,7 +302,7 @@ export class WorldList extends React.Component<IWorldList> {
         {this.renderError()}
         <InputPrompt
           key="MaxPlayers"
-          title={`Number of players for ${newWorld.name} (1 - 8):`}
+          title={`Number of players for ${newWorld.name} (1 - 16):`}
           type="text"
           onAccept={(value: string) => {
             if (!newWorld) return;
@@ -312,8 +313,8 @@ export class WorldList extends React.Component<IWorldList> {
               return;
             }
 
-            if (val < 1 || val > 8) {
-              this.error = "Must be a number between 1 - 8";
+            if (val < 1 || val > 16) {
+              this.error = "Must be a number between 1 - 16";
               return;
             }
 

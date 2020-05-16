@@ -305,9 +305,10 @@ export class InstanceManagerSingleton {
     };
 
     const difficultyPick: {[key in IWorld['difficulty']]: number} = {
-      Normal: 1,
+      Classic: 1,
       Expert: 2,
-      Extreme: 3,
+      Master: 3,
+      Journey: 4,
       Unknown: 1,
     };
 
@@ -400,7 +401,7 @@ export class InstanceManagerSingleton {
       world,
       inputs: [
         ['Choose World:', () => `${world.loadId}\n`],
-        ['Max players (press enter for 8):', `${world.maxPlayers}\n`],
+        ['Max players (press enter for 16):', `${world.maxPlayers}\n`],
         ['Server port (press enter for 7777):', `${world.port}\n`],
         ['Automatically forward port? (y/n):', `n\n`],
         ['Server password (press enter for none):', `${world.password}\n`],

@@ -17,10 +17,10 @@ export interface IWorldInternal extends IWorld {
 
 export const IWorldInternalSchema = Joi.object({
   connection: Joi.string(),
-  difficulty: Joi.string().valid('Normal', 'Expert', 'Extreme', 'Unknown'),
-  maxPlayers: Joi.number().min(1).max(8),
+  difficulty: Joi.string().valid('Classic', 'Expert', 'Master', 'Journey', 'Unknown'),
+  maxPlayers: Joi.number().min(1).max(16),
   name: Joi.string(),
-  online: Joi.number().min(0).max(8),
+  online: Joi.number().min(0).max(16),
   password: Joi.string().allow(''),
   port: Joi.number().min(1024).max(65535),
   loadId: Joi.number(),

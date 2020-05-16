@@ -22,6 +22,8 @@ nefarious.
 
 ## Using
 
+WINDOWS USERS: Download and update your .NET framework and XNA framework (ONLY DOWNLOAD FROM OFFICIAL MICROSOFT WEBSITES. BE CAREFUL ABOUT THAT!!!)
+
 - Clone this repo.
 - Have the latest NodeJS install
 - Open a terminal and make sure your current working directory is the project you just cloned
