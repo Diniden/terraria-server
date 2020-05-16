@@ -400,7 +400,7 @@ export class InstanceManagerSingleton {
     const server = this.newServerProcess({
       world,
       inputs: [
-        ['Choose World:', () => `${world.loadId}\n`],
+        ['Choose World:', () => `${world.loadId + 1}\n`],
         ['Max players (press enter for 16):', `${world.maxPlayers}\n`],
         ['Server port (press enter for 7777):', `${world.port}\n`],
         ['Automatically forward port? (y/n):', `n\n`],

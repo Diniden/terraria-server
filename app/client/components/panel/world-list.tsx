@@ -248,9 +248,16 @@ export class WorldList extends React.Component<IWorldList> {
             if (!newWorld) return;
             newWorld.name = value;
 
+            // No spaces in the name
+            if (newWorld.name.split(' ').length > 1) {
+              this.error = "No spaces allowed in the world name";
+              return;
+            }
+
             // Make sure the name is available
             if (worlds.find(World.findMethod(newWorld))) {
               Application.session.error = "This name is already taken.";
+              return;
             }
 
             this.newWorldPage = promptPages.NEW_WORLD_PASSWORD;

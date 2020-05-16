@@ -39,6 +39,12 @@ npm i
 npm start
 ```
 
+LINUX:
+
+```shell
+sudo npm start
+```
+
 ## POWAH USERS
 
 There's some config because we all like config.

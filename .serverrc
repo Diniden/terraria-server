@@ -11,7 +11,7 @@
 # httpsServerPort: 443
 
 # The port for HTTP
-# serverPort: 80
+serverPort: 80
 
 # The secret passphrase used to generate the JWT tokens. It is recommended to use an env var
 # JWT_SECRET for this instead of using this config for security.
@@ -21,7 +21,7 @@
 # adminName: diniden
 
 # The password the ADMIN (or all users) will use to access the web UI
-adminPassword: test
+adminPassword: Mining for gold!
 
 # The path the server hosts resources from. This is handled very well by default, so don't
 # touch this unless you know what you're doing.
@@ -35,17 +35,17 @@ adminPassword: test
 # The start PORTs the server can use to host worlds (If there are less ports available than MAX_WORLDS
 # then that number will be limited by the number of PORTs available).
 #
-# worldPortStart: 9000
+worldPortStart: 9000
 
 #
 # The end PORT range the server can use to host worlds (If there are less ports available than MAX_WORLDS
 # then that number will be limited by the number of PORTs available).
 #
-# worldPortEnd: 10000
+worldPortEnd: 9021
 
 # The number of active worlds this server will allow to run simultaneously at once. How many
 # your server can handle depends on your hardware
-worldMax: 10
+worldMax: 20
 
 # This is where the server stores the meta data for the active worlds it has started up
 # The default will be this project folder
