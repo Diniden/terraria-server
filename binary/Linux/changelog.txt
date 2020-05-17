@@ -1,3 +1,39 @@
+Version 1.4.0.2 Changes -------------------------------------------------------------------------------------------
+
+I. Changes/Additions
+	Added Master and Journey to command line options for the dedicated server
+	Ghosts should now be more likley to despawn, and reduced the conditions which allow them to spawn as well as the maximum number of them
+	Error logging should no longer create large DMP data files when the game crashes (We no longer use them)
+
+
+II. Bug Fixes
+	Added some protection to ensure world gen works for users using different language PCs, but we are still investigating a more thorough fix
+	Fixed a number of issues where Terraria tries to make or modify folders, but User Side PC permissions prevented it from doing so, leading to crashes/errors
+	Fixed a crash relating sound initialization
+	Fixed a few autostart errors for the server
+	Fixed an issue with kicking players not actually being fully removed, preventing players from rejoining
+	Demon Altars can no longer spawn on rare configurations of adjacent cacti, which would crash the world if they were hit
+	Coins no longer have a sell value
+	Fixed an issue where Map Scale was impossibly low, resulting in some map related issues
+
+
+
+Version 1.4.0.1 Changes -------------------------------------------------------------------------------------------
+
+(Note: 1.4.0.1 was the live release, and changes and additions are only included for posterity and for 1.3.5.3 content changes)
+
+I. Changes and Additions
+	Meteorites now no longer fall until after Eater of Worlds/Brain of Cthulhu have been defeated
+	Killing Eater of Worlds/Brain of Cthulhu again will boost the drop rate of subsequent Meteors for the following night (instead of breaking more Orbs/Hearts)
+	Meteorites can no longer be destroyed with explosives
+	Pirate Captain now spawns a ghost pirate when he is killed
+	Dunerider Boots can now be tinkered with Rocket Boots to make Spectre Boots
+
+II. Bug Fixes
+	Fixed several internal-only issues that were only present in beta builds
+
+
+
 Version 1.4 Changes -----------------------------------------------------------------------------------------------
 
 I. Journey's End New Content and Additions

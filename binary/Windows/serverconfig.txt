@@ -7,20 +7,20 @@
 #-config <config file>				            Specifies the configuration file to use.
 #-port <port number>				              Specifies the port to listen on.
 #-players <number> / -maxplayers <number>	Sets the max number of players
-#-pass <password> / -password <password>	Sets the server password
-#-world <world file>				              Load a world and automatically start the server.
-#-autocreate <#>			                  	Creates a world if none is found in the path specified by -world. World size is specified by: 1(small), 2(medium), and 3(large).
-#-banlist <path>			                  	Specifies the location of the banlist. Defaults to "banlist.txt" in the working directory.
+#-pass <password> / -password <password>		Sets the server password
+#-world <world file>					Load a world and automatically start the server.
+#-autocreate <#>					Creates a world if none is found in the path specified by -world. World size is specified by: 1(small), 2(medium), and 3(large).
+#-banlist <path>					Specifies the location of the banlist. Defaults to "banlist.txt" in the working directory.
 #-worldname <world name>             			Sets the name of the world when using -autocreate.
-#-secure			                        		Adds addition cheat protection to the server.
-#-noupnp				                        	Disables automatic port forwarding
-#-steam                         					Enables Steam Support
-#-lobby <friends> or <private>             Allows friends to join the server or sets it to private if Steam is enabled
-#-ip <ip address>	Sets the IP address for the server to listen on
-#-forcepriority <priority>	Sets the process priority for this task. If this is used the "priority" setting below will be ignored.
-#-disableannouncementbox   Disables the text announcements Announcement Box makes when pulsed from wire.
-#-announcementboxrange <number>   Sets the announcement box text messaging range in pixels, -1 for serverwide announcements.
-#-seed <seed> Specifies the world seed when using -autocreate
+#-secure						Adds addition cheat protection to the server.
+#-noupnp						Disables automatic port forwarding
+#-steam							Enables Steam Support
+#-lobby <friends> or <private>				Allows friends to join the server or sets it to private if Steam is enabled
+#-ip <ip address>					Sets the IP address for the server to listen on
+#-forcepriority <priority>				Sets the process priority for this task. If this is used the "priority" setting below will be ignored.
+#-disableannouncementbox				Disables the text announcements Announcement Box makes when pulsed from wire.
+#-announcementboxrange <number>				Sets the announcement box text messaging range in pixels, -1 for serverwide announcements.
+#-seed <seed>						Specifies the world seed when using -autocreate
 
 #remove the # in front of commands to enable them.
 
@@ -36,8 +36,8 @@
 #Sets the name of the world when using autocreate
 #worldname=Terraria
 
-#Sets the difficulty of the world when using autocreate 0(normal), 1(expert)
-#difficulty=1
+#Sets the difficulty of the world when using autocreate 0(classic), 1(expert), 2(master), 3(journey)
+#difficulty=0
 
 #Sets the max number of players allowed on a server.  Value must be between 1 and 255
 #maxplayers=8
