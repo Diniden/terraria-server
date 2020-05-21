@@ -1,3 +1,73 @@
+Version 1.4.0.3 Changes -------------------------------------------------------------------------------------------
+
+
+I. Changes/Additions
+	Removed Bad torch luck
+	Increased Prismatic Lacewing spawn rate significantly
+	Angry Dandelions now have a chance to drop Daybloom
+	Betsy now only takes one kill to "max" Bestiary progress like other main bosses
+	Zenith now requires Bee Keeper in its recipe
+	Shiverthorn is now somewhat slower to grow, but twice as fast to bloom
+	Waterlily grows faster in the rain, Blinkroot grows faster underground, Fireblossom in the Underworld
+	More Blinkroots appear during worldgen, and all herbs can potentially "grow" during worldgen as well
+	Owls now hoot less
+	Added a large quantity of art asset revisions, mostly minor touch ups, but several with substantial changes, most notably, the Molten weapons and tools, Clentaminator, and S.D.M.G.
+	Tombstones now display with Dangersense Potion
+	Dungeon Guardian and Old Man will also be unlocked if you have Skeletron unlocked now, in addition to the previously existing methods to ensure you could unlock them
+	Added a config.json setting called "DisableIntenseVisualEffects" that you can use to disable flashing during thunderstorms. Can be expanded to include other mechanics upon feedback.
+
+
+II. Crash Fixes and Performance Improvements:
+	Fixed an issue that caused serious worldgen problems and some crashes for users with Turkish-language PCs (and possibly some other languages as well)
+	Users with file permissions crashes should now get an updated error message giving more instructions on the matter (File permissions issues stem from Terraria not being allowed by the PC to make and modify save files, usually causing crashes when saving or making characters/worlds)
+	Fixed not getting a proper sound initialization not actually disabling sound, this should fix some sound initialization crashes
+	Added some optimization to mannequins and hat racks to decrease their performance toll
+	Added some protection against crashing while taking very large Camera mode snapshots
+	Reduced liquid movement restrictions in multiplayer, which should translate to more liquid being allowed to move in servers at once
+	Improved how multiplayer servers handle liquid syncing
+	Added new multiplayer npc smoothing code, adjustable by a config.json setting called "MultiplayerNPCSmoothingRange" , npcs who move less than this range (default 1000 pixels) would be smoothed into their next position (can be disabled by setting it to 0)
+	Team name plates no longer show health when at full health to improve MP performance
+	Added a config.json setting called "TeamNameplateDistance" that lets you reduce the distance at which team names are drawn, with the default being 2000. Reducing the number of Team Nameplates on screen in MP can improve performance, so this can be used as needed.
+
+III. Bug Fixes:
+	Fixed an issue where the World Menu seed button was still hidden
+	Fixed an issue where sometimes players would get an extremely long death timer. The maximum should now be limited to 30 seconds. This should retroactively fix characters with an extremely high death timer.
+	Fixed certain users not having left-click assigned to their mouse in the main menu when loading 1.4
+	Fixed an issue where Minions would be summoned at an inverted position when in reverse gravity
+	Fixed an issue where the summon lock-on icon would at an inverted position in reverse gravity
+	Fixed an issue where Hallowed Trees on mowed Hallow grass would drop normal wood
+	Fixed an issue where coin sparkles weren't appearing
+	Fixed an issue where Gold Seahorses were caught as "Seahorse Cages"
+	Fixed an issue where some Goblins would get stuck in doors and sink into the floor
+	Fixed an outline issue on Jungle Pants
+	Fixed flail chains drawing incorrectly while on some mounts
+	Fixed an issue where wearing Moon Lord Legs and Frog Legs at the same time would give you no legs at all
+	Fixed an issue where you could use the Step Stool while grappled
+	Fixed an issue where Stylist-only hairs were inadvertently available by randomizing your character
+	Fixed an issue where NPCs were affected by disliking their neighbors more than hating their neighbors
+	Fixed an issue where you could summon multiple Queen Slimes
+	Fixed an issue where texture packs would not work for tiles without a game restart
+	Fixed some visual effects acting unusually when time is sped up with Journey mode/sleeping/Sundials
+	Titanium's Set bonus no longer triggers off of Target Dummies
+	Fixed a crash when a server tries to generate certain seeds via serverconfig.txt
+	Fixed an issue where having pickup text off and using a Sonar Potion would delete the item you get
+	Fixed Obsidian Sinks using only Obsidian instead of Hellstone
+	Fixed server config.txt world path option being ignored during auto create
+	Fixed Hooks and Mounts being usable after Mediumcore death
+	Fixed Trident movement impacting minecarts
+	Fixed Angler Quest fishing icon disappearing when a player dies
+	Fixed an issue where Key of Light/Night spawned mimics left behind phantom ghost chest tiles
+	Fixed Betsy's loot having half the intended drop chance
+	Fixed Depth Meter displaying incorrect height biome when using camera-moving items
+	Cool Whip's Snowflake should no longer attack critters, target dummies
+	Fixed Cool Whip's Snowflake not despawning when a player dies or quits
+	Fixed Exquisitely Fed buff not giving Ranged Damage
+	Fixed Ocean critters spawning in deep caves below the Ocean
+	Fixed Lava Lamps being unable to be placed on tables
+	Fixed Mini Minotaur not animating properly while flying
+	Fixed some item spelling concerns and grammatical issues with NPC Happiness text
+
+
 Version 1.4.0.2 Changes -------------------------------------------------------------------------------------------
 
 I. Changes/Additions

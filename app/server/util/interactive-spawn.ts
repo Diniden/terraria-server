@@ -32,7 +32,7 @@ const handleData = async (
     // We whitelist characters coming from the stdout pipe. Why? Because if we
     // dont, we get rogue characters that smash the terminal's readability and
     // we increase our reliability by handling only a handful of potential characters
-    line = line.replace(/[^\w\s+_\.\,\-=:;\(\)\\\/\?\'\"]/gi, '');
+    line = line.replace(/[^\w\s+_\_\.\,\-=:;\(\)\\\/\?\'\"]/gi, '');
 
     if (outputContext) {
       console.warn(`${outputContext} ${line}`);
