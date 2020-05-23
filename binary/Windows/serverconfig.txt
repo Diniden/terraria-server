@@ -73,6 +73,9 @@
 #Default system priority 0:Realtime, 1:High, 2:AboveNormal, 3:Normal, 4:BelowNormal, 5:Idle
 priority=1
 
+#Reduces maximum liquids moving at the same time. If enabled may reduce lags but liquids may take longer to settle.
+#slowliquids=1
+
 #Journey mode power permissions for every individual power. 0: Locked for everyone, 1: Can only be changed by host, 2: Can be changed by everyone
 #journeypermission_time_setfrozen=2
 #journeypermission_time_setdawn=2
