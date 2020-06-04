@@ -323,7 +323,7 @@ export class InstanceManagerSingleton {
         ['Choose size:', `${sizePick[world.size]}\n`],
         ['Choose difficulty:', `${difficultyPick[world.difficulty]}\n`],
         ['Enter world name:', `${world.name}\n`],
-        ['Enter Seed (Leave Blank For Random):', ''],
+        ['Enter Seed (Leave Blank For Random):', '\n'],
 
         // The second time we see the choose world option, we should stop this process
         // as the world has been successfully created
