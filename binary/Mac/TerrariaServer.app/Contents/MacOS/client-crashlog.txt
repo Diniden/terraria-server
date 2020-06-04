@@ -1,0 +1,14 @@
+6/3/2020 7:27:48 PM
+System.IO.IOException: Invalid handle to path "/Users/diniden/Desktop/self/terraria-server/binary/Mac/TerrariaServer.app/Contents/MacOS/[Unknown]"
+  at System.IO.FileStream.ReadData (System.Runtime.InteropServices.SafeHandle safeHandle, System.Byte[] buf, System.Int32 offset, System.Int32 count) [0x00036] in <1170fb08300b4d0db71c1d1db8555768>:0 
+  at System.IO.FileStream.ReadInternal (System.Byte[] dest, System.Int32 offset, System.Int32 count) [0x0002c] in <1170fb08300b4d0db71c1d1db8555768>:0 
+  at System.IO.FileStream.Read (System.Byte[] array, System.Int32 offset, System.Int32 count) [0x000b9] in <1170fb08300b4d0db71c1d1db8555768>:0 
+  at System.IO.StreamReader.ReadBuffer () [0x000bf] in <1170fb08300b4d0db71c1d1db8555768>:0 
+  at System.IO.StreamReader.Read () [0x00027] in <1170fb08300b4d0db71c1d1db8555768>:0 
+  at System.TermInfoDriver.ReadKeyInternal (System.Boolean& fresh) [0x000a0] in <1170fb08300b4d0db71c1d1db8555768>:0 
+  at System.TermInfoDriver.ReadLine () [0x00042] in <1170fb08300b4d0db71c1d1db8555768>:0 
+  at System.ConsoleDriver.ReadLine () [0x00000] in <1170fb08300b4d0db71c1d1db8555768>:0 
+  at System.Console.ReadLine () [0x00019] in <1170fb08300b4d0db71c1d1db8555768>:0 
+  at Terraria.Main.DedServ () [0x0017d] in <281dc4eb063344c0b33ab374ff46ff26>:0 
+  at Terraria.Program.LaunchGame (System.String[] args, System.Boolean monoArgs) [0x000ac] in <281dc4eb063344c0b33ab374ff46ff26>:0 
+
