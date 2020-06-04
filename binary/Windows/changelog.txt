@@ -1,3 +1,118 @@
+Version 1.4.0.5 Changes -------------------------------------------------------------------------------------------
+
+
+I. Optimizations and Crash Fixes
+	The Multiplayer server is now more strict about fake connection attempts
+	Added some error handling for peripheral Chroma related crashes
+	Improved error handling to prevent some crashes related to "Spritebatch"
+	Improved error handling to prevent some sound related crashes when alt+tabbing out
+	Chests and similar furniture placed on top of non-solid tiles should no longer cause crashes
+	Fixed a file naming error that would cause a crash for Linux users
+	Fixed a crash that can happen sometimes when changing screens
+	Fixed a crash that happens when sitting/sleeping in relation to the Potion of Return
+	Fixed a rare crash caused by using a Magic Conch in a Sandstorm
+	Fixed a crash caused by attempting to load worlds that were so corrupted, that even the corruption detection was corrupted
+	Fixed a certain issue with worlds saving in host and play
+	Fixed a certain world loading bug
+	Fixed loading a bugged world in host and play leaving a stuck server process
+	Added further protections against characters named "." and similar such names causing file deletion
+	Error log entries for RGB/Peripheral support now properly indicate that they are normal messages, and not errors. They also include a message indicating that you can disable them. 
+
+
+II. Changes/Additions
+	Added a rolling world save backup system to improve reliability of world file backups in case of corrupted files. By default, there will be one additional backup save in addition to the previous saves, and this can be increased up to a maximum of 9. You can change this value in the config.json or serverconfig.txt with the setting "WorldRollbacksToKeep
+	The Torch God now haunts Terraria
+	Added an item that gives you a new sidebar option setting that will auto-convert placed torches to the biome type
+	Black Slimes and Blue Jellyfish now have a chance to spawn in Hardmode for Bestiary completion
+	Dungeon fishing loot now takes priority in overlapping Dungeon biomes
+	Fishing now prioritizes ammo slots when selecting bait to use
+	Technically a fix, changed a very long running code typo that made Crate Potion have an entirely incorrect recipe. Now takes Amber, Moonglow, Shiverthorn, and Waterleaf.
+	The Truffle now likes living in the Mushroom biome (instead of being neutral)
+	Forest Pylon can now be used in the sky as well
+	Flying Dutchman now unlocks its Bestiary entry in one kill
+	Lihzahrd Mechanical Traps can no longer be broken with explosives before Golem has been defeated
+	Pirate Invasions after the first one are now less common
+	Explosive Trap deaths should handle mass item drops more efficiently now, and will attempt to preserve Mediumcore item drops
+	Changed Empress' Emote quicktext to "eol" to match other boss emotes
+	Changed a crafting inconsistency with Obsidian Toilet not matching other Obsidian furniture
+	Changed a minor crafting inconsistency where Crimtane Brick was not as efficient as Demonite Brick
+
+III. Bug Fixes:
+	Fixed an issue where players could not move properly on some computers
+	Fixed a damage issue with Slaphand
+	Fixed an issue where PVP Jousting did not take momemtum damage into consideration
+	Fixed a noun/verb issue with a death message
+	Fixed an issue where Soul Bottles didn't count as a valid light source
+	Fixed an issue where Gravedigger's Shovel didn't dig the center block at the same speed
+	Fixed an issue where the Toy Tank mount was too tall
+	Fixed some item tooltips
+	Fixed some punctuation issues with Town Happiness text
+	Fixed an issue where Haemorrhaxe's item size was incorrectly allowing it to fall through the world
+	Fixed an issue where most Demon Eye variants could not descend through platforms
+	Fixed an issue where Finches sometimes could not descend through platforms
+	Fixed an issue where the Ocean Pylon was sold below ground where it wasn't usable
+	Fixed an issue that allowed swapping out the Discount Card when shopping
+	Fixed an issue that broke the ability for some monsters to have size variation
+	Clay Pots no longer break instantly when placed over a bottom sloped tile
+	Fixed an offset issue with the menu fade-in
+	Fixed a worldgen issue with the Temple's doors not being accessible
+	Buff Effects should now properly follow enemies affected by NPC Smoothing
+	Chaos Elementals and Worms are no longer affected by NPC Smoothing
+	Fixed some NPC Smoothing issues with King/Queen Slime, Golem, Wall of Flesh and teleporting casters
+	Fixed an NPC Smoothing issue where Town NPCs in Portal Gun portals would float around oddly
+	Improved some NPC Smoothing issues when spawning/teleporting
+	Town NPCs should no longer smooth back to their home positions in multiplayer
+	Default NPC Smoothing range is reduced from 1000 to 300
+	Fixed trees not dropping acorns when grown on Golf Grass
+	Fixed an issue where RNG would make fishing power display change wildly
+	Fixed some inconsistencies with mowed grass and biome spread
+	Fixed an issue where Dungeon pits could generate at the surface
+	Cleaned up some Christmas decoration grouping in the Duplication menu
+	Organized some inconsistent Critter/Gold Critter orders in the Bestiary
+	Mechanical Piranhas will now catch up more quickly so you can't outrun then
+	NPCs should now drop platinum in stacks below 999, should they pick up more than 999 Platinum
+	Fixed an issue where several new items in Fishing Crates (mostly pets) were not dropping in Multiplayer
+	Fixed an issue where Sky Dragon's Fury and Tome of Infinite Wisdom did not auto-use their right click functionality
+	Fixed an issue where Tome of Infinite Wisdom could consume mana and waste it when using its right click functionality
+	Fixed the Bestiary background for Giant Flying Fox
+	Fixed Light Lamia's Bestiary entry not showing them as being in the Hallow Desert
+	Fixed an issue where the FPS counter would move with the UI Scale setting
+	Duke Fishron and Dreadnautilus should now properly retarget another player if the current one dies/teleports away
+	Fixed Coral and Seashells not matching their tile placement preview
+	Flails no longer continue spinning when Cursed/Stoned/Frozen/etc
+	Golf Grass should now convert to dirt when exposed to lava
+	Tavernkeep will no longer sell Pylons when his unique shop is full
+	Happy Bombs now properly explode and deal damage in MP when touching a player
+	Fixed a visual issue with several very tall hats displaying pixels by the player's feet
+	Fixed certain back accessories/outfits not drawing properly in the Character Selection menu
+	Fixed Gem and Vanity Trees not blocking the tiles beneath them from being hammered
+	Fixed an issue where buff order was not re-calculated properly under certain circumstances, leaving empty spaces
+	Fixed an issue where several flying critters were only counting towards Bestiary sometimes
+	Fixed an issue where fluid bombs could destroy tiles they should not
+	Fixed an issue where sand traps would generate over furniture in worldgen
+	Invasion warning messages should no longer spam the player when time is frozen
+	Fixed an issue where Snake Ropes would never vanish if the summoning player quits out of the server
+	Fixed Dirt Blocks not producing dirt when exploding on half-slabs
+	Fixed some falling blocks duplicating when dropping them on actuated half-slabs
+	Fixed a visual issue with Guitars and Capes being held awkwardly
+	Fixed an issue where the Shield of Cthulhu's invulnerability time would actually reset pre-existing damage immunity, allowing you to get hit faster
+	Fixed a minor pixel issue with the Gato Pet
+	Fixed Santa Claus having a Traveling Merchant party quote instead of his own
+	Fixed Encumbering Stone not letting you pick up Mana Cloak Stars
+	Fixed a minor frame animation issue with the Large Volcano decorative item
+	Fixed an inconsistency where hair did not light up when on fire, like the rest of the body
+	Fixed an issue where there were two different Deadly prefixes that Ranged weapons could get
+	Fixed an issue where Golf Cups would send a wire signal for every player on the server
+	Fixed some sleeping/fishing related issues by preventing you from doing both at the same time
+	Fixed some issues with Fluid Bombs
+	Fixed on of the Forest backgrounds having a pixel artifact
+	New fences will now allow trees to grow
+	Gem Trees will also now grow with natural cave backgrounds behind them
+	Fixed some buff icons having whitespace on them instead of transparency
+
+
+
+
 Version 1.4.0.4 Changes -------------------------------------------------------------------------------------------
 
 

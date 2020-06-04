@@ -54,6 +54,9 @@
 #Sets the folder where world files will be stored
 #worldpath=C:\Users\Defaults\My Documents\My Games\Terraria\Worlds\
 
+#Sets the number of rolling world backups to keep
+#worldrollbackstokeep=2
+
 #The location of the banlist. Defaults to "banlist.txt" in the working directory.
 #banlist=banlist.txt
 
