@@ -8,11 +8,11 @@ UNAME=`uname`
 ARCH=`uname -m`
 
 if [ "$UNAME" == "Darwin" ]; then
+	./fixDylibs.sh
 	export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./osx/
 
 	if [ "$STEAM_DYLD_INSERT_LIBRARIES" != "" ] && [ "$DYLD_INSERT_LIBRARIES" == "" ]; then
 		export DYLD_INSERT_LIBRARIES="$STEAM_DYLD_INSERT_LIBRARIES"
 	fi
-
 	./TerrariaServer.bin.osx $@
 fi

@@ -27,7 +27,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>10.6</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2020 Re-Logic. All rights reserved.</string>
+	<string>Copyright © 2014 Re-Logic. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>
